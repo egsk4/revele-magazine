@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "Bash(npx uipro-cli *)",
+      "Bash(claude mcp *)",
+      "PowerShell(claude mcp add magic --scope user --env API_KEY=\"1119fa862648fe8362f9bc15629cb1a9f69852b7df4eb8f03e375b2c59f1eb20\" -- npx -y @21st-dev/magic@latest 2>&1)",
+      "PowerShell(npm list -g --depth=0 2>&1 | Select-String \"claude\"; Get-ChildItem \"$env:APPDATA\\\\npm\" -ErrorAction SilentlyContinue | Select-Object Name | Select-Object -First 20)",
+      "PowerShell(Get-ChildItem \"$env:USERPROFILE\\\\.claude\" -Recurse -ErrorAction SilentlyContinue | Select-Object FullName | Where-Object { $_.FullName -match \"mcp\" })"
+    ]
+  }
+}

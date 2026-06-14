@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+# Block admin panel from indexing
+Disallow: /#admin
+
+Sitemap: https://revelemagazine.com/sitemap.xml

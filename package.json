@@ -1,0 +1,26 @@
+{
+  "name": "revele-magazine",
+  "version": "2.0.0",
+  "description": "Révèle Magazine — Visual Arts Magazine backend API",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "NODE_ENV=development node server.js"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "@aws-sdk/client-s3": "^3.600.0",
+    "@aws-sdk/s3-request-presigner": "^3.600.0",
+    "better-sqlite3": "^9.6.0",
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "express-rate-limit": "^7.3.1",
+    "resend": "^3.3.0",
+    "uuid": "^10.0.0"
+  },
+  "keywords": ["photography", "magazine", "visual-arts"],
+  "license": "UNLICENSED",
+  "private": true
+}

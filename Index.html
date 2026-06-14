@@ -1,0 +1,3053 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Révèle — Visual Arts Magazine</title>
+<meta name="description" content="Révèle is a visual arts magazine dedicated to the story behind the image. Open submissions for Issue 01: The First Gaze.">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#000000">
+
+<!-- Open Graph -->
+<meta property="og:title" content="Révèle — Visual Arts Magazine">
+<meta property="og:description" content="Some photographs whisper. We listen. Open submissions for Issue 01 — The First Gaze.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://revelemagazine.com/">
+<meta property="og:image" content="https://revelemagazine.com/assets/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Révèle — Visual Arts Magazine">
+<meta property="og:site_name" content="Révèle Magazine">
+<meta property="og:locale" content="en_US">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Révèle — Visual Arts Magazine">
+<meta name="twitter:description" content="Some photographs whisper. We listen. Open submissions for Issue 01.">
+<meta name="twitter:image" content="https://revelemagazine.com/assets/og-image.jpg">
+<meta name="twitter:site" content="@revelemag">
+
+<!-- PWA Manifest -->
+<link rel="manifest" href="/manifest.json">
+
+<!-- Favicon -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg viewBox='0 0 100 50' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='100' height='50' fill='%23000000'/%3E%3Cpath d='M14 25Q50 5 86 25Q50 45 14 25Z' stroke='%23c8a06a' stroke-width='2' fill='none'/%3E%3Ccircle cx='50' cy='25' r='10' stroke='%23c8a06a' stroke-width='1.5' fill='none'/%3E%3Ccircle cx='50' cy='25' r='4.5' fill='%23c8a06a'/%3E%3C/svg%3E">
+
+<!-- JSON-LD Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://revelemagazine.com/#organization",
+      "name": "Révèle Magazine",
+      "url": "https://revelemagazine.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://revelemagazine.com/assets/icon-512.png"
+      },
+      "sameAs": [
+        "https://instagram.com/revele.mag"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://revelemagazine.com/#website",
+      "url": "https://revelemagazine.com",
+      "name": "Révèle Magazine",
+      "description": "Visual arts magazine dedicated to the story behind the image.",
+      "publisher": { "@id": "https://revelemagazine.com/#organization" }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://revelemagazine.com/#webpage",
+      "url": "https://revelemagazine.com",
+      "name": "Révèle — Visual Arts Magazine",
+      "isPartOf": { "@id": "https://revelemagazine.com/#website" },
+      "about": { "@id": "https://revelemagazine.com/#organization" },
+      "description": "Révèle is a visual arts magazine dedicated to the story behind the image. Open submissions for Issue 01: The First Gaze."
+    }
+  ]
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════
+   RÉVÈLE — Apple-Inspired Redesign
+   Pure black · Inter + Cormorant · Precision
+═══════════════════════════════════════ */
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  /* Dark (default) */
+  --bg: #000000;
+  --bg-1: #0a0a0a;
+  --bg-2: #111111;
+  --bg-3: #1a1a1a;
+  --border: rgba(255,255,255,0.08);
+  --border-2: rgba(255,255,255,0.14);
+  --gold: #c8a06a;
+  --gold-2: #e0b87a;
+  --gold-dim: rgba(200,160,106,0.15);
+  --text: #f5f5f7;
+  --text-2: #a1a1a6;
+  --text-3: #6e6e73;
+  --nav-bg: rgba(0,0,0,0.85);
+  --input-bg: #1a1a1a;
+  --note-bg: rgba(200,160,106,0.06);
+  --note-border: rgba(200,160,106,0.18);
+  --err: #ff453a;
+  --err-bg: rgba(255,69,58,0.08);
+  --err-border: rgba(255,69,58,0.25);
+  --ok-color: #c8a06a;
+  --ok-bg: rgba(200,160,106,0.08);
+  --ok-border: rgba(200,160,106,0.25);
+  --warn: #ffd60a;
+  --warn-bg: rgba(255,214,10,0.06);
+  --warn-border: rgba(255,214,10,0.2);
+  --reviewing: #0a84ff;
+  --reviewing-bg: rgba(10,132,255,0.08);
+  --reviewing-border: rgba(10,132,255,0.25);
+  --accepted: #30d158;
+  --accepted-bg: rgba(48,209,88,0.08);
+  --accepted-border: rgba(48,209,88,0.25);
+  --declined: #ff453a;
+  --declined-bg: rgba(255,69,58,0.08);
+  --declined-border: rgba(255,69,58,0.25);
+  --published: #bf5af2;
+  --published-bg: rgba(191,90,242,0.08);
+  --published-border: rgba(191,90,242,0.25);
+  --shortlist-color: #bf5af2;
+  --radius: 18px;
+  --radius-sm: 10px;
+  --radius-full: 100px;
+}
+
+[data-theme="light"] {
+  --bg: #f5f5f7;
+  --bg-1: #ffffff;
+  --bg-2: #f5f5f7;
+  --bg-3: #e8e8ed;
+  --border: rgba(0,0,0,0.08);
+  --border-2: rgba(0,0,0,0.13);
+  --gold: #8a5a1e;
+  --gold-2: #a06d28;
+  --gold-dim: rgba(138,90,30,0.1);
+  --text: #1d1d1f;
+  --text-2: #6e6e73;
+  --text-3: #a1a1a6;
+  --nav-bg: rgba(245,245,247,0.88);
+  --input-bg: #f5f5f7;
+  --note-bg: rgba(138,90,30,0.05);
+  --note-border: rgba(138,90,30,0.18);
+  --err: #ff3b30;
+  --err-bg: rgba(255,59,48,0.07);
+  --err-border: rgba(255,59,48,0.22);
+  --ok-color: #8a5a1e;
+  --ok-bg: rgba(138,90,30,0.07);
+  --ok-border: rgba(138,90,30,0.22);
+  --warn: #9a6d00;
+  --warn-bg: rgba(154,109,0,0.06);
+  --warn-border: rgba(154,109,0,0.2);
+  --reviewing: #0077ed;
+  --reviewing-bg: rgba(0,119,237,0.07);
+  --reviewing-border: rgba(0,119,237,0.22);
+  --accepted: #1a8f3a;
+  --accepted-bg: rgba(26,143,58,0.07);
+  --accepted-border: rgba(26,143,58,0.22);
+  --declined: #cc2200;
+  --declined-bg: rgba(204,34,0,0.07);
+  --declined-border: rgba(204,34,0,0.22);
+  --published: #7c2d8f;
+  --published-bg: rgba(124,45,143,0.07);
+  --published-border: rgba(124,45,143,0.22);
+}
+
+html { scroll-behavior: smooth; height: 100%; background: var(--bg); }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  transition: background 0.3s, color 0.3s;
+  min-height: 100%;
+}
+body::before { content: ''; position: fixed; inset: 0; background: var(--bg); z-index: -1; pointer-events: none; }
+a { text-decoration: none; color: inherit; }
+button { font-family: inherit; cursor: pointer; border: none; background: none; }
+
+::-webkit-scrollbar { width: 2px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(200,160,106,0.4); border-radius: 2px; }
+
+/* ════════════════════════════════════════════════════
+   LIQUID GLASS — Apple Design Language
+   Translucent surface system with specular highlights
+════════════════════════════════════════════════════ */
+
+/* Ambient scene lighting — essential for glass visibility on dark bg */
+body {
+  background:
+    radial-gradient(ellipse 110% 55% at 50% -4%, rgba(200,160,106,0.08) 0%, transparent 52%),
+    radial-gradient(ellipse 55% 38% at 90% 98%, rgba(100,80,220,0.05) 0%, transparent 52%),
+    radial-gradient(ellipse 45% 28% at 4% 72%, rgba(40,100,200,0.04) 0%, transparent 50%),
+    #000000;
+}
+
+/* Film-grain overlay — adds texture depth so glass reads as material */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9997;
+  opacity: 1;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.78' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23g)' opacity='0.038'/%3E%3C/svg%3E");
+  mix-blend-mode: overlay;
+}
+
+/* ─── PRIMARY GLASS SURFACES (high-prominence, backdrop-filter) ─── */
+/* Nav already has backdrop-filter — enhance it */
+nav {
+  background: rgba(6, 6, 8, 0.80) !important;
+  backdrop-filter: saturate(200%) blur(36px) brightness(1.04) !important;
+  -webkit-backdrop-filter: saturate(200%) blur(36px) brightness(1.04) !important;
+  border: 0.5px solid rgba(255,255,255,0.11) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.1),
+    0 1px 2px rgba(0,0,0,0.35),
+    0 0 48px rgba(0,0,0,0.18) !important;
+}
+
+.hero-main,
+.hero-quote-card,
+.countdown-card,
+.cta-banner,
+.nl-banner,
+.form-card,
+.tracker-card,
+.modal-box,
+.opencall-hero,
+.featured-header {
+  background: rgba(13, 13, 16, 0.72) !important;
+  backdrop-filter: blur(44px) saturate(180%) brightness(1.04);
+  -webkit-backdrop-filter: blur(44px) saturate(180%) brightness(1.04);
+  border: 0.5px solid rgba(255,255,255,0.11) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.1),
+    inset 0 -0.5px 0 rgba(0,0,0,0.2),
+    0 28px 72px rgba(0,0,0,0.6),
+    0 4px 16px rgba(0,0,0,0.35);
+}
+
+/* ─── SECONDARY GLASS SURFACES (translucent, no backdrop for perf) ─ */
+.stat-card,
+.mani-card,
+.about-hero-card,
+.beliefs-card,
+.team-card,
+.issue-card,
+.contact-card,
+.press-card,
+.press-stat,
+.faq-header,
+.faq-list,
+.mood-header,
+.mood-cell,
+.mood-not-card,
+.guidelines-card,
+.featured-card,
+.opencall-req-card,
+.opencall-theme-card,
+.opencall-cta,
+.issues-header,
+.admin-gate,
+.admin-stat,
+.admin-list,
+.analytics-card,
+footer,
+.backend-banner {
+  background: rgba(16, 16, 20, 0.72) !important;
+  border: 0.5px solid rgba(255,255,255,0.09) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.07),
+    0 8px 36px rgba(0,0,0,0.48),
+    0 2px 8px rgba(0,0,0,0.28);
+}
+
+/* Ticker gets lighter blur */
+.ticker-track {
+  background: rgba(16, 16, 20, 0.62) !important;
+  backdrop-filter: blur(20px) saturate(140%);
+  -webkit-backdrop-filter: blur(20px) saturate(140%);
+  border: 0.5px solid rgba(255,255,255,0.09) !important;
+}
+
+/* ─── GLASS HOVER STATES ──────────────────────────────── */
+.hero-main:hover,
+.issue-card:hover,
+.featured-card:hover,
+.mood-cell:hover,
+.contact-card:hover,
+.press-card:hover,
+.mani-card:hover,
+.opencall-req-card:hover {
+  border-color: rgba(200,160,106,0.2) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.1),
+    0 32px 80px rgba(0,0,0,0.65),
+    0 4px 16px rgba(200,160,106,0.07);
+}
+
+/* ─── MOBILE MENU glass ────────────────────────────────── */
+.mobile-menu {
+  background: rgba(4, 4, 6, 0.94) !important;
+  backdrop-filter: blur(52px) saturate(160%) !important;
+  -webkit-backdrop-filter: blur(52px) saturate(160%) !important;
+}
+
+/* ─── MODAL glass ──────────────────────────────────────── */
+.modal-overlay {
+  backdrop-filter: blur(16px) brightness(0.45);
+  -webkit-backdrop-filter: blur(16px) brightness(0.45);
+  background: rgba(0,0,0,0.55) !important;
+}
+
+/* ─── FORM INPUTS glass ───────────────────────────────── */
+.fg input, .fg textarea, .fg select,
+.tracker-input, .admin-search, .nl-input,
+.admin-gate input, .admin-notes-area, .form-input {
+  background: rgba(255,255,255,0.05) !important;
+  border: 0.5px solid rgba(255,255,255,0.1) !important;
+}
+.fg input:focus, .fg textarea:focus, .fg select:focus,
+.tracker-input:focus, .admin-search:focus, .nl-input:focus,
+.admin-gate input:focus {
+  background: rgba(255,255,255,0.08) !important;
+  border-color: rgba(200,160,106,0.52) !important;
+  box-shadow: 0 0 0 3px rgba(200,160,106,0.09);
+}
+
+/* ─── GHOST BUTTONS glass ─────────────────────────────── */
+.btn-ghost {
+  background: rgba(255,255,255,0.06) !important;
+  border: 0.5px solid rgba(255,255,255,0.13) !important;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+.btn-ghost:hover {
+  background: rgba(255,255,255,0.11) !important;
+  border-color: rgba(255,255,255,0.22) !important;
+}
+
+/* Gold button — glass glow */
+.btn-gold {
+  box-shadow: 0 2px 18px rgba(200,160,106,0.28), 0 1px 4px rgba(200,160,106,0.14);
+}
+.btn-gold:hover {
+  box-shadow: 0 4px 28px rgba(200,160,106,0.38), 0 2px 8px rgba(200,160,106,0.2);
+}
+
+/* ─── ICON BUTTONS glass ──────────────────────────────── */
+.icon-btn {
+  background: rgba(255,255,255,0.07) !important;
+  border: 0.5px solid rgba(255,255,255,0.11) !important;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+/* ─── NAV PILL glass ──────────────────────────────────── */
+.nav-pill {
+  background: rgba(200,160,106,0.1) !important;
+  border: 0.5px solid rgba(200,160,106,0.22) !important;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+/* ─── FILTER PILLS glass ──────────────────────────────── */
+.filter-pill {
+  background: rgba(255,255,255,0.04) !important;
+  backdrop-filter: blur(4px);
+}
+.filter-pill:hover {
+  background: rgba(255,255,255,0.09) !important;
+}
+.filter-pill.active {
+  background: var(--gold) !important;
+  box-shadow: 0 2px 12px rgba(200,160,106,0.3);
+}
+
+/* ─── ADMIN CONTROLS glass ────────────────────────────── */
+.admin-controls {
+  background: rgba(16,16,20,0.72) !important;
+  border: 0.5px solid rgba(255,255,255,0.09) !important;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.06);
+}
+
+/* ─── STATUS BADGES glass ─────────────────────────────── */
+.status-badge {
+  backdrop-filter: blur(4px);
+}
+
+/* ─── SOCIAL PILLS glass ──────────────────────────────── */
+.social-pill, .team-link {
+  background: rgba(255,255,255,0.05);
+  border: 0.5px solid rgba(255,255,255,0.1) !important;
+  backdrop-filter: blur(4px);
+}
+.social-pill:hover, .team-link:hover {
+  background: rgba(255,255,255,0.09);
+}
+
+/* ─── BULK BAR glass ──────────────────────────────────── */
+.bulk-bar {
+  background: rgba(14,14,18,0.88) !important;
+  backdrop-filter: blur(40px) saturate(160%);
+  -webkit-backdrop-filter: blur(40px) saturate(160%);
+  border: 0.5px solid rgba(255,255,255,0.13) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.09),
+    0 16px 48px rgba(0,0,0,0.7) !important;
+}
+
+/* ─── ADMIN ROW glass ─────────────────────────────────── */
+.admin-row:hover {
+  background: rgba(255,255,255,0.03) !important;
+}
+
+/* ─── FEATURED EDITOR ITEM glass ─────────────────────── */
+.featured-editor-item {
+  background: rgba(255,255,255,0.04) !important;
+  border: 0.5px solid rgba(255,255,255,0.09) !important;
+}
+
+/* ─── TRACKER inner card glass ────────────────────────── */
+.tracker-card-inner {
+  background: rgba(255,255,255,0.04) !important;
+  border: 0.5px solid rgba(255,255,255,0.09) !important;
+}
+
+/* ─── PROFILE CARD glass ──────────────────────────────── */
+.profile-card {
+  background: rgba(255,255,255,0.04) !important;
+  border: 0.5px solid rgba(255,255,255,0.09) !important;
+}
+
+/* ─── LIGHT THEME glass overrides ─────────────────────── */
+[data-theme="light"] body {
+  background:
+    radial-gradient(ellipse 90% 50% at 50% -5%, rgba(200,160,106,0.12) 0%, transparent 52%),
+    #f5f5f7;
+}
+
+[data-theme="light"] nav {
+  background: rgba(255,255,255,0.82) !important;
+  border: 0.5px solid rgba(0,0,0,0.09) !important;
+  box-shadow:
+    inset 0 -0.5px 0 rgba(0,0,0,0.06),
+    0 1px 3px rgba(0,0,0,0.12) !important;
+}
+
+[data-theme="light"] .hero-main,
+[data-theme="light"] .hero-quote-card,
+[data-theme="light"] .countdown-card,
+[data-theme="light"] .cta-banner,
+[data-theme="light"] .nl-banner,
+[data-theme="light"] .form-card,
+[data-theme="light"] .tracker-card,
+[data-theme="light"] .modal-box,
+[data-theme="light"] .opencall-hero,
+[data-theme="light"] .featured-header {
+  background: rgba(255,255,255,0.70) !important;
+  border: 0.5px solid rgba(0,0,0,0.09) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.95),
+    0 16px 48px rgba(0,0,0,0.1),
+    0 2px 8px rgba(0,0,0,0.07);
+}
+
+[data-theme="light"] .stat-card,
+[data-theme="light"] .mani-card,
+[data-theme="light"] .about-hero-card,
+[data-theme="light"] .beliefs-card,
+[data-theme="light"] .team-card,
+[data-theme="light"] .issue-card,
+[data-theme="light"] .contact-card,
+[data-theme="light"] .press-card,
+[data-theme="light"] .press-stat,
+[data-theme="light"] .faq-header,
+[data-theme="light"] .faq-list,
+[data-theme="light"] .mood-header,
+[data-theme="light"] .mood-cell,
+[data-theme="light"] .guidelines-card,
+[data-theme="light"] .featured-card,
+[data-theme="light"] .opencall-req-card,
+[data-theme="light"] .opencall-theme-card,
+[data-theme="light"] .opencall-cta,
+[data-theme="light"] .issues-header,
+[data-theme="light"] footer {
+  background: rgba(255,255,255,0.72) !important;
+  border: 0.5px solid rgba(0,0,0,0.08) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,1),
+    0 4px 20px rgba(0,0,0,0.09);
+}
+
+[data-theme="light"] .fg input, [data-theme="light"] .fg textarea, [data-theme="light"] .fg select,
+[data-theme="light"] .tracker-input, [data-theme="light"] .admin-search, [data-theme="light"] .nl-input {
+  background: rgba(255,255,255,0.6) !important;
+  border: 0.5px solid rgba(0,0,0,0.11) !important;
+}
+
+[data-theme="light"] .btn-ghost {
+  background: rgba(0,0,0,0.04) !important;
+  border: 0.5px solid rgba(0,0,0,0.1) !important;
+}
+
+[data-theme="light"] .ticker-track {
+  background: rgba(255,255,255,0.6) !important;
+  border: 0.5px solid rgba(0,0,0,0.08) !important;
+}
+
+[data-theme="light"] .mobile-menu {
+  background: rgba(248,248,250,0.95) !important;
+}
+
+/* ─── REDUCED MOTION (accessibility) ─────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.1ms !important; }
+}
+
+/* ══════════════════════════════════════════════════════════
+   COOKIE CONSENT BANNER
+══════════════════════════════════════════════════════════ */
+.cookie-banner {
+  position: fixed;
+  bottom: 22px;
+  left: 50%;
+  transform: translateX(-50%) translateY(130px);
+  z-index: 9992;
+  max-width: 500px;
+  width: calc(100% - 40px);
+  background: rgba(12, 12, 16, 0.88);
+  backdrop-filter: blur(44px) saturate(180%);
+  -webkit-backdrop-filter: blur(44px) saturate(180%);
+  border: 0.5px solid rgba(255,255,255,0.13);
+  border-radius: var(--radius);
+  padding: 20px 22px;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.1), 0 28px 72px rgba(0,0,0,0.72);
+  transition: transform 0.45s cubic-bezier(0.34,1.56,0.64,1), opacity 0.3s ease;
+  opacity: 0;
+  pointer-events: none;
+}
+.cookie-banner.show { transform: translateX(-50%) translateY(0); opacity: 1; pointer-events: auto; }
+.cookie-banner-title { font-size: 0.72rem; font-weight: 500; letter-spacing: -0.01em; color: var(--text); margin-bottom: 6px; }
+.cookie-banner-text { font-size: 0.68rem; font-weight: 300; line-height: 1.75; color: var(--text-2); margin-bottom: 14px; }
+.cookie-banner-text a { color: var(--gold); text-decoration: underline; text-underline-offset: 2px; }
+.cookie-banner-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+.cookie-accept-btn {
+  background: var(--gold); color: #000;
+  font-family: inherit; font-size: 0.7rem; font-weight: 500;
+  padding: 8px 18px; border-radius: var(--radius-full); border: none;
+  cursor: pointer; transition: background 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 12px rgba(200,160,106,0.25);
+}
+.cookie-accept-btn:hover { background: var(--gold-2); box-shadow: 0 4px 20px rgba(200,160,106,0.38); }
+.cookie-decline-btn {
+  background: rgba(255,255,255,0.07); color: var(--text-2);
+  font-family: inherit; font-size: 0.7rem; font-weight: 400;
+  padding: 8px 18px; border-radius: var(--radius-full);
+  border: 0.5px solid rgba(255,255,255,0.11); cursor: pointer; transition: all 0.2s;
+}
+.cookie-decline-btn:hover { background: rgba(255,255,255,0.12); color: var(--text); }
+
+/* ══════════════════════════════════════════════════════════
+   LEGAL PAGES — Terms of Service & Privacy Policy
+══════════════════════════════════════════════════════════ */
+.legal-wrap {
+  padding: 22px 20px 64px;
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.legal-hero {
+  background: rgba(13,13,16,0.72);
+  backdrop-filter: blur(44px) saturate(180%) brightness(1.04);
+  -webkit-backdrop-filter: blur(44px) saturate(180%) brightness(1.04);
+  border: 0.5px solid rgba(255,255,255,0.11);
+  border-radius: var(--radius);
+  padding: 48px;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.1), 0 24px 64px rgba(0,0,0,0.55);
+}
+.legal-card {
+  background: rgba(16,16,20,0.72);
+  border: 0.5px solid rgba(255,255,255,0.09);
+  border-radius: var(--radius);
+  padding: 36px 40px;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.06), 0 8px 32px rgba(0,0,0,0.4);
+}
+.legal-h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem; font-weight: 300; font-style: italic;
+  margin-bottom: 14px; color: var(--text);
+  display: flex; align-items: center; gap: 10px;
+}
+.legal-h2::before { content: ''; width: 14px; height: 1px; background: var(--gold); flex-shrink: 0; }
+.legal-body { font-size: 0.75rem; font-weight: 300; line-height: 2; color: var(--text-2); }
+.legal-body p + p { margin-top: 10px; }
+.legal-body ul { padding-left: 1.4rem; margin: 8px 0; }
+.legal-body li { margin-bottom: 5px; }
+.legal-body a { color: var(--gold); }
+.legal-body strong { color: var(--text); font-weight: 400; }
+.legal-updated { font-size: 0.6rem; font-weight: 400; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-3); margin-top: 10px; }
+
+/* ─── Consent checkbox on submit form ──────────────── */
+.consent-row {
+  display: flex; align-items: flex-start; gap: 10px;
+  margin: 10px 0;
+  font-size: 0.68rem; font-weight: 300; line-height: 1.7; color: var(--text-2);
+}
+.consent-row input[type="checkbox"] {
+  width: auto !important; flex-shrink: 0; margin-top: 3px; accent-color: var(--gold);
+  background: none !important; border: none !important; box-shadow: none !important;
+}
+.consent-row a { color: var(--gold); }
+
+/* ─── NAV ─────────────────────────── */
+.nav-wrap {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 9999;
+  padding: 12px 20px;
+}
+nav {
+  background: var(--nav-bg);
+  backdrop-filter: saturate(180%) blur(28px);
+  -webkit-backdrop-filter: saturate(180%) blur(28px);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 8px 0 22px; height: 48px;
+  transition: background 0.3s;
+  max-width: 1160px; margin: 0 auto;
+}
+.nav-logo {
+  display: flex; align-items: center; gap: 9px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.85rem; font-weight: 300; letter-spacing: 0.5em;
+  color: var(--text); cursor: pointer; flex-shrink: 0;
+}
+.nav-logo svg { width: 20px; flex-shrink: 0; }
+.nav-links { display: flex; align-items: center; gap: 1px; }
+.nav-links a {
+  font-size: 0.72rem; font-weight: 400; letter-spacing: -0.01em;
+  color: var(--text-2); padding: 6px 12px; border-radius: var(--radius-full);
+  transition: color 0.2s, background 0.2s;
+}
+.nav-links a:hover { color: var(--text); background: rgba(128,128,128,0.1); }
+.nav-links a.on { color: var(--bg); background: var(--text); font-weight: 500; }
+.nav-right { display: flex; align-items: center; gap: 6px; }
+.nav-pill {
+  background: var(--gold-dim); border-radius: var(--radius-full);
+  padding: 5px 14px; font-size: 0.68rem; font-weight: 500;
+  letter-spacing: -0.01em; color: var(--gold);
+  border: 1px solid rgba(200,160,106,0.2); white-space: nowrap;
+}
+.icon-btn {
+  width: 32px; height: 32px; border-radius: 50%;
+  background: var(--bg-3); border: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.8rem; cursor: pointer; transition: all 0.2s;
+  color: var(--text-2); flex-shrink: 0;
+}
+.icon-btn:hover { border-color: var(--border-2); color: var(--text); }
+.nav-hamburger {
+  display: none; width: 32px; height: 32px; border-radius: 50%;
+  background: var(--bg-3); border: 1px solid var(--border);
+  align-items: center; justify-content: center;
+  flex-direction: column; gap: 4px; cursor: pointer; flex-shrink: 0;
+}
+.nav-hamburger span { width: 13px; height: 1px; background: var(--text-2); display: block; }
+
+/* ─── MOBILE MENU ─────────────────── */
+.mobile-menu {
+  position: fixed; inset: 0; z-index: 9000; background: rgba(0,0,0,0.96);
+  backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0;
+  visibility: hidden; opacity: 0; transition: opacity 0.25s, visibility 0.25s;
+  pointer-events: none;
+}
+.mobile-menu.open { visibility: visible; opacity: 1; pointer-events: auto; }
+.mobile-menu a {
+  font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 300;
+  letter-spacing: 0.1em; color: var(--text); transition: color 0.2s;
+  display: block; text-align: center; padding: 0.55rem 2rem; width: 100%;
+}
+.mobile-menu a:hover, .mobile-menu a:active { color: var(--gold); }
+.mobile-close {
+  position: absolute; top: 22px; right: 22px;
+  font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--text-3); cursor: pointer; background: var(--bg-3);
+  border: 1px solid var(--border); border-radius: var(--radius-full); padding: 7px 15px;
+}
+
+/* ─── PAGES ─────────────────────── */
+.pg { display: none; padding-top: 74px; min-height: 100vh; }
+.pg.on { display: block; animation: pg-up 0.35s ease; }
+@keyframes pg-up { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+
+/* ─── SHARED ATOMS ───────────────── */
+.eyebrow {
+  font-size: 0.68rem; font-weight: 500; letter-spacing: 0.06em;
+  text-transform: uppercase; color: var(--gold);
+  display: inline-flex; align-items: center; gap: 10px;
+}
+.eyebrow::before { content: ''; width: 16px; height: 1px; background: var(--gold); flex-shrink: 0; }
+
+.btn {
+  font-size: 0.78rem; font-weight: 500; letter-spacing: -0.01em;
+  padding: 10px 22px; border-radius: var(--radius-full);
+  transition: all 0.2s; cursor: pointer; border: none;
+  display: inline-flex; align-items: center; gap: 6px;
+}
+.btn-gold { background: var(--gold); color: #000; }
+.btn-gold:hover { background: var(--gold-2); }
+.btn-ghost {
+  background: rgba(128,128,128,0.1); color: var(--text-2);
+  border: 1px solid var(--border);
+}
+.btn-ghost:hover { background: rgba(128,128,128,0.18); color: var(--text); border-color: var(--border-2); }
+
+.pg-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.4rem, 4.5vw, 3.8rem);
+  font-weight: 300; line-height: 1.06; letter-spacing: 0.02em; margin-top: 14px;
+}
+.pg-title em { font-style: italic; color: var(--gold); }
+
+/* layout wrapper */
+.wrap { max-width: 1160px; margin: 0 auto; padding: 0 20px; }
+
+/* section spacing */
+.section { margin-bottom: 14px; }
+
+/* card base */
+.card {
+  background: var(--bg-1); border: 1px solid var(--border);
+  border-radius: var(--radius); overflow: hidden;
+}
+
+/* ─── BACKEND BANNER ─────────────── */
+.backend-banner {
+  display: none; background: var(--warn-bg); border: 1px solid var(--warn-border);
+  border-radius: var(--radius-sm); padding: 11px 18px;
+  font-size: 0.72rem; color: var(--warn); line-height: 1.6;
+  margin: 0 20px 12px; max-width: 1120px; margin-left: auto; margin-right: auto;
+}
+.backend-banner.show { display: block; }
+
+/* ═══════════ HOME ═══════════ */
+.hero-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 12px; padding: 22px 20px 12px; max-width: 1160px; margin: 0 auto;
+}
+.hero-main {
+  background: var(--bg-1); border: 1px solid var(--border); border-radius: var(--radius);
+  padding: 52px 52px 44px; display: flex; flex-direction: column;
+  justify-content: space-between; min-height: 480px; position: relative; overflow: hidden;
+}
+.hero-main::after {
+  content: ''; position: absolute; bottom: -80px; right: -80px;
+  width: 300px; height: 300px;
+  background: radial-gradient(circle, rgba(200,160,106,0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+.hero-wordmark {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(3.5rem, 7vw, 6.5rem);
+  font-weight: 300; letter-spacing: 0.32em; line-height: 1;
+  position: relative; z-index: 1;
+}
+.hero-sub {
+  font-size: 0.62rem; font-weight: 400; letter-spacing: 0.4em;
+  text-transform: uppercase; color: var(--text-3); margin-top: 10px;
+  position: relative; z-index: 1;
+}
+.hero-bottom { position: relative; z-index: 1; }
+.hero-tagline {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic; font-size: 1.05rem; font-weight: 300;
+  color: var(--text-2); line-height: 1.8;
+  border-left: 1.5px solid var(--gold); padding-left: 16px; margin-bottom: 26px;
+}
+.hero-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+.hero-side { display: flex; flex-direction: column; gap: 12px; }
+
+.hero-quote-card {
+  background: var(--bg-1); border: 1px solid var(--border); border-radius: var(--radius);
+  padding: 30px; flex: 2; display: flex; flex-direction: column;
+  justify-content: space-between; position: relative; overflow: hidden;
+}
+.hero-eye-bg {
+  position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
+  opacity: 0.04; pointer-events: none;
+}
+.hero-eye-bg svg { width: 260px; }
+.hero-q {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.15rem; font-weight: 300; font-style: italic;
+  line-height: 1.65; color: var(--text); position: relative; z-index: 1;
+  margin-bottom: 20px;
+}
+.hero-q-meta {
+  font-size: 0.65rem; font-weight: 400; letter-spacing: -0.01em; color: var(--text-3);
+  position: relative; z-index: 1;
+}
+
+.stat-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.stat-card {
+  background: var(--bg-1); border: 1px solid var(--border);
+  border-radius: var(--radius-sm); padding: 22px 20px;
+}
+.stat-n {
+  font-size: 2.2rem; font-weight: 300; color: var(--gold);
+  line-height: 1; margin-bottom: 5px; letter-spacing: -0.02em;
+}
+.stat-l { font-size: 0.67rem; font-weight: 400; color: var(--text-3); letter-spacing: -0.01em; }
+
+/* countdown */
+.countdown-wrap { padding: 0 20px 12px; max-width: 1160px; margin: 0 auto; }
+.countdown-card {
+  background: var(--bg-1); border: 1px solid var(--border); border-radius: var(--radius);
+  padding: 22px 32px; display: flex; align-items: center; justify-content: space-between; gap: 20px;
+}
+.countdown-label { }
+.cd-eyebrow { font-size: 0.65rem; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; color: var(--gold); }
+.cd-sub { font-size: 0.72rem; font-weight: 400; color: var(--text-3); margin-top: 3px; }
+.countdown-units { display: flex; gap: 10px; }
+.cd-unit {
+  text-align: center; background: var(--bg-3);
+  border: 1px solid var(--border); border-radius: var(--radius-sm);
+  padding: 12px 16px; min-width: 62px;
+}
+.cd-n { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 300; color: var(--text); line-height: 1; }
+.cd-l { font-size: 0.5rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-3); margin-top: 4px; }
+
+/* ticker */
+.ticker-wrap-outer { padding: 0 20px 12px; max-width: 1160px; margin: 0 auto; }
+.ticker-track {
+  background: var(--bg-1); border: 1px solid var(--border);
+  border-radius: var(--radius-full); height: 36px; overflow: hidden;
+  display: flex; align-items: center;
+}
+.ticker-inner {
+  white-space: nowrap; animation: tick 30s linear infinite;
+  font-size: 0.65rem; font-weight: 400; letter-spacing: 0.2em;
+  text-transform: uppercase; color: var(--text-3); padding: 0 20px;
+}
+.ticker-inner em { color: var(--gold); font-style: normal; }
+.ticker-inner span { margin: 0 16px; }
+@keyframes tick { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+/* manifesto trio */
+.mani-row { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; padding: 0 20px 12px; max-width: 1160px; margin: 0 auto; }
+.mani-card { background: var(--bg-1); border: 1px solid var(--border); border-radius: var(--radius); padding: 28px; }
+.mani-n { font-size: 0.58rem; font-weight: 500; letter-spacing: 0.25em; color: var(--bg-3); margin-bottom: 14px; }
+.mani-h { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-style: italic; font-weight: 300; margin-bottom: 10px; }
+.mani-p { font-size: 0.75rem; font-weight: 300; line-height: 1.85; color: var(--text-2); }
+
+/* cta strip */
+.cta-outer { padding: 0 20px 12px; max-width: 1160px; margin: 0 auto; }
+.cta-banner {
+  background: var(--bg-1); border: 1px solid var(--border); border-radius: var(--radius);
+  padding: 26px 36px; display: flex; align-items: center; justify-content: space-between; gap: 20px;
+}
+.cta-txt { font-family: 'Cormorant Garamond', serif; font-size: 1.35rem; font-weight: 300; font-style: italic; }
+.cta-txt em { color: var(--gold); }
+
+/* newsletter */
+.nl-outer { padding: 0 20px 36px; max-width: 1160px; margin: 0 auto; }
+.nl-banner {
+  background: var(--bg-1); border: 1px solid var(--border); border-radius: var(--radius);
+  padding: 26px 36px; display: flex; align-items: center; justify-content: space-between; gap: 24px;
+}
+.nl-left h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-weight: 300; font-style: italic; margin-bottom: 3px; }
+.nl-left p { font-size: 0.72rem; font-weight: 300; color: var(--text-2); }
+.nl-form { display: flex; gap: 8px; flex-shrink: 0; }
+.nl-input {
+  background: var(--bg-3); border: 1px solid var(--border); border-radius: var(--radius-full);
+  color: var(--text); font-size: 0.85rem; font-weight: 300;
+  padding: 9px 18px; outline: none; transition: border-color 0.2s; width: 220px;
+}
+.nl-input:focus { border-color: var(--gold); }
+.nl-input::placeholder { color: var(--text-3); }
+.nl-msg { font-size: 0.68rem; margin-top: 6px; display: none; }
+.nl-msg.ok { color: var(--gold); }
+.nl-msg.err { color: var(--err); }
+
+/* ═══════════ ABOUT ═══════════ */
+.about-wrap { padding: 22px 20px; max-width: 1160px; margin: 0 auto; display: flex; flex-direction: column; gap: 12px; }
+.about-hero-card {
+  background: var(--bg-1); border: 1px solid var(--border); border-radius: var(--radius);
+  display: grid; grid-template-columns: 1fr 1fr; min-height: 300px; overflow: hidden;
+}
+.about-l {
+  padding: 52px; border-right: 1px solid var(--border);
+  display: flex; flex-direction: column; justify-content: flex-end;
+}
+.about-r { padding: 52px; display: flex; flex-direction: column; justify-content: flex-end; }
+.about-body { font-size: 0.85rem; font-weight: 300; line-height: 2; color: var(--text-2); }
+.about-body p + p { margin-top: 14px; }
+.beliefs-card { background: var(--bg-1); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
+.beliefs-head { padding: 22px 28px; border-bottom: 1px solid var(--border); }
+.beliefs-grid { display: grid; grid-template-columns: repeat(3,1fr); }
+.belief { padding: 28px; border-right: 1px solid var(--border); }
+.belief:last-child { border-right: none; }
+.belief-n { font-size: 0.56rem; font-weight: 500; letter-spacing: 0.25em; color: var(--text-3); margin-bottom: 12px; }
+.belief-h { font-family: 'Cormorant Garamond', serif; font-size: 1.05rem; font-weight: 300; font-style: italic; margin-bottom: 9px; }
+.belief-p { font-size: 0.74rem; font-weight: 300; line-height: 1.85; color: var(--text-2); }
+.team-card { background: var(--bg-1); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
+.team-head { padding: 22px 28px; border-bottom: 1px solid var(--border); }
+.team-inner { display: grid; grid-template-columns: 240px 1fr; }
+.team-portrait { border-right: 1px solid var(--border); overflow: hidden; min-height: 300px; }
+.team-portrait img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; filter: brightness(0.92) contrast(1.05); }
+.team-info { padding: 38px 44px; }
+.team-name { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 300; letter-spacing: 0.03em; margin-bottom: 4px; }
+.team-role { font-size: 0.62rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 18px; }
+.team-bio { font-size: 0.82rem; font-weight: 300; line-height: 2; color: var(--text-2); margin-bottom: 22px; max-width: 500px; }
+.team-links { display: flex; gap: 8px; flex-wrap: wrap; }
+.team-link {
+  font-size: 0.66rem; font-weight: 400; letter-spacing: -0.01em;
+  color: var(--text-2); padding: 7px 14px; border-radius: var(--radius-full);
+  border: 1px solid var(--border); transition: all 0.2s;
+}
+.team-link:hover { color: var(--gold); border-color: rgba(200,160,106,0.4); }
+
+/* ═══════════ MOOD ═══════════ */
+.mood-wrap { padding: 22px 20px; max-width: 1160px; margin: 0 auto; display: flex; flex-direction: column; gap: 12px; }
+.mood-header {
+  background: var(--bg-1); border: 1px solid var(--border); border-radius: var(--radius);
+  padding: 42px 48px; display: flex; align-items: flex-end; justify-content: space-between;
+}
+.mood-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; }
+.mood-cell {
+  background: var(--bg-1); border: 1px solid var(--border); border-radius: var(--radius);
+  overflow: hidden; transition: transform 0.2s, border-color 0.2s;
+}
+.mood-cell:hover { transform: translateY(-2px); border-color: rgba(200,160,106,0.3); }
+.mood-cell:first-child { grid-column: span 2; }
+.mood-placeholder { background: var(--bg-2); display: block; position: relative; overflow: hidden; }
+.mood-placeholder.tall { height: 320px; }
+.mood-placeholder.short { height: 200px; }
+.mood-caption { padding: 18px 20px; }
+.mood-caption h4 { font-family: 'Cormorant Garamond', serif; font-size: 0.95rem; font-weight: 300; font-style: italic; margin-bottom: 5px; }
+.mood-caption p { font-size: 0.7rem; font-weight: 300; color: var(--text-2); }
+.mood-kw-row { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+.mood-kw {
+  font-size: 0.58rem; font-weight: 400; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--text-3); background: var(--bg-3); border: 1px solid var(--border);
+  border-radius: var(--radius-full); padding: 4px 11px;
+}
+.mood-not-card {
+  background: var(--bg-1); border: 1px solid var(--border); border-radius: var(--radius); padding: 30px;
+}
+
+/* ═══════════ ISSUES ═══════════ */
+.issues-wrap { padding: 22px 20px; max-width: 1160px; margin: 0 auto; display: flex; flex-direction: column; gap: 12px; }
+.issues-header {
+  background: var(--bg-1); border: 1px solid var(--border); border-radius: var(--radius);
+  padding: 48px; display: flex; align-items: flex-end; justify-content: space-between;
+}
+.issues-note { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 0.9rem; color: var(--text-2); max-width: 200px; text-align: right; line-height: 1.7; }
+.issue-card {
+  background: var(--bg-1); border: 1px solid var(--border); border-radius: var(--radius);
+  overflow: hidden; transition: border-color 0.2s, transform 0.2s;
+}
+.issue-card:hover { border-color: rgba(200,160,106,0.3); transform: translateY(-2px); }
+.issue-inner { display: grid; grid-template-columns: 280px 1fr; }
+.issue-cover {
+  background: var(--bg-2); display: flex; align-items: center; justify-content: center;
+  border-right: 1px solid var(--border); position: relative; overflow: hidden; min-height: 320px;
+}
+.issue-n { font-size: 0.58rem; font-weight: 500; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold); margin-bottom: 6px; }
+.issue-name { font-family: 'Cormorant Garamond', serif; font-size: 1.75rem; font-weight: 300; font-style: italic; margin-bottom: 11px; }
+.issue-status { font-size: 0.72rem; font-weight: 300; color: var(--text-3); margin-bottom: 20px; }
+
+/* ═══════════ SUBMIT ═══════════ */
+.submit-wrap { padding: 22px 20px; max-width: 1160px; margin: 0 auto; display: flex; flex-direction: column; gap: 12px; }
+.submit-header {
+  background: var(--bg-1); border: 1px solid var(--border); border-radius: var(--radius);
+  display: grid; grid-template-columns: 1fr 1fr; min-height: 260px; overflow: hidden;
+}
+.submit-header-l { padding: 48px; border-right: 1px solid var(--border); display: flex; flex-direction: column; justify-content: flex-end; }
+.submit-header-r { padding: 48px; display: flex; flex-direction: column; justify-content: flex-end; }
+.submit-lede { font-family: 'Cormorant Garamond', serif; font-size: 1rem; font-weight: 300; font-style: italic; line-height: 2; color: var(--text-2); }
+.submit-body { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; align-items: start; }
+.guidelines-card { background: var(--bg-1); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
+.gl-head { padding: 18px 24px; border-bottom: 1px solid var(--border); }
+.gl-head-txt { font-size: 0.65rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-3); }
+.gl-row { padding: 20px 24px; border-bottom: 1px solid var(--border); }
+.gl-row:last-child { border-bottom: none; }
+.gl-lbl { font-size: 0.58rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; }
+.gl-txt { font-size: 0.74rem; font-weight: 300; line-height: 1.85; color: var(--text-2); }
+.gl-txt strong { color: var(--text); font-weight: 500; }
+
+/* form card */
+.form-card { background: var(--bg-1); border: 1px solid var(--border); border-radius: var(--radius); padding: 32px; position: sticky; top: 86px; }
+.form-title { font-family: 'Cormorant Garamond', serif; font-size: 1.35rem; font-weight: 300; font-style: italic; margin-bottom: 22px; }
+.fg { margin-bottom: 11px; position: relative; }
+.fg label { display: block; font-size: 0.6rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); margin-bottom: 5px; }
+.fg input, .fg textarea, .fg select {
+  width: 100%; background: var(--bg-3); border: 1px solid var(--border);
+  border-radius: var(--radius-sm); color: var(--text);
+  font-family: inherit; font-size: 0.85rem; font-weight: 300;
+  padding: 9px 13px; outline: none; transition: border-color 0.2s, background 0.2s; appearance: none;
+}
+.fg input:focus, .fg textarea:focus, .fg select:focus { border-color: var(--gold); background: var(--note-bg); }
+.fg input::placeholder, .fg textarea::placeholder { color: var(--text-3); }
+.fg textarea { resize: none; }
+.fg select option { background: var(--bg-2); }
+.char-count { font-size: 0.58rem; color: var(--text-3); text-align: right; margin-top: 3px; }
+.char-count.warn { color: var(--warn); }
+.char-count.over { color: var(--err); }
+.form-note {
+  font-size: 0.7rem; font-weight: 300; color: var(--text-2); line-height: 1.8;
+  background: var(--note-bg); border-radius: var(--radius-sm); padding: 12px;
+  margin: 14px 0; border: 1px solid var(--note-border);
+}
+.f-btn {
+  width: 100%; background: var(--gold); color: #000;
+  font-family: inherit; font-size: 0.76rem; font-weight: 500; letter-spacing: -0.01em;
+  padding: 12px; border-radius: var(--radius-full); transition: background 0.2s, opacity 0.2s;
+  cursor: pointer; border: none; display: flex; align-items: center; justify-content: center; gap: 8px;
+}
+.f-btn:hover { background: var(--gold-2); }
+.f-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+.f-spin { width: 12px; height: 12px; border: 1.5px solid rgba(0,0,0,0.2); border-top-color: #000; border-radius: 50%; animation: spin 0.6s linear infinite; display: none; }
+@keyframes spin { to { transform: rotate(360deg); } }
+.f-status { margin-top: 12px; border-radius: var(--radius-sm); font-size: 0.7rem; line-height: 1.65; padding: 12px; display: none; }
+.f-status.ok { background: var(--ok-bg); border: 1px solid var(--ok-border); color: var(--ok-color); display: block; }
+.f-status.err { background: var(--err-bg); border: 1px solid var(--err-border); color: var(--err); display: block; }
+
+/* closed banner */
+.closed-banner { background: var(--bg-1); border: 1px solid var(--border); border-radius: var(--radius); padding: 48px; text-align: center; display: none; }
+.closed-banner.show { display: block; }
+
+/* tracker */
+.tracker-card { background: var(--bg-1); border: 1px solid var(--border); border-radius: var(--radius); padding: 32px; }
+.tracker-title { font-family: 'Cormorant Garamond', serif; font-size: 1.35rem; font-weight: 300; font-style: italic; margin-bottom: 7px; }
+.tracker-sub { font-size: 0.74rem; font-weight: 300; color: var(--text-2); line-height: 1.75; margin-bottom: 18px; }
+.tracker-row { display: flex; gap: 8px; }
+.tracker-input {
+  flex: 1; background: var(--bg-3); border: 1px solid var(--border); border-radius: var(--radius-sm);
+  color: var(--text); font-size: 0.85rem; font-weight: 300;
+  padding: 9px 13px; outline: none; transition: border-color 0.2s;
+}
+.tracker-input:focus { border-color: var(--gold); }
+.tracker-input::placeholder { color: var(--text-3); }
+.tracker-result { margin-top: 14px; display: none; }
+.tracker-result.show { display: block; animation: pg-up 0.3s ease; }
+.tracker-card-inner { background: var(--bg-3); border-radius: var(--radius-sm); border: 1px solid var(--border); padding: 20px; }
+.tracker-status-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; flex-wrap: wrap; gap: 8px; }
+.tracker-series { font-family: 'Cormorant Garamond', serif; font-size: 1.05rem; font-weight: 300; font-style: italic; }
+.tracker-meta { font-size: 0.66rem; font-weight: 300; color: var(--text-2); line-height: 1.7; margin-top: 10px; }
+.tracker-meta span { display: block; }
+.tracker-message { font-size: 0.74rem; font-weight: 300; color: var(--text-2); line-height: 1.8; margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--border); }
+.tracker-notfound { background: var(--err-bg); border: 1px solid var(--err-border); border-radius: var(--radius-sm); padding: 14px; font-size: 0.74rem; color: var(--err); line-height: 1.65; }
+.tracker-loading { display: flex; align-items: center; gap: 10px; font-size: 0.72rem; color: var(--text-2); padding: 14px 0; }
+.tracker-loading .t-spin { width: 13px; height: 13px; border: 1.5px solid var(--border-2); border-top-color: var(--gold); border-radius: 50%; animation: spin 0.6s linear infinite; flex-shrink: 0; }
+
+/* status badges */
+.status-badge {
+  display: inline-block; padding: 3px 10px; border-radius: var(--radius-full);
+  font-size: 0.58rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase;
+}
+.status-badge.received { background: var(--ok-bg); color: var(--gold); border: 1px solid var(--ok-border); }
+.status-badge.reviewing { background: var(--reviewing-bg); color: var(--reviewing); border: 1px solid var(--reviewing-border); }
+.status-badge.accepted { background: var(--accepted-bg); color: var(--accepted); border: 1px solid var(--accepted-border); }
+.status-badge.declined { background: var(--declined-bg); color: var(--declined); border: 1px solid var(--declined-border); }
+.status-badge.shortlist { background: rgba(191,90,242,0.1); color: var(--shortlist-color); border: 1px solid rgba(191,90,242,0.25); }
+.status-badge.published { background: var(--published-bg); color: var(--published); border: 1px solid var(--published-border); }
+
+/* ═══════════ FAQ ═══════════ */
+.faq-wrap { padding: 22px 20px; max-width: 1160px; margin: 0 auto; display: flex; flex-direction: column; gap: 12px; }
+.faq-header { background: var(--bg-1); border: 1px solid var(--border); border-radius: var(--radius); padding: 42px 48px; }
+.faq-list { background: var(--bg-1); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
+.faq-item { border-bottom: 1px solid var(--border); }
+.faq-item:last-child { border-bottom: none; }
+.faq-q { padding: 20px 26px; display: flex; align-items: center; justify-content: space-between; cursor: pointer; transition: background 0.2s; user-select: none; gap: 16px; }
+.faq-q:hover { background: var(--bg-2); }
+.faq-q span { font-family: 'Cormorant Garamond', serif; font-size: 1rem; font-weight: 300; font-style: italic; }
+.faq-icon { font-size: 1.1rem; color: var(--gold); transition: transform 0.3s; flex-shrink: 0; background: none; border: none; cursor: pointer; }
+.faq-a { max-height: 0; overflow: hidden; transition: max-height 0.35s ease; }
+.faq-a p { font-size: 0.76rem; font-weight: 300; line-height: 1.85; color: var(--text-2); padding: 0 26px 20px; }
+.faq-item.open .faq-icon { transform: rotate(45deg); }
+.faq-item.open .faq-a { max-height: 220px; }
+
+/* ═══════════ CONTACT ═══════════ */
+.contact-wrap { padding: 22px 20px; max-width: 1160px; margin: 0 auto; display: flex; flex-direction: column; gap: 12px; }
+.contact-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; }
+.contact-card { background: var(--bg-1); border: 1px solid var(--border); border-radius: var(--radius); padding: 30px; }
+.contact-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.05rem; font-weight: 300; font-style: italic; margin-bottom: 7px; }
+.contact-card p { font-size: 0.74rem; font-weight: 300; line-height: 1.8; color: var(--text-2); margin-bottom: 14px; }
+.contact-card a { font-size: 0.74rem; font-weight: 400; color: var(--gold); }
+.contact-card a:hover { text-decoration: underline; }
+.socials-row { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 6px; }
+.social-pill {
+  font-size: 0.66rem; font-weight: 400; letter-spacing: -0.01em;
+  color: var(--text-2); padding: 7px 14px; border-radius: var(--radius-full);
+  border: 1px solid var(--border); transition: all 0.2s;
+}
+.social-pill:hover { color: var(--gold); border-color: rgba(200,160,106,0.4); }
+
+/* ═══════════ PRESS ═══════════ */
+.press-wrap { padding: 22px 20px; max-width: 1160px; margin: 0 auto; display: flex; flex-direction: column; gap: 12px; }
+.press-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.press-card { background: var(--bg-1); border: 1px solid var(--border); border-radius: var(--radius); padding: 30px; }
+.press-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-weight: 300; font-style: italic; margin-bottom: 8px; }
+.press-card p { font-size: 0.74rem; font-weight: 300; line-height: 1.85; color: var(--text-2); margin-bottom: 16px; }
+.press-stat-row { display: grid; grid-template-columns: repeat(4,1fr); gap: 12px; }
+.press-stat { background: var(--bg-1); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 20px; text-align: center; }
+.press-stat-n { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; font-weight: 300; color: var(--gold); margin-bottom: 4px; }
+.press-stat-l { font-size: 0.6rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-3); }
+.swatch { width: 40px; height: 40px; border-radius: 8px; border: 1px solid var(--border); }
+.swatch-label { font-size: 0.58rem; font-weight: 400; color: var(--text-3); margin-top: 5px; text-align: center; font-family: 'SF Mono', monospace; }
+
+/* ═══════════ OPEN CALL ═══════════ */
+.opencall-wrap { padding: 0 20px 48px; max-width: 1160px; margin: 0 auto; display: flex; flex-direction: column; gap: 12px; }
+.opencall-hero {
+  background: var(--bg-1); border: 1px solid var(--border); border-radius: var(--radius);
+  padding: 56px 56px 48px; position: relative; overflow: hidden;
+}
+.opencall-hero::before {
+  content: ''; position: absolute; top: -80px; right: -80px;
+  width: 400px; height: 400px;
+  background: radial-gradient(circle, rgba(200,160,106,0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+.opencall-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.2rem, 4vw, 3.6rem); font-weight: 300; line-height: 1.08; letter-spacing: 0.02em; margin: 16px 0 22px; }
+.opencall-title em { font-style: italic; color: var(--gold); }
+.opencall-meta { display: flex; align-items: center; gap: 36px; flex-wrap: wrap; }
+.opencall-meta-item { font-size: 0.68rem; font-weight: 300; color: var(--text-2); }
+.opencall-meta-item strong { color: var(--text); font-weight: 400; font-family: 'Cormorant Garamond', serif; font-size: 1.05rem; display: block; margin-bottom: 2px; }
+.opencall-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.opencall-req-card { background: var(--bg-1); border: 1px solid var(--border); border-radius: var(--radius); padding: 34px; }
+.opencall-req-title { font-size: 0.62rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); margin-bottom: 18px; display: flex; align-items: center; gap: 10px; }
+.opencall-req-title::before { content: ''; width: 14px; height: 1px; background: var(--gold); }
+.opencall-req-list { list-style: none; display: flex; flex-direction: column; gap: 11px; }
+.opencall-req-list li { font-size: 0.74rem; font-weight: 300; color: var(--text-2); line-height: 1.7; padding-left: 18px; position: relative; }
+.opencall-req-list li::before { content: '—'; position: absolute; left: 0; color: var(--gold); }
+.opencall-theme-card { background: var(--bg-1); border: 1px solid var(--border); border-radius: var(--radius); padding: 40px; grid-column: span 2; }
+.opencall-quote { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.35rem, 2.5vw, 2rem); font-weight: 300; font-style: italic; line-height: 1.55; color: var(--text); margin-bottom: 16px; }
+.opencall-body { font-size: 0.74rem; font-weight: 300; color: var(--text-2); line-height: 1.95; max-width: 680px; }
+.opencall-cta {
+  background: var(--bg-1); border: 1px solid var(--border); border-radius: var(--radius);
+  padding: 32px 40px; display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap;
+}
+.opencall-deadline strong { color: var(--gold); font-weight: 300; font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; display: block; letter-spacing: 0.02em; margin-bottom: 4px; }
+.opencall-deadline span { font-size: 0.66rem; font-weight: 400; color: var(--text-3); letter-spacing: 0.06em; text-transform: uppercase; }
+
+/* ═══════════ FEATURED ═══════════ */
+.featured-wrap { padding: 0 20px 48px; max-width: 1160px; margin: 0 auto; display: flex; flex-direction: column; gap: 18px; }
+.featured-header { background: var(--bg-1); border: 1px solid var(--border); border-radius: var(--radius); padding: 48px; }
+.featured-empty { text-align: center; padding: 80px 20px; font-size: 0.74rem; color: var(--text-3); letter-spacing: 0.1em; }
+.featured-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; }
+.featured-card {
+  background: var(--bg-1); border: 1px solid var(--border); border-radius: var(--radius);
+  padding: 30px; display: flex; flex-direction: column; gap: 10px;
+  cursor: pointer; transition: all 0.25s; position: relative; overflow: hidden;
+}
+.featured-card::before {
+  content: ''; position: absolute; top: -40px; right: -40px;
+  width: 130px; height: 130px;
+  background: radial-gradient(circle, rgba(200,160,106,0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+.featured-card:hover { border-color: rgba(200,160,106,0.35); transform: translateY(-2px); }
+.featured-card-issue { font-size: 0.58rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); }
+.featured-card-series { font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; font-weight: 300; font-style: italic; line-height: 1.3; margin-top: 2px; }
+.featured-card-by { font-size: 0.66rem; font-weight: 300; color: var(--text-2); }
+.featured-card-by strong { color: var(--text); font-weight: 400; }
+.featured-card-insta { font-size: 0.64rem; font-weight: 400; color: var(--gold); }
+.featured-card-excerpt { font-size: 0.72rem; font-weight: 300; line-height: 1.8; color: var(--text-2); display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; flex: 1; }
+.featured-card-read { font-size: 0.58rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); margin-top: auto; display: flex; align-items: center; gap: 8px; }
+.featured-card-read::after { content: '→'; font-size: 0.8rem; letter-spacing: 0; }
+
+/* featured detail */
+.featured-detail-wrap { padding: 0 20px 80px; max-width: 820px; margin: 0 auto; display: flex; flex-direction: column; gap: 28px; }
+.featured-detail-back { font-size: 0.62rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-3); cursor: pointer; display: inline-flex; align-items: center; gap: 8px; transition: color 0.2s; background: none; border: none; padding: 0; }
+.featured-detail-back::before { content: '←'; font-size: 0.8rem; letter-spacing: 0; }
+.featured-detail-back:hover { color: var(--gold); }
+.featured-detail-header { border-bottom: 1px solid var(--border); padding-bottom: 34px; }
+.featured-detail-issue { font-size: 0.6rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+.featured-detail-issue::before { content: ''; width: 14px; height: 1px; background: var(--gold); }
+.featured-detail-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 300; font-style: italic; line-height: 1.1; letter-spacing: 0.02em; }
+.featured-detail-byline { margin-top: 16px; font-size: 0.7rem; font-weight: 300; color: var(--text-2); line-height: 1.9; }
+.featured-detail-byline strong { color: var(--text); font-weight: 400; }
+.featured-detail-story { font-family: 'Cormorant Garamond', serif; font-size: 1.05rem; font-weight: 300; line-height: 2.05; color: var(--text); white-space: pre-line; }
+.featured-detail-credits-box { background: var(--bg-1); border-radius: var(--radius-sm); border: 1px solid var(--border); padding: 26px 30px; }
+.featured-detail-credits-h { font-size: 0.6rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+.featured-detail-credits-h::before { content: ''; width: 14px; height: 1px; background: var(--gold); }
+.featured-detail-credits-txt { font-size: 0.74rem; font-weight: 300; line-height: 1.9; color: var(--text-2); white-space: pre-line; }
+.share-row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin: 0 0 28px; padding: 16px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+.share-label { font-size: 0.6rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-3); margin-right: 4px; }
+.share-btn { font-size: 0.66rem; font-weight: 400; letter-spacing: 0.04em; padding: 7px 14px; border-radius: 20px; border: 1px solid var(--border-2); background: rgba(255,255,255,0.04); color: var(--text-2); cursor: pointer; transition: all 0.2s; text-decoration: none; display: inline-flex; align-items: center; gap: 5px; }
+.share-btn:hover { background: rgba(200,160,106,0.1); border-color: rgba(200,160,106,0.35); color: var(--gold); }
+.read-time { font-size: 0.6rem; font-weight: 400; letter-spacing: 0.06em; color: var(--text-3); background: rgba(255,255,255,0.05); border: 1px solid var(--border); border-radius: 10px; padding: 2px 9px; vertical-align: middle; }
+
+/* ═══════════ ADMIN ═══════════ */
+.admin-wrap { padding: 22px 20px; max-width: 1160px; margin: 0 auto; display: flex; flex-direction: column; gap: 12px; }
+.admin-gate-wrap { display: flex; justify-content: center; }
+.admin-gate { background: var(--bg-1); border-radius: var(--radius); border: 1px solid var(--border); padding: 40px; width: 100%; max-width: 380px; }
+.admin-gate h2 { font-family: 'Cormorant Garamond', serif; font-size: 1.35rem; font-weight: 300; font-style: italic; margin-bottom: 18px; }
+.admin-gate input { width: 100%; background: var(--bg-3); border: 1px solid var(--border); border-radius: var(--radius-sm); color: var(--text); font-size: 0.9rem; padding: 10px 14px; outline: none; transition: border-color 0.2s; margin-bottom: 12px; font-family: inherit; }
+.admin-gate input:focus { border-color: var(--gold); }
+.admin-stats { display: grid; grid-template-columns: repeat(5,1fr); gap: 10px; }
+.admin-stat { background: var(--bg-1); border-radius: var(--radius-sm); border: 1px solid var(--border); padding: 18px 14px; text-align: center; }
+.admin-stat-n { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; font-weight: 300; color: var(--gold); line-height: 1; margin-bottom: 4px; }
+.admin-stat-l { font-size: 0.56rem; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-3); }
+.admin-controls {
+  background: var(--bg-1); border-radius: var(--radius-sm); border: 1px solid var(--border);
+  padding: 14px 18px; display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+}
+.admin-search {
+  flex: 1; min-width: 200px; background: var(--bg-3); border: 1px solid var(--border);
+  border-radius: var(--radius-sm); color: var(--text); font-size: 0.74rem;
+  padding: 8px 12px; outline: none; transition: border-color 0.2s; font-family: inherit;
+}
+.admin-search:focus { border-color: var(--gold); }
+.admin-search::placeholder { color: var(--text-3); }
+.admin-filter-group { display: flex; gap: 5px; flex-wrap: wrap; }
+.filter-pill {
+  font-size: 0.6rem; font-weight: 400; letter-spacing: 0.05em; text-transform: uppercase;
+  padding: 5px 12px; border-radius: var(--radius-full); border: 1px solid var(--border);
+  color: var(--text-3); cursor: pointer; transition: all 0.2s; background: none;
+}
+.filter-pill:hover { color: var(--text); border-color: var(--border-2); }
+.filter-pill.active { background: var(--gold); color: #000; border-color: var(--gold); }
+.admin-sort {
+  background: var(--bg-3); border: 1px solid var(--border); border-radius: var(--radius-sm);
+  color: var(--text); font-size: 0.68rem; padding: 7px 10px; outline: none; cursor: pointer; font-family: inherit;
+}
+.admin-list { background: var(--bg-1); border-radius: var(--radius); border: 1px solid var(--border); overflow: hidden; }
+.admin-row { padding: 18px 22px; border-bottom: 1px solid var(--border); transition: background 0.15s; border-left: 3px solid transparent; }
+.admin-row:last-child { border-bottom: none; }
+.admin-row:hover { background: var(--bg-2); }
+.admin-row.unread { border-left-color: var(--gold) !important; }
+.admin-row-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 10px; flex-wrap: wrap; }
+.admin-row-name { font-family: 'Cormorant Garamond', serif; font-size: 1rem; font-weight: 300; font-style: italic; }
+.admin-row-series { font-size: 0.68rem; font-weight: 300; color: var(--text-2); margin-top: 2px; }
+.admin-row-email { font-size: 0.66rem; font-weight: 400; color: var(--gold); margin-top: 1px; }
+.admin-row-bottom { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.admin-id { font-size: 0.54rem; font-weight: 400; color: var(--text-3); font-family: 'SF Mono', monospace; }
+.admin-date { font-size: 0.62rem; font-weight: 300; color: var(--text-3); }
+.admin-insta { font-size: 0.62rem; font-weight: 300; color: var(--text-2); }
+.admin-row-actions { display: flex; align-items: center; gap: 7px; flex-shrink: 0; }
+.admin-select {
+  background: var(--bg-3); border: 1px solid var(--border); border-radius: var(--radius-full);
+  color: var(--text); font-size: 0.6rem; letter-spacing: 0.05em; padding: 5px 12px;
+  outline: none; cursor: pointer; transition: border-color 0.2s; font-family: inherit;
+}
+.admin-select:focus { border-color: var(--gold); }
+.admin-del-btn { font-size: 0.6rem; font-weight: 400; color: var(--text-3); background: none; border: 1px solid var(--border); border-radius: var(--radius-full); cursor: pointer; padding: 5px 11px; transition: all 0.2s; }
+.admin-del-btn:hover { color: var(--err); border-color: var(--err); }
+.admin-view-btn { font-size: 0.6rem; font-weight: 400; color: var(--text-3); background: none; border: 1px solid var(--border); border-radius: var(--radius-full); cursor: pointer; padding: 5px 11px; transition: all 0.2s; }
+.admin-view-btn:hover { color: var(--gold); border-color: rgba(200,160,106,0.4); }
+.admin-empty { padding: 48px; text-align: center; font-size: 0.8rem; color: var(--text-3); font-style: italic; }
+
+/* status row colors */
+.status-row-color-received { border-left-color: var(--gold) !important; }
+.status-row-color-reviewing { border-left-color: var(--reviewing) !important; }
+.status-row-color-shortlist { border-left-color: var(--shortlist-color) !important; }
+.status-row-color-accepted { border-left-color: var(--accepted) !important; }
+.status-row-color-declined { border-left-color: var(--declined) !important; }
+.status-row-color-published { border-left-color: var(--published) !important; }
+
+/* admin badges */
+.new-badge { display: inline-block; background: var(--gold); color: #000; font-size: 0.42rem; font-weight: 600; letter-spacing: 0.1em; padding: 2px 6px; border-radius: 4px; vertical-align: middle; margin-left: 6px; }
+.notes-dot { display: inline-block; width: 5px; height: 5px; border-radius: 50%; background: var(--gold); vertical-align: middle; margin-left: 5px; }
+
+/* modal */
+.modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.75); z-index: 8888; display: flex; align-items: center; justify-content: center; padding: 20px; opacity: 0; visibility: hidden; transition: opacity 0.25s, visibility 0.25s; }
+.modal-overlay.open { opacity: 1; visibility: visible; }
+.modal-box { background: var(--bg-1); border-radius: var(--radius); border: 1px solid var(--border); max-width: 640px; width: 100%; max-height: 85vh; overflow-y: auto; padding: 30px; position: relative; }
+.modal-close { position: absolute; top: 18px; right: 18px; width: 30px; height: 30px; border-radius: 50%; background: var(--bg-3); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 0.85rem; color: var(--text-2); transition: all 0.2s; }
+.modal-close:hover { color: var(--text); border-color: var(--border-2); }
+.modal-field { margin-bottom: 14px; padding-bottom: 14px; border-bottom: 1px solid var(--border); }
+.modal-field:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+.modal-lbl { font-size: 0.56rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 5px; }
+.modal-val { font-size: 0.78rem; font-weight: 300; line-height: 1.85; color: var(--text-2); white-space: pre-wrap; word-break: break-word; }
+
+/* profile card in modal */
+.profile-card { background: var(--bg-3); border-radius: var(--radius-sm); border: 1px solid var(--border); padding: 18px 22px; display: flex; align-items: center; gap: 16px; margin-bottom: 18px; }
+.profile-avatar { width: 46px; height: 46px; border-radius: 50%; background: linear-gradient(135deg, rgba(200,160,106,0.22), rgba(200,160,106,0.05)); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 300; color: var(--gold); flex-shrink: 0; }
+.profile-info { flex: 1; min-width: 0; }
+.profile-name { font-family: 'Cormorant Garamond', serif; font-size: 1.05rem; font-weight: 300; font-style: italic; margin-bottom: 2px; }
+.profile-insta { font-size: 0.64rem; font-weight: 400; color: var(--gold); margin-bottom: 4px; }
+.profile-email-row { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.profile-email { font-size: 0.64rem; font-weight: 300; color: var(--text-2); word-break: break-all; }
+.profile-copy-btn { font-size: 0.5rem; font-weight: 400; color: var(--text-3); background: none; border: 1px solid var(--border); border-radius: var(--radius-full); padding: 3px 9px; cursor: pointer; white-space: nowrap; transition: all 0.2s; flex-shrink: 0; }
+.profile-copy-btn:hover { color: var(--gold); border-color: rgba(200,160,106,0.4); }
+
+/* admin notes */
+.admin-notes-area { width: 100%; background: var(--bg-3); border: 1px solid var(--border); border-radius: var(--radius-sm); color: var(--text); font-size: 0.74rem; font-weight: 300; padding: 10px 12px; resize: vertical; min-height: 70px; margin-top: 8px; box-sizing: border-box; font-family: inherit; outline: none; }
+.admin-notes-area:focus { border-color: var(--gold); }
+.admin-notes-save { font-size: 0.58rem; font-weight: 500; color: var(--gold); background: none; border: 1px solid rgba(200,160,106,0.4); border-radius: var(--radius-full); cursor: pointer; padding: 5px 13px; transition: all 0.2s; margin-top: 6px; }
+.admin-notes-save:hover { background: var(--gold); color: #000; }
+.email-draft-box { background: var(--bg-3); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 14px; margin-top: 10px; }
+.email-copy-btn { font-size: 0.58rem; font-weight: 400; color: var(--text-2); background: none; border: 1px solid var(--border); border-radius: var(--radius-full); cursor: pointer; padding: 5px 13px; margin-top: 8px; transition: all 0.2s; }
+.email-copy-btn:hover { color: var(--gold); border-color: rgba(200,160,106,0.4); }
+
+/* bulk bar */
+.admin-cb { width: 15px; height: 15px; accent-color: var(--gold); cursor: pointer; flex-shrink: 0; }
+.bulk-bar { position: fixed; bottom: 22px; left: 50%; transform: translateX(-50%) translateY(20px); z-index: 8000; background: var(--bg-1); border: 1px solid var(--border-2); border-radius: var(--radius-full); padding: 10px 20px; display: flex; align-items: center; gap: 10px; box-shadow: 0 8px 40px rgba(0,0,0,0.55); opacity: 0; pointer-events: none; transition: all 0.25s; white-space: nowrap; }
+.bulk-bar.show { opacity: 1; pointer-events: auto; transform: translateX(-50%) translateY(0); }
+.bulk-count { font-size: 0.62rem; font-weight: 500; color: var(--gold); letter-spacing: -0.01em; padding-right: 10px; border-right: 1px solid var(--border); }
+.bulk-action-btn { font-size: 0.56rem; font-weight: 400; letter-spacing: 0.08em; text-transform: uppercase; padding: 5px 12px; border-radius: var(--radius-full); border: 1px solid var(--border); color: var(--text-2); cursor: pointer; transition: all 0.2s; background: none; }
+.bulk-action-btn:hover { color: var(--text); border-color: var(--border-2); }
+.bulk-action-btn.del { color: var(--err); border-color: var(--err-border); }
+.bulk-action-btn.del:hover { background: var(--err-bg); }
+
+/* analytics */
+.analytics-card { background: var(--bg-1); border-radius: var(--radius-sm); border: 1px solid var(--border); padding: 26px 30px; margin-bottom: 12px; }
+.analytics-h { font-size: 0.6rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); display: flex; align-items: center; gap: 8px; margin-bottom: 18px; }
+.analytics-h::before { content: ''; width: 14px; height: 1px; background: var(--gold); }
+.analytics-chart { display: flex; align-items: flex-end; gap: 3px; height: 70px; width: 100%; margin-bottom: 8px; }
+.analytics-bar { background: var(--gold); border-radius: 2px 2px 0 0; opacity: 0.55; flex: 1; transition: opacity 0.15s; cursor: default; position: relative; min-height: 2px; }
+.analytics-bar:hover { opacity: 1; }
+.analytics-bar::after { content: attr(data-tip); position: absolute; bottom: calc(100% + 5px); left: 50%; transform: translateX(-50%); background: var(--bg-3); border: 1px solid var(--border); border-radius: 6px; font-size: 0.5rem; color: var(--text); padding: 4px 8px; white-space: nowrap; pointer-events: none; opacity: 0; transition: opacity 0.15s; z-index: 10; }
+.analytics-bar:hover::after { opacity: 1; }
+.analytics-status-row { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 10px; }
+.analytics-chip { display: flex; align-items: center; gap: 6px; font-size: 0.6rem; font-weight: 300; color: var(--text-2); }
+.analytics-dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
+
+/* featured editor */
+.featured-editor-list { display: flex; flex-direction: column; gap: 8px; margin-top: 12px; }
+.featured-editor-item { background: var(--bg-3); border-radius: var(--radius-sm); border: 1px solid var(--border); padding: 16px 20px; display: flex; align-items: center; justify-content: space-between; gap: 14px; flex-wrap: wrap; }
+.featured-editor-info { flex: 1; min-width: 0; }
+.featured-editor-title { font-family: 'Cormorant Garamond', serif; font-size: 0.95rem; font-weight: 300; font-style: italic; margin-bottom: 2px; }
+.featured-editor-meta { font-size: 0.62rem; font-weight: 300; color: var(--text-2); }
+.feat-badge { font-size: 0.5rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; padding: 3px 9px; border-radius: var(--radius-full); }
+.feat-badge.published { background: var(--accepted-bg); color: var(--accepted); border: 1px solid var(--accepted-border); }
+.feat-badge.draft { background: var(--bg-1); color: var(--text-3); border: 1px solid var(--border); }
+
+/* stars */
+.stars { display: inline-flex; gap: 2px; align-items: center; }
+.star { color: var(--border-2); font-size: 0.95rem; cursor: pointer; transition: color 0.15s; background: none; border: none; padding: 1px; line-height: 1; }
+.star.on { color: var(--gold); }
+.star:hover { color: var(--gold-2); }
+
+/* form label / input in admin featured */
+.form-label { display: block; font-size: 0.6rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); margin-bottom: 4px; }
+.form-input { width: 100%; background: var(--bg-3); border: 1px solid var(--border); border-radius: var(--radius-sm); color: var(--text); font-size: 0.82rem; font-weight: 300; padding: 9px 12px; outline: none; transition: border-color 0.2s; font-family: inherit; }
+.form-input:focus { border-color: var(--gold); }
+
+/* ═══════════ FOOTER ═══════════ */
+.footer-wrap { padding: 12px 20px 28px; max-width: 1160px; margin: 0 auto; }
+footer {
+  background: var(--bg-1); border-radius: var(--radius); border: 1px solid var(--border);
+  display: grid; grid-template-columns: 1fr 1fr 1fr; overflow: hidden;
+}
+.foot-col { padding: 26px 28px; border-right: 1px solid var(--border); }
+.foot-col:last-child { border-right: none; display: flex; flex-direction: column; justify-content: space-between; }
+.foot-brand { font-family: 'Cormorant Garamond', serif; font-size: 0.9rem; font-weight: 300; letter-spacing: 0.5em; margin-bottom: 10px; display: flex; align-items: center; gap: 9px; }
+.foot-brand svg { width: 17px; }
+.foot-tag { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 0.88rem; color: var(--text-2); line-height: 1.7; }
+.foot-h { font-size: 0.58rem; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; }
+.foot-list { list-style: none; }
+.foot-list li { margin-bottom: 7px; }
+.foot-list a { font-size: 0.74rem; font-weight: 300; color: var(--text-2); transition: color 0.2s; }
+.foot-list a:hover { color: var(--gold); }
+.foot-copy { font-size: 0.58rem; font-weight: 400; letter-spacing: -0.01em; color: var(--text-3); line-height: 1.9; }
+.foot-eye { opacity: 0.07; margin-bottom: 14px; }
+.foot-eye svg { width: 34px; }
+
+/* ─── MOBILE ────────────────────── */
+@media(max-width: 768px) {
+  .nav-links, .nav-pill { display: none; }
+  .nav-hamburger { display: flex; }
+  .nav-wrap { padding: 10px 14px; }
+  nav { padding: 0 6px 0 14px; height: 46px; }
+  .pg { padding-top: 68px; }
+  .hero-grid { grid-template-columns: 1fr; padding: 14px 14px 10px; gap: 10px; }
+  .hero-main { padding: 32px 28px; min-height: auto; }
+  .hero-wordmark { font-size: clamp(2.8rem, 13vw, 4.5rem); letter-spacing: 0.22em; }
+  .stat-row, .hero-side { gap: 10px; }
+  .countdown-wrap { padding: 0 14px 10px; }
+  .countdown-card { flex-direction: column; align-items: flex-start; gap: 14px; }
+  .ticker-wrap-outer { padding: 0 14px 10px; }
+  .mani-row { grid-template-columns: 1fr; padding: 0 14px 10px; gap: 10px; }
+  .cta-outer, .nl-outer { padding-left: 14px; padding-right: 14px; }
+  .cta-banner { flex-direction: column; align-items: flex-start; padding: 24px; gap: 14px; }
+  .nl-banner { flex-direction: column; align-items: flex-start; padding: 24px; gap: 14px; }
+  .nl-form { width: 100%; flex-direction: column; }
+  .nl-input { width: 100%; }
+  .about-wrap, .issues-wrap, .submit-wrap, .press-wrap, .mood-wrap, .faq-wrap, .contact-wrap, .admin-wrap { padding: 14px; gap: 10px; }
+  .about-hero-card, .submit-header { grid-template-columns: 1fr; }
+  .about-l, .submit-header-l { padding: 30px 26px; border-right: none; border-bottom: 1px solid var(--border); }
+  .about-r, .submit-header-r { padding: 30px 26px; }
+  .beliefs-grid, .contact-grid, .press-grid, .press-stat-row { grid-template-columns: 1fr; }
+  .belief { border-right: none; border-bottom: 1px solid var(--border); }
+  .belief:last-child { border-bottom: none; }
+  .team-inner { grid-template-columns: 1fr; }
+  .team-portrait { min-height: 260px; border-right: none; border-bottom: 1px solid var(--border); }
+  .team-info { padding: 24px 26px; }
+  .issues-header { padding: 30px 26px; flex-direction: column; align-items: flex-start; gap: 14px; }
+  .issues-note { text-align: left; max-width: 100%; }
+  .issue-inner { display: flex !important; flex-direction: column !important; }
+  .issue-cover { border-right: none; border-bottom: 1px solid var(--border); min-height: 200px; }
+  .submit-body { grid-template-columns: 1fr; }
+  .form-card, .tracker-card { position: static; padding: 22px; }
+  .tracker-row { flex-direction: column; }
+  .tracker-status-row { flex-direction: column; align-items: flex-start; }
+  .mood-header { flex-direction: column; align-items: flex-start; gap: 12px; padding: 26px; }
+  .mood-grid { grid-template-columns: 1fr; }
+  .mood-cell:first-child { grid-column: span 1; }
+  .faq-header { padding: 26px; }
+  .faq-q { padding: 16px 18px; }
+  .faq-a p { padding: 0 18px 16px; }
+  footer { grid-template-columns: 1fr; }
+  .foot-col { border-right: none; border-bottom: 1px solid var(--border); padding: 20px 22px; }
+  .foot-col:last-child { border-bottom: none; justify-content: flex-start; gap: 12px; }
+  .foot-eye { margin-bottom: 4px; }
+  .footer-wrap { padding: 10px 14px 20px; }
+  .admin-stats { grid-template-columns: repeat(3,1fr); }
+  .admin-controls { flex-direction: column; align-items: stretch; }
+  .admin-search { min-width: unset; }
+  .admin-row-actions { flex-wrap: wrap; }
+  .modal-box { padding: 22px; }
+  .opencall-grid { grid-template-columns: 1fr; }
+  .opencall-theme-card { grid-column: span 1; }
+  .opencall-hero { padding: 30px 26px; }
+  .opencall-cta { flex-direction: column; align-items: flex-start; }
+  .featured-grid { grid-template-columns: 1fr; }
+  .featured-detail-wrap { padding: 0 14px 60px; }
+  .press-stat-row { grid-template-columns: 1fr 1fr; }
+  .admin-stats { grid-template-columns: repeat(2,1fr); }
+  .bulk-bar { width: calc(100% - 28px); border-radius: var(--radius); flex-wrap: wrap; justify-content: center; bottom: 14px; }
+  .profile-card { flex-direction: column; align-items: flex-start; gap: 10px; }
+  .analytics-chart { height: 48px; }
+}
+@media(max-width: 480px) {
+  .countdown-units { gap: 6px; }
+  .cd-unit { min-width: 54px; padding: 10px; }
+  .cd-n { font-size: 1.7rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- ─── COOKIE CONSENT BANNER ─── -->
+<div class="cookie-banner" id="cookie-banner" role="dialog" aria-label="Cookie consent">
+  <div class="cookie-banner-title">We use cookies</div>
+  <p class="cookie-banner-text">Révèle uses essential cookies to keep the submission system working, and optional analytics to improve the experience. By clicking Accept you agree to our <a href="#" onclick="go('privacy');cookieDecline()">Privacy Policy</a>. You can always use essential-only.</p>
+  <div class="cookie-banner-actions">
+    <button class="cookie-accept-btn" onclick="cookieAccept()">Accept all</button>
+    <button class="cookie-decline-btn" onclick="cookieDecline()">Essential only</button>
+  </div>
+</div>
+
+<!-- ─── SUBMISSION DETAIL MODAL ─── -->
+<div class="modal-overlay" id="modal-overlay" onclick="closeModal(event)">
+  <div class="modal-box" id="modal-box">
+    <button class="modal-close" onclick="closeModal()" aria-label="Close">✕</button>
+    <div id="modal-content"></div>
+  </div>
+</div>
+
+<!-- ─── BULK ACTION BAR ─── -->
+<div class="bulk-bar" id="bulk-bar">
+  <span class="bulk-count" id="bulk-count">0 selected</span>
+  <button class="bulk-action-btn" onclick="bulkAction('status','accepted')">Accept</button>
+  <button class="bulk-action-btn" onclick="bulkAction('status','shortlist')">Shortlist</button>
+  <button class="bulk-action-btn" onclick="bulkAction('status','declined')">Decline</button>
+  <button class="bulk-action-btn del" onclick="bulkAction('delete')">Delete</button>
+</div>
+
+<!-- ─── MOBILE MENU ─── -->
+<div class="mobile-menu" id="mobileMenu">
+  <span class="mobile-close" onclick="closeMobile()">Close</span>
+  <a href="#" onclick="go('home');closeMobile()">Home</a>
+  <a href="#" onclick="go('about');closeMobile()">About</a>
+  <a href="#" onclick="go('issues');closeMobile()">Issues</a>
+  <a href="#" onclick="go('mood');closeMobile()">Mood</a>
+  <a href="#" onclick="go('submit');closeMobile()">Submit</a>
+  <a href="#" onclick="go('faq');closeMobile()">FAQ</a>
+  <a href="#" onclick="go('contact');closeMobile()">Contact</a>
+  <a href="#" onclick="go('opencall');closeMobile()">Open Call</a>
+  <a href="#" onclick="go('featured');closeMobile()">Featured</a>
+  <a href="#" onclick="go('press');closeMobile()">Press</a>
+  <a href="#" onclick="go('tos');closeMobile()">Terms</a>
+  <a href="#" onclick="go('privacy');closeMobile()">Privacy</a>
+</div>
+
+<!-- ─── NAV ─── -->
+<div class="nav-wrap">
+  <nav>
+    <div class="nav-logo" onclick="go('home')">
+      <svg viewBox="0 0 100 50" fill="none">
+        <line x1="0" y1="6" x2="28" y2="23" stroke="#c8a06a" stroke-width="1" stroke-dasharray="4,3"/>
+        <line x1="100" y1="6" x2="72" y2="23" stroke="#c8a06a" stroke-width="1" stroke-dasharray="4,3"/>
+        <path d="M14 25Q50 5 86 25Q50 45 14 25Z" stroke="currentColor" stroke-width="1.3" fill="none"/>
+        <circle cx="50" cy="25" r="10" stroke="currentColor" stroke-width="1.1" fill="none"/>
+        <circle cx="50" cy="25" r="4.5" fill="currentColor"/>
+      </svg>
+      REVELE
+    </div>
+    <div class="nav-links">
+      <a href="#" onclick="return go('home')"     id="n-home"     class="on">Home</a>
+      <a href="#" onclick="return go('about')"    id="n-about">About</a>
+      <a href="#" onclick="return go('issues')"   id="n-issues">Issues</a>
+      <a href="#" onclick="return go('mood')"     id="n-mood">Mood</a>
+      <a href="#" onclick="return go('submit')"   id="n-submit">Submit</a>
+      <a href="#" onclick="return go('faq')"      id="n-faq">FAQ</a>
+      <a href="#" onclick="return go('contact')"  id="n-contact">Contact</a>
+      <a href="#" onclick="return go('opencall')" id="n-opencall">Open Call</a>
+      <a href="#" onclick="return go('featured')" id="n-featured">Featured</a>
+      <a href="#" onclick="return go('press')"    id="n-press">Press</a>
+    </div>
+    <div class="nav-right">
+      <div class="nav-pill">Issue 01 Open</div>
+      <button class="icon-btn" id="themeToggle" onclick="toggleTheme()" title="Toggle theme">☀</button>
+      <div class="nav-hamburger" onclick="openMobile()"><span></span><span></span><span></span></div>
+    </div>
+  </nav>
+</div>
+
+<!-- ─── BACKEND BANNER ─── -->
+<div class="backend-banner" id="backend-banner">
+  ⚠ The backend API is currently unreachable. Submissions, tracking, and the admin panel may not work. Please try again in a moment.
+</div>
+
+<!-- ══════════════════════════════════
+  HOME
+══════════════════════════════════ -->
+<div id="home" class="pg on">
+  <div class="hero-grid">
+    <div class="hero-main">
+      <div>
+        <div class="hero-wordmark">REVELE</div>
+        <div class="hero-sub">Visual Arts Magazine</div>
+      </div>
+      <div class="hero-bottom">
+        <p class="hero-tagline">Some photographs whisper.<br>We were built to listen.</p>
+        <div class="hero-actions">
+          <button class="btn btn-gold" onclick="go('submit')">Submit work</button>
+          <button class="btn btn-ghost" onclick="go('issues')">View issues</button>
+        </div>
+      </div>
+    </div>
+    <div class="hero-side">
+      <div class="hero-quote-card">
+        <div class="hero-eye-bg">
+          <svg viewBox="0 0 400 200" fill="none"><path d="M20 100Q200 10 380 100Q200 190 20 100Z" stroke="currentColor" stroke-width="1.5" fill="none"/><circle cx="200" cy="100" r="44" stroke="currentColor" stroke-width="1.2" fill="none"/><circle cx="200" cy="100" r="20" fill="currentColor"/></svg>
+        </div>
+        <div>
+          <div style="margin-bottom:14px"><span class="eyebrow">Issue 01 — The First Gaze</span></div>
+          <p class="hero-q">"The story behind the image is the image."</p>
+        </div>
+        <p class="hero-q-meta">Photography · Visual Storytelling · Open Submissions</p>
+      </div>
+      <div class="stat-row">
+        <div class="stat-card">
+          <div class="stat-n" id="sub-counter">—</div>
+          <div class="stat-l">Submissions received</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-n">7</div>
+          <div class="stat-l">Day response time</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="countdown-wrap">
+    <div class="countdown-card">
+      <div class="countdown-label">
+        <div class="cd-eyebrow">Submissions close · Issue 01</div>
+        <div class="cd-sub">The First Gaze — deadline approaching</div>
+      </div>
+      <div class="countdown-units">
+        <div class="cd-unit"><div class="cd-n" id="cd-d">00</div><div class="cd-l">Days</div></div>
+        <div class="cd-unit"><div class="cd-n" id="cd-h">00</div><div class="cd-l">Hours</div></div>
+        <div class="cd-unit"><div class="cd-n" id="cd-m">00</div><div class="cd-l">Mins</div></div>
+        <div class="cd-unit"><div class="cd-n" id="cd-s">00</div><div class="cd-l">Secs</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ticker-wrap-outer">
+    <div class="ticker-track">
+      <div class="ticker-inner">
+        <span>Visual Arts</span><span>·</span><span>Photography</span><span>·</span><span>Stories Behind the Frame</span><span>·</span><em>Issue 01 Open for Submissions</em><span>·</span><span>The First Gaze</span><span>·</span><span>Doha, Qatar</span><span>·</span><span>Visual Arts</span><span>·</span><span>Photography</span><span>·</span><span>Stories Behind the Frame</span><span>·</span><em>Issue 01 Open for Submissions</em><span>·</span><span>The First Gaze</span><span>·</span><span>Doha, Qatar</span><span>·</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="mani-row">
+    <div class="mani-card">
+      <div class="mani-n">01</div>
+      <div class="mani-h">The image</div>
+      <p class="mani-p">We publish work from photographers across the world, any genre, any subject. What we ask for is intention and a willingness to let us in.</p>
+    </div>
+    <div class="mani-card">
+      <div class="mani-n">02</div>
+      <div class="mani-h">The story</div>
+      <p class="mani-p">Every submission can include a written piece, the story behind the photographs. Not a caption. The moment before, the world you carried, the silence after.</p>
+    </div>
+    <div class="mani-card">
+      <div class="mani-n">03</div>
+      <div class="mani-h">The reveal</div>
+      <p class="mani-p">Revele exists to lift the veil. To show not just what was captured, but what it meant to be the one holding the camera in that moment.</p>
+    </div>
+  </div>
+
+  <div class="cta-outer">
+    <div class="cta-banner">
+      <p class="cta-txt">Have a story worth <em>revealing?</em></p>
+      <button class="btn btn-gold" onclick="go('submit')">Begin your submission</button>
+    </div>
+  </div>
+
+  <div class="nl-outer">
+    <div class="nl-banner">
+      <div class="nl-left">
+        <h3>Stay in the frame.</h3>
+        <p>Get notified when Issue 01 drops and when new calls for work open.</p>
+      </div>
+      <div>
+        <div class="nl-form">
+          <input class="nl-input" id="nl-email" type="email" placeholder="your@email.com">
+          <button class="btn btn-gold" onclick="nlSubmit()">Subscribe</button>
+        </div>
+        <p class="nl-msg" id="nl-msg"></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════
+  ABOUT
+══════════════════════════════════ -->
+<div id="about" class="pg">
+  <div class="about-wrap">
+    <div class="about-hero-card">
+      <div class="about-l">
+        <div class="eyebrow" style="margin-bottom:16px">About Revele</div>
+        <h1 class="pg-title">Every image<br>holds a <em>secret.</em></h1>
+      </div>
+      <div class="about-r">
+        <div class="about-body">
+          <p>Revele is a visual arts magazine dedicated to the story that lives behind the photograph, the moment before the shutter, the world the photographer carried into the frame, the silence after.</p>
+          <p>We exist for photographers who understand that an image is never just an image. It is a decision, a feeling, a confession.</p>
+          <p>Each issue brings together submitted work from photographers worldwide, paired with the stories they choose to tell. Not captions. Stories.</p>
+        </div>
+      </div>
+    </div>
+    <div class="beliefs-card">
+      <div class="beliefs-head"><span class="eyebrow">What we believe</span></div>
+      <div class="beliefs-grid">
+        <div class="belief"><div class="belief-n">01</div><div class="belief-h">The gaze matters</div><p class="belief-p">Who holds the camera shapes what is seen. We celebrate the distinct perspective each photographer brings, without hierarchy or genre bias.</p></div>
+        <div class="belief"><div class="belief-n">02</div><div class="belief-h">Story is everything</div><p class="belief-p">We ask not just for images but for the lives that produced them. Context transforms a photograph into something that endures beyond the moment of its making.</p></div>
+        <div class="belief"><div class="belief-n">03</div><div class="belief-h">Intimacy over spectacle</div><p class="belief-p">Revele is drawn to the quiet, the overlooked, the tender. We have no interest in noise for its own sake. We are interested in what is true.</p></div>
+      </div>
+    </div>
+    <div class="team-card">
+      <div class="team-head"><span class="eyebrow">The team</span></div>
+      <div class="team-inner">
+        <div class="team-portrait"><img src="/assets/ebrahim.jpeg" alt="Ebrahim Kassem, Founder and Editor of Revele Magazine"></div>
+        <div class="team-info">
+          <div class="team-name">Ebrahim Kassem</div>
+          <div class="team-role">Founder and Editor</div>
+          <p class="team-bio">Ebrahim Kassem is the founder and editor of Revele, a visual arts magazine dedicated to the stories that live behind the image. Driven by a belief that every photograph carries a world within it, Ebrahim created Revele as a space where photographers are not just seen, but truly heard.</p>
+          <div class="team-links">
+            <a href="https://instagram.com/egsk.raw" target="_blank" class="team-link">@egsk.raw</a>
+            <a href="https://instagram.com/revele.mag" target="_blank" class="team-link">@revele.mag</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════
+  MOOD BOARD
+══════════════════════════════════ -->
+<div id="mood" class="pg">
+  <div class="mood-wrap">
+    <div class="mood-header">
+      <div>
+        <div class="eyebrow" style="margin-bottom:16px">Issue 01</div>
+        <h1 class="pg-title">The aesthetic<br>of <em>The First Gaze.</em></h1>
+      </div>
+      <p style="font-size:0.76rem;font-weight:300;line-height:1.85;color:var(--text-2);max-width:260px">Use this as a guide for the kind of work we are looking for. Not a rule. A feeling.</p>
+    </div>
+    <div class="mood-grid">
+      <div class="mood-cell">
+        <div class="mood-placeholder tall"><img src="/assets/mood-01.jpg" style="width:100%;height:100%;object-fit:cover;position:absolute;top:0;left:0;"></div>
+        <div class="mood-caption"><h4>The gaze that holds</h4><p>Portrait, environmental, documentary. The first image that stops someone mid-scroll.</p><div class="mood-kw-row"><span class="mood-kw">Intimate</span><span class="mood-kw">Direct</span><span class="mood-kw">Honest</span></div></div>
+      </div>
+      <div class="mood-cell">
+        <div class="mood-placeholder short"><img src="/assets/mood-02.jpg" style="width:100%;height:100%;object-fit:cover;position:absolute;top:0;left:0;"></div>
+        <div class="mood-caption"><h4>Light and shadow</h4><p>We are drawn to moody, considered light. Not overexposed. Not filtered.</p><div class="mood-kw-row"><span class="mood-kw">Moody</span><span class="mood-kw">Considered</span></div></div>
+      </div>
+      <div class="mood-cell">
+        <div class="mood-placeholder short"><img src="/assets/mood-03.jpg" style="width:100%;height:100%;object-fit:cover;position:absolute;top:0;left:0;"></div>
+        <div class="mood-caption"><h4>The space between</h4><p>Negative space, silence, the pause before and after the decisive moment.</p><div class="mood-kw-row"><span class="mood-kw">Still</span><span class="mood-kw">Minimal</span></div></div>
+      </div>
+      <div class="mood-cell">
+        <div class="mood-placeholder tall"><img src="/assets/mood-04.jpg" style="width:100%;height:100%;object-fit:cover;position:absolute;top:0;left:0;"></div>
+        <div class="mood-caption"><h4>People and place</h4><p>The relationship between a subject and where they exist. Documentary or constructed.</p><div class="mood-kw-row"><span class="mood-kw">Human</span><span class="mood-kw">Contextual</span><span class="mood-kw">Real</span></div></div>
+      </div>
+      <div class="mood-cell">
+        <div class="mood-placeholder short"><img src="/assets/mood-05.jpg" style="width:100%;height:100%;object-fit:cover;position:absolute;top:0;left:0;"></div>
+        <div class="mood-caption"><h4>Detail and texture</h4><p>The small things that carry entire worlds inside them.</p><div class="mood-kw-row"><span class="mood-kw">Close</span><span class="mood-kw">Tactile</span></div></div>
+      </div>
+    </div>
+    <div class="mood-not-card">
+      <div class="eyebrow" style="margin-bottom:14px">What we are not looking for</div>
+      <p style="font-size:0.76rem;font-weight:300;line-height:1.85;color:var(--text-2)">Heavily filtered or preset-driven images. Work submitted without a story or context. Derivative editorial work that resembles advertising. Technical perfection without intention. Work submitted by someone who has not read the guidelines.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════
+  ISSUES
+══════════════════════════════════ -->
+<div id="issues" class="pg">
+  <div class="issues-wrap">
+    <div class="issues-header">
+      <div>
+        <div class="eyebrow" style="margin-bottom:16px">Archive</div>
+        <h1 class="pg-title">Issues</h1>
+      </div>
+      <p class="issues-note"><em>Issue 01 is open now. Be part of the first gaze.</em></p>
+    </div>
+    <div class="issue-card">
+      <div class="issue-inner">
+        <div class="issue-cover">
+          <img src="/assets/issue-01-cover.jpg" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;z-index:1;">
+        </div>
+        <div style="padding:38px 42px;display:flex;flex-direction:column;justify-content:space-between">
+          <div>
+            <div class="issue-n">Issue 01</div>
+            <div class="issue-name">The First Gaze</div>
+            <div class="issue-status">2026 — Open for submissions</div>
+            <p style="font-size:0.76rem;font-weight:300;line-height:1.85;color:var(--text-2);max-width:480px">Our debut issue invites photographers to share a series of images and the story behind them. No genre restrictions. No experience requirements. Just a point of view and the willingness to share it.</p>
+          </div>
+          <button class="btn btn-gold" style="align-self:flex-start;margin-top:24px" onclick="go('submit')">Submit to Issue 01</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════
+  SUBMIT
+══════════════════════════════════ -->
+<div id="submit" class="pg">
+  <div class="submit-wrap">
+    <div class="submit-header">
+      <div class="submit-header-l">
+        <div class="eyebrow" style="margin-bottom:16px">Submissions</div>
+        <h1 class="pg-title">Share your<br><em>world.</em></h1>
+      </div>
+      <div class="submit-header-r">
+        <p class="submit-lede">We accept submissions from photographers at all stages. What we look for is not technical perfection, it is a point of view. Every submission is read personally by our editor.</p>
+      </div>
+    </div>
+    <div class="submit-body">
+      <div class="guidelines-card">
+        <div class="gl-head"><div class="gl-head-txt">Guidelines and requirements</div></div>
+        <div class="gl-row"><div class="gl-lbl">Image specifications</div><p class="gl-txt"><strong>Format:</strong> JPG or TIFF, sRGB colour profile<br><strong>Resolution:</strong> Minimum 300 DPI<br><strong>Dimensions:</strong> Min 2550 × 3300 px (8.5×11 in at 300 DPI)<br><strong>Quantity:</strong> 6 to 20 images per submission<br><br>No watermarks. Submit the original uncropped frame. After your submission is accepted we will send you a file upload link.</p></div>
+        <div class="gl-row"><div class="gl-lbl">Team credits — required</div><p class="gl-txt">Every team member must be credited:<br><br><strong>Photographer</strong> — Name @handle<br><strong>Model(s)</strong> — Name @handle, agency if applicable<br><strong>Stylist</strong> — Name @handle<br><strong>Hair and Makeup</strong> — Name @handle<br><strong>Creative Director</strong> — Name @handle<br><strong>Wardrobe / Brands</strong> — label per image<br><br>Incomplete credits may delay or cancel publication.</p></div>
+        <div class="gl-row"><div class="gl-lbl">The written story (optional)</div><p class="gl-txt">You may include a written piece of 200 to 800 words — the story behind the images. This is what makes Revele different, but it is not required.</p></div>
+        <div class="gl-row"><div class="gl-lbl">Exclusivity</div><p class="gl-txt">Images must be unpublished and not posted on social media. After publication in Revele, exclusivity expires and you may share freely.</p></div>
+        <div class="gl-row"><div class="gl-lbl">Response time</div><p class="gl-txt">Every submission is reviewed personally. Expect a response within <strong>7 to 10 days</strong>. All submissions receive a reply.</p></div>
+      </div>
+
+      <div class="closed-banner" id="sub-closed-banner">
+        <h2 style="font-family:'Cormorant Garamond',serif;font-size:1.35rem;font-weight:300;font-style:italic;margin-bottom:12px">Submissions are now closed.</h2>
+        <p style="font-size:0.76rem;font-weight:300;color:var(--text-2);line-height:1.85">Thank you for your interest in Issue 01 — The First Gaze. Submissions have closed. Follow us on Instagram <a href="https://instagram.com/revele.mag" style="color:var(--gold)">@revele.mag</a> to be notified when Issue 02 opens.</p>
+      </div>
+
+      <div class="form-card" id="sub-form-card">
+        <div class="form-title">Begin your submission</div>
+        <div class="fg"><label>Photographer name *</label><input id="f-name" type="text" placeholder="Full name" maxlength="200"></div>
+        <div class="fg"><label>Email address *</label><input id="f-email" type="email" placeholder="your@email.com" maxlength="200"></div>
+        <div class="fg"><label>Instagram handle</label><input id="f-insta" type="text" placeholder="@yourhandle" maxlength="100"></div>
+        <div class="fg"><label>Portfolio or website <span style="font-weight:300;color:var(--text-3)">(optional)</span></label><input id="f-website" type="url" placeholder="https://yourwebsite.com" maxlength="300"></div>
+        <div class="fg"><label>Series title *</label><input id="f-title" type="text" placeholder="What do you call this work?" maxlength="300"></div>
+        <div class="fg"><label>Team credits *</label><textarea id="f-credits" style="height:80px" maxlength="3000" placeholder="Role: Name @handle — e.g. Model: Jane Doe @janedoe" oninput="updateChar(this,'cc-credits',3000)"></textarea><div class="char-count" id="cc-credits">0 / 3000</div></div>
+        <div class="fg"><label>Your story (optional — 200 to 800 words recommended)</label><textarea id="f-story" style="height:120px" maxlength="5000" placeholder="Tell us the story behind these images…" oninput="updateChar(this,'cc-story',5000)"></textarea><div class="char-count" id="cc-story">0 / 5000</div></div>
+        <div class="fg"><label>Submitting for</label><select id="f-issue"><option value="Issue 01 — The First Gaze">Issue 01 — The First Gaze (Open)</option></select></div>
+        <p class="form-note">After submitting, we will reply to your email within 7–10 days. If accepted, you will receive a secure link to upload your final image files. All submissions are reviewed personally by our editor.</p>
+        <label class="consent-row">
+          <input type="checkbox" id="f-consent" required>
+          <span>I have read and agree to the <a href="#" onclick="go('tos')">Terms of Service</a> and <a href="#" onclick="go('privacy')">Privacy Policy</a>. I confirm I own or hold the rights to all submitted work.</span>
+        </label>
+        <button class="f-btn" id="f-btn" onclick="submitForm()">
+          <span id="f-btn-txt">Send submission</span>
+          <div class="f-spin" id="f-spin"></div>
+        </button>
+        <div class="f-status" id="f-status"></div>
+      </div>
+    </div>
+
+    <div class="tracker-card">
+      <div class="tracker-title">Track your submission</div>
+      <p class="tracker-sub">Already submitted? Enter your email address to check the current status of your submission — from any device, anywhere.</p>
+      <div class="tracker-row">
+        <input class="tracker-input" id="tracker-email" type="email" placeholder="your@email.com" onkeydown="if(event.key==='Enter')trackSubmission()">
+        <button class="btn btn-ghost" onclick="trackSubmission()">Check status</button>
+      </div>
+      <div class="tracker-result" id="tracker-result"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════
+  FAQ
+══════════════════════════════════ -->
+<div id="faq" class="pg">
+  <div class="faq-wrap">
+    <div class="faq-header">
+      <div class="eyebrow" style="margin-bottom:16px">FAQ</div>
+      <h1 class="pg-title">Questions,<br><em>answered.</em></h1>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span>Do I need to be a professional photographer to submit?</span><span class="faq-icon">+</span></div><div class="faq-a"><p>Not at all. We welcome photographers at every stage, from first-time submitters to seasoned professionals. What matters is your point of view, not your resume or equipment.</p></div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span>Can I submit work shot on a phone?</span><span class="faq-icon">+</span></div><div class="faq-a"><p>Yes, as long as the files meet our minimum resolution requirements. Many phones can meet this. Check your export settings before submitting.</p></div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span>Is the written story required?</span><span class="faq-icon">+</span></div><div class="faq-a"><p>No, it is optional. However, submissions that include a story are much more likely to be accepted. Even a few paragraphs can transform how we see your work.</p></div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span>Can I submit if I have already posted the images on Instagram?</span><span class="faq-icon">+</span></div><div class="faq-a"><p>Unfortunately no. We require that submitted images are unpublished. After your work is published in Revele, you are free to share it anywhere.</p></div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span>How many images should I submit?</span><span class="faq-icon">+</span></div><div class="faq-a"><p>Between 6 and 20 images. We recommend around 10 to 15 for a well-rounded series. The images should feel cohesive and tell a single visual story.</p></div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span>Will I be paid for my work?</span><span class="faq-icon">+</span></div><div class="faq-a"><p>Revele is an independent publication in its launch phase. At this stage we do not offer monetary payment, but all featured photographers receive full credit, a digital tearsheet, and significant exposure across Instagram and MagCloud.</p></div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span>How long does it take to hear back?</span><span class="faq-icon">+</span></div><div class="faq-a"><p>We respond to every submission within 7 to 10 days. You will receive a reply whether your work is accepted or not.</p></div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span>What genres or styles do you publish?</span><span class="faq-icon">+</span></div><div class="faq-a"><p>All genres are welcome — portrait, documentary, street, fashion, fine art, landscape, conceptual. Visit our Mood page for the aesthetic direction of Issue 01, but do not let it limit you.</p></div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span>Do you accept series shot in colour and black and white?</span><span class="faq-icon">+</span></div><div class="faq-a"><p>Yes. Both are welcome. What matters is that the choice feels intentional.</p></div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span>Can I submit to more than one issue at a time?</span><span class="faq-icon">+</span></div><div class="faq-a"><p>Currently only Issue 01 is open. If your work is not selected for Issue 01, you are welcome to submit new or different work to future issues.</p></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════
+  CONTACT
+══════════════════════════════════ -->
+<div id="contact" class="pg">
+  <div class="contact-wrap">
+    <div style="background:var(--bg-1);border-radius:var(--radius);border:1px solid var(--border);padding:48px">
+      <div class="eyebrow" style="margin-bottom:16px">Contact</div>
+      <h1 class="pg-title">Get in<br><em>touch.</em></h1>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-card"><h3>Submissions</h3><p>For submitting your photographic work to Issue 01 or future issues.</p><a href="mailto:submissions@revelemagazine.com">submissions@revelemagazine.com</a></div>
+      <div class="contact-card"><h3>Management</h3><p>For partnerships, collaborations, advertising, or business enquiries.</p><a href="mailto:management@revelemagazine.com">management@revelemagazine.com</a></div>
+      <div class="contact-card"><h3>General Inquiries</h3><p>For press, questions, feedback, or anything else.</p><a href="mailto:inquiries@revelemagazine.com">inquiries@revelemagazine.com</a></div>
+    </div>
+    <div style="background:var(--bg-1);border-radius:var(--radius);border:1px solid var(--border);padding:30px">
+      <div class="eyebrow" style="margin-bottom:14px">Follow us</div>
+      <div class="socials-row">
+        <a href="https://instagram.com/revele.mag" target="_blank" class="social-pill">Instagram @revele.mag</a>
+        <a href="https://instagram.com/egsk.raw" target="_blank" class="social-pill">Founder @egsk.raw</a>
+        <a href="https://magcloud.com" target="_blank" class="social-pill">MagCloud</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════
+  PRESS
+══════════════════════════════════ -->
+<div id="press" class="pg">
+  <div class="press-wrap">
+    <div style="background:var(--bg-1);border-radius:var(--radius);border:1px solid var(--border);padding:48px">
+      <div class="eyebrow" style="margin-bottom:16px">Press and Media</div>
+      <h1 class="pg-title">Brand<br><em>assets.</em></h1>
+    </div>
+    <div class="press-stat-row">
+      <div class="press-stat"><div class="press-stat-n">01</div><div class="press-stat-l">Issues in 2026</div></div>
+      <div class="press-stat"><div class="press-stat-n">7</div><div class="press-stat-l">Day response</div></div>
+      <div class="press-stat"><div class="press-stat-n">QA</div><div class="press-stat-l">Based in Doha</div></div>
+      <div class="press-stat"><div class="press-stat-n">2026</div><div class="press-stat-l">Founded</div></div>
+    </div>
+    <div class="press-grid">
+      <div class="press-card"><h3>About Revele</h3><p>Revele is an independent visual arts magazine based in Doha, Qatar, dedicated to the story behind the photograph. Founded in 2026 by Ebrahim Kassem, Revele publishes work from photographers worldwide alongside the stories that produced the images.</p><button class="btn btn-ghost" onclick="copyText('Revele is an independent visual arts magazine based in Doha, Qatar, dedicated to the story behind the photograph. Founded in 2026 by Ebrahim Kassem.')">Copy bio</button></div>
+      <div class="press-card">
+        <h3>Brand colors</h3>
+        <p>Our primary palette is dark and warm, built around deep black backgrounds and a signature gold accent.</p>
+        <div style="display:flex;gap:12px;flex-wrap:wrap">
+          <div><div class="swatch" style="background:#000000"></div><div class="swatch-label">#000000</div></div>
+          <div><div class="swatch" style="background:#c8a06a"></div><div class="swatch-label">#c8a06a</div></div>
+          <div><div class="swatch" style="background:#f5f5f7"></div><div class="swatch-label">#f5f5f7</div></div>
+          <div><div class="swatch" style="background:#1a1a1a;border:1px solid rgba(255,255,255,0.15)"></div><div class="swatch-label">#1a1a1a</div></div>
+        </div>
+      </div>
+      <div class="press-card"><h3>Typography</h3><p>We use Cormorant Garamond for display and editorial text, and Inter for UI and supporting copy. Both are available via Google Fonts.</p><div style="margin-top:10px"><p style="font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:300;color:var(--text);margin-bottom:5px">Cormorant Garamond</p><p style="font-size:0.82rem;font-weight:400;color:var(--text-2)">Inter — UI and supporting</p></div></div>
+      <div class="press-card"><h3>Contact for press</h3><p>For editorial features, interviews, or press coverage please reach out directly.</p><a href="mailto:inquiries@revelemagazine.com">inquiries@revelemagazine.com</a></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════
+  OPEN CALL
+══════════════════════════════════ -->
+<div id="opencall" class="pg">
+  <div class="opencall-wrap">
+    <div class="opencall-hero">
+      <div class="eyebrow">Issue 01 — Open Call</div>
+      <h1 class="opencall-title">The First Gaze<br><em>A call for photographers</em></h1>
+      <div class="opencall-meta">
+        <div class="opencall-meta-item"><strong>Issue 01</strong>The First Gaze</div>
+        <div class="opencall-meta-item"><strong>1 Sept 2026</strong>Submission deadline</div>
+        <div class="opencall-meta-item"><strong>Free</strong>No entry fee</div>
+        <div class="opencall-meta-item"><strong>Digital + Print</strong>Publication format</div>
+      </div>
+    </div>
+    <div class="opencall-grid">
+      <div class="opencall-req-card">
+        <div class="opencall-req-title">What we are looking for</div>
+        <ul class="opencall-req-list">
+          <li>Narrative-driven photography with a strong editorial voice</li>
+          <li>Photo series of 5–15 images that tell a cohesive story</li>
+          <li>Documentary, fine art, portrait, fashion editorial — all genres welcome</li>
+          <li>Work not previously published in a magazine format</li>
+          <li>Both film and digital photography accepted</li>
+          <li>Photographers at all career stages — emerging to established</li>
+        </ul>
+      </div>
+      <div class="opencall-req-card">
+        <div class="opencall-req-title">Technical requirements</div>
+        <ul class="opencall-req-list">
+          <li>Minimum 2550 × 3300 px (300 DPI) for final selected files</li>
+          <li>JPG or TIFF, sRGB colour profile</li>
+          <li>Include a written story — the narrative behind your images</li>
+          <li>Full team credits: photographer, stylist, MUA, model, location</li>
+          <li>You must own or control the rights to all submitted images</li>
+          <li>International submissions welcome — we are a global publication</li>
+        </ul>
+      </div>
+      <div class="opencall-theme-card">
+        <div class="opencall-req-title">Issue theme — The First Gaze</div>
+        <p class="opencall-quote">"The story behind the image is the image."</p>
+        <p class="opencall-body">Issue 01 of Révèle is built around the moment of first seeing — the first gaze between subject and lens, between photographer and light, between viewer and image. We invite work that captures not just what was seen, but the act of seeing itself.<br><br>There is no rigid brief. Interpret the theme freely. What matters is that the work carries a story only you could tell.<br><br>Featured photographers receive full credit in print and digital editions, a digital tearsheet, and promotion across all Révèle channels including Instagram. Révèle is an independent publication in its launch phase and does not currently offer monetary compensation.</p>
+      </div>
+    </div>
+    <div class="opencall-cta">
+      <div class="opencall-deadline">
+        <strong>1 September 2026</strong>
+        <span>Submission deadline · Free to enter · Open internationally</span>
+      </div>
+      <button class="btn btn-gold" onclick="go('submit')">Submit your work</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════
+  FEATURED
+══════════════════════════════════ -->
+<div id="featured" class="pg" onactivate="loadFeatured()">
+  <div class="featured-wrap">
+    <div class="featured-header">
+      <div class="eyebrow" style="margin-bottom:14px">Featured photographers</div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,3.5vw,3rem);font-weight:300;letter-spacing:0.02em">Selected <em style="font-style:italic;color:var(--gold)">from the archive</em></div>
+      <p style="font-size:0.74rem;font-weight:300;color:var(--text-2);line-height:1.8;margin-top:12px;max-width:560px">Editorial features from photographers whose work has been selected for Révèle. Each spread is accompanied by the full story behind the series.</p>
+    </div>
+    <div id="featured-grid-container"><div class="featured-empty">Loading…</div></div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════
+  FEATURED DETAIL
+══════════════════════════════════ -->
+<div id="featured-detail" class="pg">
+  <div class="featured-detail-wrap">
+    <button class="featured-detail-back" onclick="go('featured')">Back to Featured</button>
+    <div id="featured-detail-content"></div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════
+  ADMIN
+══════════════════════════════════ -->
+<div id="admin" class="pg">
+  <div class="admin-wrap">
+    <div style="background:var(--bg-1);border-radius:var(--radius);border:1px solid var(--border);padding:40px">
+      <div class="eyebrow" style="margin-bottom:16px">Admin</div>
+      <h1 class="pg-title">Submission<br><em>manager.</em></h1>
+    </div>
+
+    <div class="admin-gate-wrap" id="admin-gate-wrap">
+      <div class="admin-gate">
+        <h2>Enter password</h2>
+        <input type="password" id="admin-pw" placeholder="Password" onkeydown="if(event.key==='Enter')adminLogin()">
+        <button class="f-btn" onclick="adminLogin()">
+          <span id="admin-login-txt">Enter</span>
+          <div class="f-spin" id="admin-login-spin"></div>
+        </button>
+        <div class="f-status err" id="admin-pw-err" style="display:none;margin-top:8px"></div>
+      </div>
+    </div>
+
+    <div id="admin-panel" style="display:none">
+      <div style="display:flex;align-items:center;justify-content:space-between;background:var(--bg-1);border-radius:var(--radius-sm);border:1px solid var(--border);padding:14px 22px;flex-wrap:wrap;gap:10px">
+        <span style="font-size:0.66rem;font-weight:400;letter-spacing:0.05em;text-transform:uppercase;color:var(--text-3)">Submissions — <span id="admin-count">0</span> total</span>
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <button class="btn btn-ghost" style="font-size:0.6rem" onclick="toggleAnalytics()">Analytics</button>
+          <button class="btn btn-ghost" style="font-size:0.6rem" onclick="toggleFeaturedEditor()">Featured Editor</button>
+          <button class="btn btn-ghost" onclick="adminLogout()">Log out</button>
+        </div>
+      </div>
+
+      <div class="admin-stats">
+        <div class="admin-stat"><div class="admin-stat-n" id="st-total">0</div><div class="admin-stat-l">Total</div></div>
+        <div class="admin-stat"><div class="admin-stat-n" id="st-received" style="color:var(--gold)">0</div><div class="admin-stat-l">Received</div></div>
+        <div class="admin-stat"><div class="admin-stat-n" id="st-reviewing" style="color:var(--reviewing)">0</div><div class="admin-stat-l">Reviewing</div></div>
+        <div class="admin-stat"><div class="admin-stat-n" id="st-shortlist" style="color:var(--shortlist-color)">0</div><div class="admin-stat-l">Shortlist</div></div>
+        <div class="admin-stat"><div class="admin-stat-n" id="st-accepted" style="color:var(--accepted)">0</div><div class="admin-stat-l">Accepted</div></div>
+        <div class="admin-stat"><div class="admin-stat-n" id="st-declined" style="color:var(--declined)">0</div><div class="admin-stat-l">Declined</div></div>
+        <div class="admin-stat"><div class="admin-stat-n" id="st-published" style="color:var(--published)">0</div><div class="admin-stat-l">Published</div></div>
+      </div>
+
+      <div class="admin-controls">
+        <label style="display:flex;align-items:center;gap:7px;font-size:0.62rem;color:var(--text-3);cursor:pointer;flex-shrink:0;white-space:nowrap">
+          <input type="checkbox" class="admin-cb" id="select-all-cb" onchange="selectAll(this.checked)"> All
+        </label>
+        <input class="admin-search" id="admin-search" type="text" placeholder="Search by name, email, or series…" oninput="debounceAdminLoad()">
+        <div class="admin-filter-group" id="filter-group">
+          <button class="filter-pill active" data-filter="" onclick="setFilter(this,'')">All</button>
+          <button class="filter-pill" data-filter="received"  onclick="setFilter(this,'received')">Received</button>
+          <button class="filter-pill" data-filter="reviewing" onclick="setFilter(this,'reviewing')">Reviewing</button>
+          <button class="filter-pill" data-filter="shortlist" onclick="setFilter(this,'shortlist')">Shortlist</button>
+          <button class="filter-pill" data-filter="accepted"  onclick="setFilter(this,'accepted')">Accepted</button>
+          <button class="filter-pill" data-filter="declined"  onclick="setFilter(this,'declined')">Declined</button>
+          <button class="filter-pill" data-filter="published" onclick="setFilter(this,'published')">Published</button>
+        </div>
+        <select class="admin-sort" id="admin-sort" onchange="loadAdmin()">
+          <option value="newest">Newest first</option>
+          <option value="oldest">Oldest first</option>
+        </select>
+        <button class="btn btn-ghost" onclick="exportCSV()" style="font-size:0.6rem;white-space:nowrap">⬇ Export CSV</button>
+      </div>
+
+      <div class="admin-list" id="admin-list"></div>
+
+      <div class="analytics-card" id="admin-analytics" style="display:none">
+        <div class="analytics-h">Submission volume — last 60 days</div>
+        <div class="analytics-chart" id="analytics-chart"></div>
+        <div class="analytics-status-row" id="analytics-status-row"></div>
+      </div>
+
+      <div id="admin-featured-section" style="display:none">
+        <div style="background:var(--bg-1);border-radius:var(--radius-sm);border:1px solid var(--border);padding:22px 26px;margin-bottom:12px">
+          <div class="eyebrow" style="margin-bottom:14px">Featured Editor</div>
+          <p style="font-size:0.72rem;font-weight:300;color:var(--text-2);line-height:1.8;margin-bottom:18px">Create and manage editorial features that appear on the public Featured page. Promote accepted submissions with one click, or create entries manually.</p>
+          <button class="btn btn-gold" style="font-size:0.6rem" onclick="openNewFeaturedForm()">+ New Featured Entry</button>
+        </div>
+        <div id="new-featured-form" style="display:none;background:var(--bg-1);border-radius:var(--radius-sm);border:1px solid var(--border);padding:22px 26px;margin-bottom:12px">
+          <div class="eyebrow" style="margin-bottom:14px">New entry</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px">
+            <div><label class="form-label">Series title *</label><input class="form-input" id="nf-series" placeholder="Series title" style="margin-top:4px"></div>
+            <div><label class="form-label">Photographer *</label><input class="form-input" id="nf-photographer" placeholder="Full name" style="margin-top:4px"></div>
+            <div><label class="form-label">Instagram</label><input class="form-input" id="nf-instagram" placeholder="@handle" style="margin-top:4px"></div>
+            <div><label class="form-label">Issue</label><input class="form-input" id="nf-issue" value="Issue 01" style="margin-top:4px"></div>
+          </div>
+          <div style="margin-bottom:12px"><label class="form-label">Team credits *</label><textarea class="form-input" id="nf-credits" placeholder="Photographer: Name&#10;Stylist: Name" style="margin-top:4px;min-height:80px;resize:vertical"></textarea></div>
+          <div style="margin-bottom:16px"><label class="form-label">Story *</label><textarea class="form-input" id="nf-story" placeholder="The full editorial story…" style="margin-top:4px;min-height:140px;resize:vertical"></textarea></div>
+          <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap">
+            <label style="display:flex;align-items:center;gap:8px;font-size:0.66rem;color:var(--text-2);cursor:pointer">
+              <input type="checkbox" id="nf-publish" style="accent-color:var(--gold)"> Publish immediately
+            </label>
+            <button class="btn btn-gold" style="font-size:0.6rem" onclick="createFeaturedEntry()">Save entry</button>
+            <button class="btn btn-ghost" style="font-size:0.6rem" onclick="document.getElementById('new-featured-form').style.display='none'">Cancel</button>
+          </div>
+          <div id="nf-status" style="font-size:0.66rem;margin-top:10px;display:none"></div>
+        </div>
+        <div id="admin-featured-list"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════
+  UPLOAD (private — for accepted photographers)
+══════════════════════════════════ -->
+<div id="upload" class="pg">
+  <div class="submit-wrap" style="max-width:680px">
+    <div class="submit-header">
+      <div class="submit-header-l">
+        <div class="eyebrow" style="margin-bottom:16px">Accepted Work</div>
+        <h1 class="pg-title">Upload your<br><em>images.</em></h1>
+      </div>
+    </div>
+    <div id="upload-body">
+      <!-- Filled by JS based on token state -->
+      <div class="form-card" style="text-align:center;padding:50px 30px">
+        <div class="f-spin" style="display:block;margin:0 auto 20px;width:28px;height:28px;border:2px solid var(--border-2);border-top-color:var(--gold);border-radius:50%;animation:spin 0.8s linear infinite"></div>
+        <p style="font-size:0.8rem;color:var(--text-3)">Validating your upload link…</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════
+  TERMS OF SERVICE
+══════════════════════════════════ -->
+<div id="tos" class="pg">
+  <div class="legal-wrap">
+    <div class="legal-hero">
+      <div class="eyebrow" style="margin-bottom:16px">Legal</div>
+      <h1 class="pg-title">Terms of<br><em>Service.</em></h1>
+      <p class="legal-updated">Last updated: June 2026 &nbsp;·&nbsp; Effective for all submissions to Issue 01 onwards</p>
+    </div>
+
+    <div class="legal-card">
+      <div class="legal-h2">1. Acceptance of Terms</div>
+      <div class="legal-body">
+        <p>By accessing or using the Révèle website (<strong>revelemagazine.com</strong>), submitting work, or subscribing to our newsletter, you agree to these Terms of Service. If you do not agree, please do not use our platform.</p>
+        <p>Révèle is an independent visual arts magazine founded and operated by Ebrahim Kassem, based in Doha, Qatar. References to "Révèle", "we", "us", or "our" refer to Révèle Magazine.</p>
+      </div>
+    </div>
+
+    <div class="legal-card">
+      <div class="legal-h2">2. Submission Rights and Ownership</div>
+      <div class="legal-body">
+        <p>By submitting work to Révèle you confirm that:</p>
+        <ul>
+          <li>You are the original creator of all submitted images, or hold all necessary rights and permissions.</li>
+          <li>All individuals pictured have given informed consent to be photographed and published.</li>
+          <li>The work has not been previously published in any print or digital magazine.</li>
+          <li>You hold the copyright to your submitted images and retain all intellectual property rights.</li>
+        </ul>
+        <p>Submitting work to Révèle does <strong>not</strong> transfer copyright ownership. If your work is accepted, you grant Révèle a non-exclusive, royalty-free licence to reproduce, display, and distribute the selected images and accompanying text in the relevant issue in print and digital formats, and to promote the publication on social media and marketing channels. Exclusivity expires upon publication; you are then free to share your work freely.</p>
+      </div>
+    </div>
+
+    <div class="legal-card">
+      <div class="legal-h2">3. Editorial Discretion</div>
+      <div class="legal-body">
+        <p>Révèle reserves the right to accept or decline any submission at its sole editorial discretion, without obligation to provide detailed reasons. Submission does not guarantee publication. We review every submission personally and respond within 7–10 business days.</p>
+      </div>
+    </div>
+
+    <div class="legal-card">
+      <div class="legal-h2">4. Prohibited Submissions</div>
+      <div class="legal-body">
+        <p>You may not submit content that:</p>
+        <ul>
+          <li>Depicts minors in a sexualised or exploitative manner.</li>
+          <li>Constitutes hate speech, harassment, or discrimination.</li>
+          <li>Infringes the intellectual property rights of any third party.</li>
+          <li>Was taken in circumstances where subjects had a reasonable expectation of privacy and did not consent.</li>
+          <li>Is defamatory, obscene, or otherwise unlawful.</li>
+        </ul>
+        <p>Submissions violating these terms will be permanently declined and, where required by law, reported to the appropriate authorities.</p>
+      </div>
+    </div>
+
+    <div class="legal-card">
+      <div class="legal-h2">5. Compensation</div>
+      <div class="legal-body">
+        <p>Révèle is an independent publication in its launch phase. We do not currently offer monetary payment for published work. Featured photographers receive full credit in print and digital editions, a digital tearsheet, and promotion across all Révèle channels. This may change in future issues.</p>
+      </div>
+    </div>
+
+    <div class="legal-card">
+      <div class="legal-h2">6. Newsletter and Communications</div>
+      <div class="legal-body">
+        <p>By subscribing to our newsletter you consent to receive editorial updates, issue announcements, and open-call notifications from Révèle. You may unsubscribe at any time by emailing <a href="mailto:inquiries@revelemagazine.com">inquiries@revelemagazine.com</a> with the subject "Unsubscribe".</p>
+      </div>
+    </div>
+
+    <div class="legal-card">
+      <div class="legal-h2">7. Limitation of Liability</div>
+      <div class="legal-body">
+        <p>Révèle provides this platform "as is" without warranties of any kind. We are not liable for any indirect, incidental, or consequential damages arising from your use of this platform or the loss of submitted work due to technical failure. Always retain copies of your original files.</p>
+      </div>
+    </div>
+
+    <div class="legal-card">
+      <div class="legal-h2">8. Governing Law</div>
+      <div class="legal-body">
+        <p>These Terms are governed by the laws of the State of Qatar. Any disputes shall be subject to the exclusive jurisdiction of the courts of Qatar.</p>
+      </div>
+    </div>
+
+    <div class="legal-card">
+      <div class="legal-h2">9. Changes to These Terms</div>
+      <div class="legal-body">
+        <p>We may update these Terms from time to time. The current version is always published on this page. Continued use of Révèle after changes constitutes acceptance of the updated Terms.</p>
+        <p style="margin-top:16px">Questions? Contact us at <a href="mailto:inquiries@revelemagazine.com">inquiries@revelemagazine.com</a>.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════
+  PRIVACY POLICY
+══════════════════════════════════ -->
+<div id="privacy" class="pg">
+  <div class="legal-wrap">
+    <div class="legal-hero">
+      <div class="eyebrow" style="margin-bottom:16px">Legal</div>
+      <h1 class="pg-title">Privacy<br><em>Policy.</em></h1>
+      <p class="legal-updated">Last updated: June 2026 &nbsp;·&nbsp; GDPR-aligned · Doha, Qatar</p>
+    </div>
+
+    <div class="legal-card">
+      <div class="legal-h2">1. Who We Are</div>
+      <div class="legal-body">
+        <p>Révèle Magazine is an independent visual arts publication operated by Ebrahim Kassem ("we", "us", "our"). Our website is <a href="https://revelemagazine.com">revelemagazine.com</a> and our contact email is <a href="mailto:inquiries@revelemagazine.com">inquiries@revelemagazine.com</a>.</p>
+        <p>We take your privacy seriously. This policy explains what personal data we collect, why, how it is stored, and your rights over it.</p>
+      </div>
+    </div>
+
+    <div class="legal-card">
+      <div class="legal-h2">2. Data We Collect</div>
+      <div class="legal-body">
+        <p><strong>Submission data:</strong> When you submit work we collect your full name, email address, optional Instagram handle, series title, team credits, and optional written story. This data is stored securely in our database to facilitate our editorial process.</p>
+        <p><strong>Newsletter data:</strong> When you subscribe we store your email address to send you editorial updates. Nothing else.</p>
+        <p><strong>Technical data:</strong> Our server logs standard HTTP request data (IP address, browser type, pages visited) for security and uptime monitoring. This is not used for profiling.</p>
+        <p><strong>Cookies:</strong> We use essential cookies required for the submission system to function. With your consent, we may also use lightweight, privacy-respecting analytics.</p>
+      </div>
+    </div>
+
+    <div class="legal-card">
+      <div class="legal-h2">3. How We Use Your Data</div>
+      <div class="legal-body">
+        <ul>
+          <li><strong>Submissions:</strong> To review your work, communicate editorial decisions, and if accepted, arrange publication.</li>
+          <li><strong>Newsletter:</strong> To send issue announcements and open-call notifications.</li>
+          <li><strong>Security:</strong> To detect and prevent abuse or spam submissions.</li>
+        </ul>
+        <p>We do not sell, rent, or share your personal data with any third party for marketing purposes.</p>
+      </div>
+    </div>
+
+    <div class="legal-card">
+      <div class="legal-h2">4. Third-Party Services</div>
+      <div class="legal-body">
+        <p>We use the following third-party services that may process limited data:</p>
+        <ul>
+          <li><strong>Render.com</strong> — our API server hosting provider. Server logs may be stored on their infrastructure.</li>
+          <li><strong>Discord</strong> — we receive internal submission notifications via a private Discord webhook. No personal data is shared publicly; webhook messages are visible only to our editorial team.</li>
+          <li><strong>Google Fonts</strong> — we load Cormorant Garamond and Inter fonts from Google's CDN. Google may log font requests per their <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">privacy policy</a>.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="legal-card">
+      <div class="legal-h2">5. Data Retention</div>
+      <div class="legal-body">
+        <p>Submission data is retained for the duration of the editorial cycle plus up to 24 months, then deleted or anonymised. Newsletter subscriptions are retained until you unsubscribe. You may request deletion at any time (see Section 7).</p>
+      </div>
+    </div>
+
+    <div class="legal-card">
+      <div class="legal-h2">6. Data Security</div>
+      <div class="legal-body">
+        <p>Submissions are stored in a secured database with access restricted to authorised editorial staff only, protected by bearer-token authentication. We use HTTPS for all data in transit. Passwords and credentials are never stored in plain text.</p>
+        <p>No method of transmission or storage is 100% secure. In the event of a data breach we will notify affected users as required by applicable law.</p>
+      </div>
+    </div>
+
+    <div class="legal-card">
+      <div class="legal-h2">7. Your Rights</div>
+      <div class="legal-body">
+        <p>Under GDPR and applicable privacy law, you have the right to:</p>
+        <ul>
+          <li><strong>Access</strong> the personal data we hold about you.</li>
+          <li><strong>Rectify</strong> inaccurate data.</li>
+          <li><strong>Erasure</strong> ("right to be forgotten") of your data.</li>
+          <li><strong>Portability</strong> — receive your data in a structured, machine-readable format.</li>
+          <li><strong>Object</strong> to processing of your data.</li>
+          <li><strong>Withdraw consent</strong> at any time for processing based on consent.</li>
+        </ul>
+        <p>To exercise any of these rights, email <a href="mailto:inquiries@revelemagazine.com">inquiries@revelemagazine.com</a> with the subject "Privacy Request". We will respond within 30 days.</p>
+      </div>
+    </div>
+
+    <div class="legal-card">
+      <div class="legal-h2">8. Cookies</div>
+      <div class="legal-body">
+        <p><strong>Essential cookies</strong> (always active): These are required for the submission and tracking systems to function. They do not track you for advertising.</p>
+        <p><strong>Analytics cookies</strong> (optional, consent required): If you Accept All, we may use lightweight, anonymised analytics to understand page usage. You can withdraw this consent at any time by clearing your cookies or clicking "Essential only" in the cookie banner.</p>
+      </div>
+    </div>
+
+    <div class="legal-card">
+      <div class="legal-h2">9. Contact</div>
+      <div class="legal-body">
+        <p>For any privacy-related questions, contact us at <a href="mailto:inquiries@revelemagazine.com">inquiries@revelemagazine.com</a>.</p>
+        <p style="margin-top:16px">You also have the right to lodge a complaint with your national data protection authority if you believe we have handled your data unlawfully.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════
+  FOOTER
+══════════════════════════════════ -->
+<div class="footer-wrap">
+  <footer>
+    <div class="foot-col">
+      <div class="foot-brand">
+        <svg viewBox="0 0 100 50" fill="none" width="17"><path d="M14 25Q50 5 86 25Q50 45 14 25Z" stroke="currentColor" stroke-width="1.2" fill="none"/><circle cx="50" cy="25" r="10" stroke="currentColor" stroke-width="1" fill="none"/><circle cx="50" cy="25" r="4.5" fill="currentColor"/></svg>
+        REVELE
+      </div>
+      <p class="foot-tag"><em>Some photographs whisper. We listen.</em></p>
+    </div>
+    <div class="foot-col">
+      <div class="foot-h">Navigate</div>
+      <ul class="foot-list">
+        <li><a href="#" onclick="return go('home')">Home</a></li>
+        <li><a href="#" onclick="return go('about')">About</a></li>
+        <li><a href="#" onclick="return go('issues')">Issues</a></li>
+        <li><a href="#" onclick="return go('mood')">Mood Board</a></li>
+        <li><a href="#" onclick="return go('submit')">Submit</a></li>
+        <li><a href="#" onclick="return go('faq')">FAQ</a></li>
+        <li><a href="#" onclick="return go('contact')">Contact</a></li>
+        <li><a href="#" onclick="return go('opencall')">Open Call</a></li>
+        <li><a href="#" onclick="return go('featured')">Featured</a></li>
+        <li><a href="#" onclick="return go('press')">Press</a></li>
+      </ul>
+    </div>
+    <div class="foot-col">
+      <div>
+        <div class="foot-h">Contact</div>
+        <ul class="foot-list">
+          <li><a href="mailto:submissions@revelemagazine.com">submissions@revelemagazine.com</a></li>
+          <li><a href="mailto:management@revelemagazine.com">management@revelemagazine.com</a></li>
+          <li><a href="mailto:inquiries@revelemagazine.com">inquiries@revelemagazine.com</a></li>
+          <li><a href="https://instagram.com/revele.mag" target="_blank">@revele.mag</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="foot-eye"><svg viewBox="0 0 100 50" fill="none" width="34"><path d="M6 25Q50 5 94 25Q50 45 6 25Z" stroke="currentColor" stroke-width="1" fill="none"/><circle cx="50" cy="25" r="10" stroke="currentColor" stroke-width="0.8" fill="none"/><circle cx="50" cy="25" r="4" fill="currentColor"/></svg></div>
+        <div class="foot-copy">© 2026 Revele Magazine<br>All rights reserved. Doha, Qatar</div>
+        <div style="display:flex;gap:14px;margin-top:10px;flex-wrap:wrap">
+          <a href="#" onclick="return go('tos')" style="font-size:0.6rem;font-weight:400;color:var(--text-3);transition:color 0.2s" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--text-3)'">Terms of Service</a>
+          <a href="#" onclick="return go('privacy')" style="font-size:0.6rem;font-weight:400;color:var(--text-3);transition:color 0.2s" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--text-3)'">Privacy Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</div>
+
+<!-- ══════════════════════════════════
+  JAVASCRIPT — all original logic preserved
+══════════════════════════════════ -->
+<script>
+'use strict';
+
+const API = 'https://revele-magazine.onrender.com';
+let adminToken = null;
+let adminFilter = '';
+let adminDebounceTimer = null;
+let adminPrevLoginTime = null;
+
+async function checkBackend() {
+  try {
+    const res = await fetch(`${API}/api/count`, { signal: AbortSignal.timeout(3000) });
+    if (res.ok) {
+      const data = await res.json();
+      document.getElementById('sub-counter').textContent = data.count;
+      document.getElementById('backend-banner').classList.remove('show');
+    } else { showBackendBanner(); }
+  } catch { showBackendBanner(); document.getElementById('sub-counter').textContent = '—'; }
+}
+function showBackendBanner() { document.getElementById('backend-banner').classList.add('show'); }
+checkBackend();
+
+function updateCountdown() {
+  const diff = new Date('2026-09-01T00:00:00') - new Date();
+  if (diff <= 0) { ['cd-d','cd-h','cd-m','cd-s'].forEach(id => document.getElementById(id).textContent = '00'); return; }
+  document.getElementById('cd-d').textContent = String(Math.floor(diff / 86400000)).padStart(2,'0');
+  document.getElementById('cd-h').textContent = String(Math.floor((diff % 86400000) / 3600000)).padStart(2,'0');
+  document.getElementById('cd-m').textContent = String(Math.floor((diff % 3600000) / 60000)).padStart(2,'0');
+  document.getElementById('cd-s').textContent = String(Math.floor((diff % 60000) / 1000)).padStart(2,'0');
+}
+updateCountdown(); setInterval(updateCountdown, 1000);
+
+function go(id) {
+  document.querySelectorAll('.pg').forEach(p => p.classList.remove('on'));
+  const el = document.getElementById(id);
+  if (!el) return false;
+  el.classList.add('on');
+  document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('on'));
+  const n = document.getElementById('n-' + id);
+  if (n) n.classList.add('on');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  if (id === 'featured') loadFeatured();
+  if (id === 'upload') initUploadPage();
+  history.replaceState(null, '', '#' + id);
+  return false;
+}
+document.querySelectorAll('a[href="#"]').forEach(a => a.addEventListener('click', e => e.preventDefault()));
+
+function checkHash() {
+  const h = window.location.hash;
+  if (h === '#admin') go('admin');
+  else if (h === '#upload' || h.startsWith('#upload?')) go('upload');
+}
+window.addEventListener('hashchange', checkHash);
+checkHash();
+
+function toggleTheme() {
+  const html = document.documentElement;
+  const isDark = html.getAttribute('data-theme') === 'dark';
+  html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  document.getElementById('themeToggle').textContent = isDark ? '☾' : '☀';
+}
+
+function openMobile()  { document.getElementById('mobileMenu').classList.add('open'); }
+function closeMobile() { document.getElementById('mobileMenu').classList.remove('open'); }
+function toggleFaq(el) { el.parentElement.classList.toggle('open'); }
+
+function updateChar(el, counterId, max) {
+  const n = el.value.length;
+  const counter = document.getElementById(counterId);
+  counter.textContent = `${n} / ${max}`;
+  counter.className = 'char-count' + (n > max * 0.9 ? (n >= max ? ' over' : ' warn') : '');
+}
+
+function copyText(txt) { navigator.clipboard.writeText(txt).then(() => alert('Copied to clipboard')); }
+
+async function nlSubmit() {
+  const emailEl = document.getElementById('nl-email');
+  const msgEl   = document.getElementById('nl-msg');
+  const email   = emailEl.value.trim();
+  if (!email || !email.includes('@')) { msgEl.textContent = 'Please enter a valid email address.'; msgEl.className = 'nl-msg err'; msgEl.style.display = 'block'; return; }
+  try {
+    const res  = await fetch(`${API}/api/newsletter`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ email }) });
+    const data = await res.json();
+    if (!res.ok) throw new Error(data.error || 'Failed');
+    msgEl.textContent = 'You are on the list. We will be in touch.'; msgEl.className = 'nl-msg ok'; msgEl.style.display = 'block'; emailEl.value = '';
+  } catch { msgEl.textContent = 'Something went wrong. Please try again.'; msgEl.className = 'nl-msg err'; msgEl.style.display = 'block'; }
+}
+
+async function submitForm() {
+  const name = document.getElementById('f-name').value.trim();
+  const email = document.getElementById('f-email').value.trim();
+  const insta = document.getElementById('f-insta').value.trim();
+  const website = document.getElementById('f-website') ? document.getElementById('f-website').value.trim() : '';
+  const title = document.getElementById('f-title').value.trim();
+  const credits = document.getElementById('f-credits').value.trim();
+  const story = document.getElementById('f-story').value.trim();
+  const issue = document.getElementById('f-issue').value;
+  const statusEl = document.getElementById('f-status');
+  const btn = document.getElementById('f-btn');
+  const btnTxt = document.getElementById('f-btn-txt');
+  const spin = document.getElementById('f-spin');
+  statusEl.className = 'f-status'; statusEl.textContent = '';
+  const consent = document.getElementById('f-consent');
+  if (!name || !email || !title || !credits) { statusEl.className = 'f-status err'; statusEl.textContent = 'Please fill in all required fields marked *.'; return; }
+  if (consent && !consent.checked) { statusEl.className = 'f-status err'; statusEl.textContent = 'Please agree to the Terms of Service and Privacy Policy before submitting.'; return; }
+  if (!email.includes('@') || !email.includes('.')) { statusEl.className = 'f-status err'; statusEl.textContent = 'Please enter a valid email address.'; return; }
+  btn.disabled = true; btnTxt.textContent = 'Sending…'; spin.style.display = 'block';
+  try {
+    const res = await fetch(`${API}/api/submit`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ name, email, instagram: insta, website, series: title, credits, story, issue }) });
+    const data = await res.json();
+    if (!res.ok) { statusEl.className = 'f-status err'; statusEl.textContent = data.error || 'Submission failed. Please try again.'; return; }
+    statusEl.className = 'f-status ok'; statusEl.textContent = `✓ ${data.message} Use the tracker below to check your status from any device.`;
+    ['f-name','f-email','f-insta','f-website','f-title','f-credits','f-story'].forEach(id => { const el = document.getElementById(id); if (el) el.value = ''; });
+    document.getElementById('cc-credits').textContent = '0 / 3000'; document.getElementById('cc-story').textContent = '0 / 5000';
+    checkBackend();
+  } catch { statusEl.className = 'f-status err'; statusEl.textContent = 'Could not reach the server. Please ensure the backend is running, or email submissions@revelemagazine.com directly.'; }
+  finally { btn.disabled = false; btnTxt.textContent = 'Send submission'; spin.style.display = 'none'; }
+}
+
+const STATUS_MESSAGES = {
+  received:  'Your submission has been received and is in our queue. We review all submissions in the order they arrive.',
+  reviewing: 'Great news — your submission is currently being reviewed by our editorial team. We will be in touch within 7–10 days.',
+  shortlist: 'Exciting news — your submission has been placed on our shortlist. A final decision will follow within the next few days.',
+  accepted:  'Congratulations — your work has been accepted for publication in Revele. We will contact you shortly with next steps.',
+  declined:  'Thank you for sharing your work with us. On this occasion your submission was not selected for this issue. We encourage you to submit new work to future issues.',
+  published: 'Your work is scheduled for publication in Revele. Thank you for trusting us with your story.',
+};
+
+async function trackSubmission() {
+  const email = document.getElementById('tracker-email').value.trim().toLowerCase();
+  const resultEl = document.getElementById('tracker-result');
+  if (!email || !email.includes('@')) { resultEl.className = 'tracker-result show'; resultEl.innerHTML = '<div class="tracker-notfound">Please enter a valid email address.</div>'; return; }
+  resultEl.className = 'tracker-result show';
+  resultEl.innerHTML = `<div class="tracker-loading"><div class="t-spin"></div><span>Checking your submission…</span></div>`;
+  try {
+    const res  = await fetch(`${API}/api/track/${encodeURIComponent(email)}`);
+    const data = await res.json();
+    if (!res.ok) throw new Error(data.error || 'Server error');
+    if (!data.found) { resultEl.innerHTML = `<div class="tracker-notfound">No submission found for <strong>${escHtml(email)}</strong>.<br>If you submitted recently, please allow a few minutes and try again.</div>`; return; }
+    const sub  = data.submission;
+    const msg  = STATUS_MESSAGES[sub.status] || 'Status update pending.';
+    const date = new Date(sub.submitted).toLocaleDateString('en-GB', { day:'numeric', month:'long', year:'numeric' });
+    resultEl.innerHTML = `<div class="tracker-card-inner"><div class="tracker-status-row"><div class="tracker-series">${escHtml(sub.series)}</div><span class="status-badge ${escHtml(sub.status)}">${escHtml(sub.status)}</span></div><div class="tracker-meta"><span>Photographer: ${escHtml(sub.name)}</span><span>Issue: ${escHtml(sub.issue)}</span><span>Submitted: ${date}</span><span>Reference: ${escHtml(sub.id)}</span></div><div class="tracker-message">${escHtml(msg)}</div></div>`;
+  } catch { resultEl.innerHTML = `<div class="tracker-notfound">Could not retrieve status. Please try again.</div>`; }
+}
+
+async function adminLogin() {
+  const pw = document.getElementById('admin-pw').value;
+  const errEl = document.getElementById('admin-pw-err');
+  const spin = document.getElementById('admin-login-spin');
+  const btnTxt = document.getElementById('admin-login-txt');
+  errEl.style.display = 'none'; spin.style.display = 'block'; btnTxt.textContent = 'Verifying…';
+  try {
+    const res  = await fetch(`${API}/api/admin/login`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ password: pw }) });
+    const data = await res.json();
+    if (!res.ok) { errEl.textContent = data.error || 'Incorrect password.'; errEl.style.display = 'block'; return; }
+    adminToken = data.token;
+    const prev = localStorage.getItem('revele_admin_login_time');
+    adminPrevLoginTime = prev ? new Date(prev) : null;
+    if (data.loginTime) localStorage.setItem('revele_admin_login_time', data.loginTime);
+    document.getElementById('admin-gate-wrap').style.display = 'none';
+    document.getElementById('admin-panel').style.display = 'block';
+    loadAdmin(); loadAdminStats();
+  } catch { errEl.textContent = 'Could not reach server.'; errEl.style.display = 'block'; }
+  finally { spin.style.display = 'none'; btnTxt.textContent = 'Enter'; }
+}
+
+function adminLogout() {
+  adminToken = null;
+  document.getElementById('admin-gate-wrap').style.display = 'flex';
+  document.getElementById('admin-panel').style.display = 'none';
+  document.getElementById('admin-pw').value = '';
+}
+
+function setFilter(btn, value) {
+  adminFilter = value;
+  document.querySelectorAll('.filter-pill').forEach(p => p.classList.remove('active'));
+  btn.classList.add('active');
+  loadAdmin();
+}
+
+function debounceAdminLoad() { clearTimeout(adminDebounceTimer); adminDebounceTimer = setTimeout(loadAdmin, 300); }
+
+async function loadAdmin() {
+  if (!adminToken) return;
+  const list   = document.getElementById('admin-list');
+  const search = document.getElementById('admin-search').value.trim();
+  const sort   = document.getElementById('admin-sort').value;
+  list.innerHTML = '<div class="admin-empty">Loading…</div>';
+  const params = new URLSearchParams();
+  if (adminFilter) params.set('status', adminFilter);
+  if (search) params.set('search', search);
+  params.set('sort', sort);
+  try {
+    const res  = await fetch(`${API}/api/admin/subs?${params}`, { headers: { 'Authorization': `Bearer ${adminToken}` } });
+    const data = await res.json();
+    if (!res.ok) { list.innerHTML = `<div class="admin-empty">${escHtml(data.error || 'Error loading submissions.')}</div>`; if (res.status === 401) adminLogout(); return; }
+    document.getElementById('admin-count').textContent = data.submissions.length;
+    renderAdminList(data.submissions);
+  } catch { list.innerHTML = '<div class="admin-empty">Could not reach server.</div>'; }
+}
+
+async function loadAdminStats() {
+  if (!adminToken) return;
+  try {
+    const res  = await fetch(`${API}/api/admin/stats`, { headers: { 'Authorization': `Bearer ${adminToken}` } });
+    const data = await res.json();
+    if (!res.ok) return;
+    document.getElementById('st-total').textContent    = data.total;
+    document.getElementById('st-received').textContent = data.received;
+    document.getElementById('st-reviewing').textContent = data.reviewing;
+    document.getElementById('st-accepted').textContent = data.accepted;
+    document.getElementById('st-declined').textContent = data.declined;
+    document.getElementById('st-shortlist').textContent = data.shortlist ?? 0;
+    document.getElementById('st-published').textContent = data.published ?? 0;
+  } catch { }
+}
+
+function renderStarsHtml(id, rating) {
+  let h = '<span class="stars" id="stars-' + id + '">';
+  for (let i = 1; i <= 5; i++) h += '<button class="star' + (i <= rating ? ' on' : '') + '" data-sid="' + id + '" data-n="' + i + '" onclick="rateSub(this.dataset.sid,parseInt(this.dataset.n))">★</button>';
+  return h + '</span>';
+}
+
+function renderAdminList(subs) {
+  const list = document.getElementById('admin-list');
+  if (!subs.length) { list.innerHTML = '<div class="admin-empty">No submissions found.</div>'; return; }
+  list.innerHTML = '';
+  const statuses = ['received','reviewing','shortlist','accepted','declined','published'];
+  subs.forEach(sub => {
+    const row = document.createElement('div');
+    row.className = 'admin-row status-row-color-' + sub.status + (!sub.isRead ? ' unread' : '');
+    row.dataset.id = sub.id;
+    const date = new Date(sub.createdAt).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
+    const isNew = adminPrevLoginTime && new Date(sub.createdAt) > adminPrevLoginTime;
+    const canFeature = sub.status === 'accepted' || sub.status === 'shortlist';
+    row.innerHTML = `<div class="admin-row-top"><div style="display:flex;align-items:flex-start;gap:10px;flex:1;min-width:0"><input type="checkbox" class="admin-cb" onchange="toggleBulk('${escHtml(sub.id)}')" style="margin-top:5px"><div style="flex:1;min-width:0"><div class="admin-row-name">${escHtml(sub.name)}${isNew ? '<span class="new-badge">NEW</span>' : ''}${sub.notes ? '<span class="notes-dot" title="Has notes"></span>' : ''}</div><div class="admin-row-series">${escHtml(sub.series)}</div><div class="admin-row-email">${escHtml(sub.email)}</div><div style="margin-top:5px">${renderStarsHtml(sub.id, sub.rating || 0)}</div></div></div><div class="admin-row-actions"><select class="admin-select" onchange="updateSubStatus('${escHtml(sub.id)}',this.value)">${statuses.map(s => '<option value="' + s + '"' + (sub.status===s?' selected':'') + '>' + s.charAt(0).toUpperCase()+s.slice(1) + '</option>').join('')}</select><button class="admin-view-btn" onclick="markAsRead('${escHtml(sub.id)}',this);viewSubDetail('${escHtml(sub.id)}')">View</button>${canFeature ? '<button class="btn btn-ghost" style="font-size:0.5rem;padding:5px 10px;color:var(--gold);border-color:rgba(200,160,106,0.4)" data-sid="' + escHtml(sub.id) + '" data-sname="' + escHtml(sub.name) + '" onclick="promoteToFeatured(this.dataset.sid,this.dataset.sname)">★ Feature</button>' : ''}<button class="admin-del-btn" onclick="deleteSub('${escHtml(sub.id)}','${escHtml(sub.name)}')">Delete</button></div></div><div class="admin-row-bottom"><span class="admin-id">ID: ${escHtml(sub.id.substring(0,8))}…</span><span class="admin-date">${date}</span>${sub.instagram ? '<span class="admin-insta">' + escHtml(sub.instagram) + '</span>' : ''}<span class="status-badge ${escHtml(sub.status)}">${escHtml(sub.status)}</span></div>`;
+    list.appendChild(row);
+  });
+  _selectedIds.clear(); updateBulkBar();
+  const cb = document.getElementById('select-all-cb'); if (cb) cb.checked = false;
+}
+
+async function updateSubStatus(id, status) {
+  if (!adminToken) return;
+  try { await fetch(`${API}/api/admin/subs/${encodeURIComponent(id)}`, { method: 'PATCH', headers: { 'Content-Type':'application/json', 'Authorization': `Bearer ${adminToken}` }, body: JSON.stringify({ status }) }); loadAdminStats(); }
+  catch (err) { console.error('[Admin] Status update failed:', err); }
+}
+
+async function deleteSub(id, name) {
+  if (!confirm(`Delete submission from ${name}? This cannot be undone.`)) return;
+  if (!adminToken) return;
+  try {
+    const res = await fetch(`${API}/api/admin/subs/${encodeURIComponent(id)}`, { method: 'DELETE', headers: { 'Authorization': `Bearer ${adminToken}` } });
+    if (res.ok) { loadAdmin(); loadAdminStats(); checkBackend(); }
+  } catch (err) { console.error('[Admin] Delete failed:', err); }
+}
+
+function closeModal(e) { if (!e || e.target===document.getElementById('modal-overlay') || e.target.classList.contains('modal-close')) { document.getElementById('modal-overlay').classList.remove('open'); } }
+async function markAsRead(id,btn) { if (!adminToken) return; try { await fetch(`${API}/api/admin/subs/${encodeURIComponent(id)}/read`, { method:'PATCH', headers:{'Content-Type':'application/json','Authorization':`Bearer ${adminToken}`}, body:JSON.stringify({isRead:true}) }); const row=document.querySelector(`.admin-row[data-id="${id}"]`); if(row) row.classList.remove('unread'); } catch(e) { console.error(e); } }
+
+async function viewSubDetail(id) {
+  if (!adminToken) return;
+  try {
+    const res  = await fetch(`${API}/api/admin/subs`, { headers: { 'Authorization': `Bearer ${adminToken}` } });
+    const data = await res.json();
+    const sub  = data.submissions.find(s => s.id === id);
+    if (!sub) return;
+    const date = new Date(sub.createdAt).toLocaleString('en-GB', { day:'numeric', month:'long', year:'numeric', hour:'2-digit', minute:'2-digit' });
+    const initial = (sub.name || '?').charAt(0).toUpperCase();
+    const draftId = 'email-draft-' + sub.id;
+    document.getElementById('modal-content').innerHTML =
+      '<div class="profile-card"><div class="profile-avatar">' + escHtml(initial) + '</div><div class="profile-info"><div class="profile-name">' + escHtml(sub.name) + '</div>' + (sub.instagram ? '<div class="profile-insta">' + escHtml(sub.instagram) + '</div>' : '') + '<div class="profile-email-row"><span class="profile-email">' + escHtml(sub.email) + '</span><button class="profile-copy-btn" data-email="' + escHtml(sub.email) + '" onclick="navigator.clipboard.writeText(this.dataset.email).then(()=>{this.textContent=\'Copied!\';setTimeout(()=>{this.textContent=\'Copy email\'},2000)})">Copy email</button></div></div><div style="text-align:right"><span class="status-badge ' + escHtml(sub.status) + '">' + escHtml(sub.status) + '</span><div style="margin-top:10px">' + renderStarsHtml(sub.id + '-modal', sub.rating || 0) + '</div></div></div>' +
+      '<div class="modal-field"><div class="modal-lbl">Series</div><div class="modal-val" style="font-family:\'Cormorant Garamond\',serif;font-style:italic;font-size:1.05rem">' + escHtml(sub.series) + '</div></div>' +
+      '<div class="modal-field"><div class="modal-lbl">Issue</div><div class="modal-val">' + escHtml(sub.issue) + '</div></div>' +
+      '<div class="modal-field"><div class="modal-lbl">Submitted</div><div class="modal-val">' + date + '</div></div>' +
+      '<div class="modal-field"><div class="modal-lbl">Team Credits</div><div class="modal-val">' + escHtml(sub.credits) + '</div></div>' +
+      '<div class="modal-field"><div class="modal-lbl">Story</div><div class="modal-val">' + escHtml(sub.story || 'Not provided') + '</div></div>' +
+      '<div class="modal-field"><div class="modal-lbl">Internal Notes</div><textarea class="admin-notes-area" id="notes-' + escHtml(sub.id) + '" placeholder="Add internal notes…">' + escHtml(sub.notes || '') + '</textarea><button class="admin-notes-save" data-subid="' + escHtml(sub.id) + '" onclick="saveNotes(this.dataset.subid)">Save notes</button></div>' +
+      ((sub.status === 'accepted' || sub.status === 'declined') ? '<div class="modal-field"><div class="modal-lbl">Email Draft <span style="font-size:0.56rem;color:var(--text-3);font-style:normal;font-weight:300">(editable)</span></div><div class="email-draft-box"><textarea class="admin-notes-area" id="' + draftId + '" style="min-height:220px;font-size:0.68rem;line-height:1.8">' + escHtml(buildEmailDraft(sub)) + '</textarea><button class="email-copy-btn" data-draft="' + draftId + '" onclick="navigator.clipboard.writeText(document.getElementById(this.dataset.draft).value).then(()=>{this.textContent=\'Copied!\';setTimeout(()=>{this.textContent=\'Copy email\'},2000)})">Copy email</button></div></div>' : '') +
+      (sub.status === 'accepted' ? '<div class="modal-field"><div class="modal-lbl">Image Upload</div><div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap">' + (sub.upload_completed_at ? '<span style="font-size:0.68rem;color:var(--gold)">✓ Photographer uploaded images on ' + new Date(sub.upload_completed_at).toLocaleDateString('en-GB',{day:\'numeric\',month:\'long\',year:\'numeric\'}) + '</span>' : '<span style="font-size:0.68rem;color:var(--text-3)">No images uploaded yet.</span>') + '<button class="admin-view-btn" data-sid="' + escHtml(sub.id) + '" onclick="sendUploadLink(this.dataset.sid, this)">📤 Send upload link</button></div></div>' : '');
+    document.getElementById('modal-overlay').classList.add('open');
+  } catch (err) { console.error('[Admin] View detail failed:', err); }
+}
+
+async function saveNotes(id) {
+  if (!adminToken) return;
+  const el = document.getElementById(`notes-${id}`);
+  if (!el) return;
+  try {
+    await fetch(`${API}/api/admin/subs/${encodeURIComponent(id)}/notes`, { method: 'PATCH', headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${adminToken}` }, body: JSON.stringify({ notes: el.value }) });
+    const btn = el.nextElementSibling;
+    if (btn) { const orig = btn.textContent; btn.textContent = '✓ Saved'; setTimeout(() => btn.textContent = orig, 1500); }
+    loadAdmin();
+  } catch (err) { console.error('[saveNotes]', err); }
+}
+
+async function exportCSV() {
+  if (!adminToken) return;
+  try {
+    const res = await fetch(`${API}/api/admin/export`, { headers: { 'Authorization': `Bearer ${adminToken}` } });
+    if (!res.ok) { alert('Export failed.'); return; }
+    const blob = await res.blob();
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a'); a.href = url; a.download = `revele-submissions-${new Date().toISOString().slice(0,10)}.csv`; a.click(); URL.revokeObjectURL(url);
+  } catch (err) { console.error('[exportCSV]', err); }
+}
+
+function buildEmailDraft(sub) {
+  if (!sub) return '';
+  if (sub.status === 'accepted') return `Subject: Your Submission to Révèle — Issue 01\n\nDear ${sub.name},\n\nThank you for submitting your series "${sub.series}" to Issue 01 — The First Gaze.\n\nWe are delighted to let you know that your work has been selected for publication in our debut issue.\n\nWe will be in touch shortly with next steps, including a secure link to upload your final high-resolution image files.\n\nIt is a privilege to publish your work.\n\nWith warmth,\nEbrahim Kassem\nFounder and Editor, Révèle Magazine\nsubmissions@revelemagazine.com`;
+  if (sub.status === 'declined') return `Subject: Your Submission to Révèle — Issue 01\n\nDear ${sub.name},\n\nThank you for submitting your series "${sub.series}" to Issue 01 — The First Gaze.\n\nAfter careful consideration, we are not able to include your work in this issue. We genuinely encourage you to submit to future issues.\n\nThank you for sharing your vision with us.\n\nWith respect,\nEbrahim Kassem\nFounder and Editor, Révèle Magazine\nsubmissions@revelemagazine.com`;
+  return '';
+}
+
+function checkDeadline() {
+  if (new Date() >= new Date('2026-09-01T00:00:00')) {
+    const banner = document.getElementById('sub-closed-banner');
+    const formCard = document.getElementById('sub-form-card');
+    if (banner) banner.classList.add('show');
+    if (formCard) formCard.style.display = 'none';
+  }
+}
+checkDeadline();
+
+async function rateSub(starsId, n) {
+  n = parseInt(n);
+  const subId = starsId.replace(/-modal$/, '');
+  if (!adminToken) return;
+  try {
+    await fetch(`${API}/api/admin/subs/${encodeURIComponent(subId)}/rating`, { method: 'PATCH', headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${adminToken}` }, body: JSON.stringify({ rating: n }) });
+    [starsId, subId, subId + '-modal'].forEach(sid => { const el = document.getElementById('stars-' + sid); if (!el) return; el.querySelectorAll('.star').forEach((s, i) => s.classList.toggle('on', i < n)); });
+  } catch (err) { console.error('[rateSub]', err); }
+}
+
+const _selectedIds = new Set();
+function toggleBulk(id) { if (_selectedIds.has(id)) _selectedIds.delete(id); else _selectedIds.add(id); updateBulkBar(); const allCbs = document.querySelectorAll('.admin-cb:not(#select-all-cb)'); const selCb = document.getElementById('select-all-cb'); if (selCb) selCb.checked = allCbs.length > 0 && _selectedIds.size === allCbs.length; }
+function selectAll(checked) { _selectedIds.clear(); if (checked) document.querySelectorAll('.admin-row[data-id]').forEach(row => _selectedIds.add(row.dataset.id)); document.querySelectorAll('.admin-cb:not(#select-all-cb)').forEach(cb => { cb.checked = checked; }); updateBulkBar(); }
+function updateBulkBar() { const bar = document.getElementById('bulk-bar'); const cnt = document.getElementById('bulk-count'); if (!bar) return; if (_selectedIds.size > 0) { bar.classList.add('show'); if (cnt) cnt.textContent = _selectedIds.size + ' selected'; } else bar.classList.remove('show'); }
+async function bulkAction(action, status) {
+  if (_selectedIds.size === 0) return;
+  const ids = Array.from(_selectedIds);
+  const s = ids.length > 1 ? 's' : '';
+  if (!confirm(action === 'delete' ? 'Delete ' + ids.length + ' submission' + s + '? This cannot be undone.' : 'Set ' + ids.length + ' submission' + s + ' to "' + status + '"?')) return;
+  try {
+    const res = await fetch(`${API}/api/admin/subs/bulk`, { method: 'POST', headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${adminToken}` }, body: JSON.stringify({ ids, action, status }) });
+    if (res.ok) { _selectedIds.clear(); const cb = document.getElementById('select-all-cb'); if (cb) cb.checked = false; updateBulkBar(); loadAdmin(); loadAdminStats(); }
+  } catch (err) { console.error('[bulkAction]', err); }
+}
+
+let _analyticsVisible = false;
+async function toggleAnalytics() {
+  const el = document.getElementById('admin-analytics');
+  _analyticsVisible = !_analyticsVisible; el.style.display = _analyticsVisible ? 'block' : 'none';
+  if (_analyticsVisible) loadAnalytics();
+}
+async function loadAnalytics() {
+  if (!adminToken) return;
+  try {
+    const res = await fetch(`${API}/api/admin/analytics`, { headers: { 'Authorization': `Bearer ${adminToken}` } });
+    const data = await res.json(); if (!res.ok) return;
+    const chart = document.getElementById('analytics-chart'); const statusRow = document.getElementById('analytics-status-row'); if (!chart) return;
+    const daily = data.daily || []; const max = Math.max(...daily.map(d => d.total), 1);
+    if (daily.length === 0) { chart.innerHTML = '<span style="font-size:0.66rem;color:var(--text-3)">No data yet.</span>'; }
+    else { chart.innerHTML = daily.map(d => { const pct = Math.max(Math.round((d.total / max) * 100), 2); return '<div class="analytics-bar" style="height:' + pct + '%" data-tip="' + d.day + ': ' + d.total + '"></div>'; }).join(''); }
+    const DOTS = { received: 'var(--gold)', reviewing: 'var(--reviewing)', shortlist: 'var(--shortlist-color)', accepted: 'var(--accepted)', declined: 'var(--declined)', published: 'var(--published)' };
+    if (statusRow) { statusRow.innerHTML = Object.entries(data.byStatus || {}).map(([s, n]) => '<div class="analytics-chip"><div class="analytics-dot" style="background:' + (DOTS[s] || 'var(--text-3)') + '"></div>' + s + ': <strong style="color:var(--text);margin-left:3px">' + n + '</strong></div>').join(''); }
+  } catch (err) { console.error('[loadAnalytics]', err); }
+}
+
+let _featuredEditorVisible = false;
+let _featuredLoaded = false;
+const _featuredCache = {};
+
+function toggleFeaturedEditor() { const el = document.getElementById('admin-featured-section'); _featuredEditorVisible = !_featuredEditorVisible; el.style.display = _featuredEditorVisible ? 'block' : 'none'; if (_featuredEditorVisible) loadAdminFeatured(); }
+function openNewFeaturedForm() { const f = document.getElementById('new-featured-form'); f.style.display = f.style.display === 'none' ? 'block' : 'none'; ['nf-series','nf-photographer','nf-instagram','nf-credits','nf-story'].forEach(function(id) { const el = document.getElementById(id); if (el) el.value = ''; }); const iss = document.getElementById('nf-issue'); if (iss) iss.value = 'Issue 01'; const pub = document.getElementById('nf-publish'); if (pub) pub.checked = false; const st = document.getElementById('nf-status'); if (st) st.style.display = 'none'; }
+
+async function createFeaturedEntry() {
+  function g(id) { return document.getElementById(id); }
+  const series = g('nf-series').value.trim(); const photographer = g('nf-photographer').value.trim(); const instagram = g('nf-instagram').value.trim(); const issue = g('nf-issue').value.trim(); const credits = g('nf-credits').value.trim(); const story = g('nf-story').value.trim(); const publish = g('nf-publish').checked; const statusEl = g('nf-status');
+  if (!series || !photographer || !story || !credits) { statusEl.textContent = 'Please fill in all required fields.'; statusEl.style.color = 'var(--err)'; statusEl.style.display = 'block'; return; }
+  try {
+    const res = await fetch(`${API}/api/admin/featured`, { method: 'POST', headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${adminToken}` }, body: JSON.stringify({ series, photographer, instagram, issue, credits, story, status: publish ? 'published' : 'draft' }) });
+    if (res.ok) { statusEl.textContent = 'Entry saved.'; statusEl.style.color = 'var(--gold)'; statusEl.style.display = 'block'; g('new-featured-form').style.display = 'none'; _featuredLoaded = false; loadAdminFeatured(); }
+    else { const d = await res.json(); statusEl.textContent = d.error || 'Failed to save.'; statusEl.style.color = 'var(--err)'; statusEl.style.display = 'block'; }
+  } catch (err) { console.error('[createFeaturedEntry]', err); }
+}
+
+async function loadAdminFeatured() {
+  if (!adminToken) return;
+  const container = document.getElementById('admin-featured-list'); if (!container) return;
+  try {
+    const res = await fetch(`${API}/api/admin/featured`, { headers: { 'Authorization': `Bearer ${adminToken}` } });
+    const data = await res.json();
+    if (!res.ok || !data.featured || data.featured.length === 0) { container.innerHTML = '<div class="admin-empty" style="margin-top:0">No featured entries yet.</div>'; return; }
+    container.innerHTML = '<div class="featured-editor-list">' + data.featured.map(function(f) { return '<div class="featured-editor-item"><div class="featured-editor-info"><div class="featured-editor-title">' + escHtml(f.series) + '</div><div class="featured-editor-meta">' + escHtml(f.photographer) + ' · ' + escHtml(f.issue) + '</div></div><div style="display:flex;align-items:center;gap:8px;flex-shrink:0;flex-wrap:wrap"><span class="feat-badge ' + f.status + '">' + f.status + '</span><button class="btn btn-ghost" style="font-size:0.5rem;padding:5px 10px" data-fid="' + escHtml(f.id) + '" data-fstatus="' + f.status + '" onclick="toggleFeaturedStatus(this.dataset.fid,this.dataset.fstatus)">' + (f.status === 'published' ? 'Unpublish' : 'Publish') + '</button><button class="admin-del-btn" data-fid="' + escHtml(f.id) + '" data-fname="' + escHtml(f.series) + '" onclick="deleteFeaturedEntry(this.dataset.fid,this.dataset.fname)">Delete</button></div></div>'; }).join('') + '</div>';
+  } catch (err) { console.error('[loadAdminFeatured]', err); }
+}
+
+async function toggleFeaturedStatus(id, currentStatus) {
+  try { await fetch(`${API}/api/admin/featured/${encodeURIComponent(id)}`, { method: 'PATCH', headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${adminToken}` }, body: JSON.stringify({ status: currentStatus === 'published' ? 'draft' : 'published' }) }); _featuredLoaded = false; loadAdminFeatured(); }
+  catch (err) { console.error('[toggleFeaturedStatus]', err); }
+}
+
+async function deleteFeaturedEntry(id, name) {
+  if (!confirm('Delete featured entry "' + name + '"?')) return;
+  try { await fetch(`${API}/api/admin/featured/${encodeURIComponent(id)}`, { method: 'DELETE', headers: { 'Authorization': `Bearer ${adminToken}` } }); _featuredLoaded = false; loadAdminFeatured(); }
+  catch (err) { console.error('[deleteFeaturedEntry]', err); }
+}
+
+async function promoteToFeatured(subId, name) {
+  if (!confirm('Add "' + name + '" to the Featured Editor as a draft?')) return;
+  try {
+    const res = await fetch(`${API}/api/admin/subs/${encodeURIComponent(subId)}/feature`, { method: 'POST', headers: { 'Authorization': `Bearer ${adminToken}` } });
+    if (res.ok) { alert('"' + name + '" added as a draft. Open the Featured Editor to publish it.'); _featuredLoaded = false; if (_featuredEditorVisible) loadAdminFeatured(); }
+  } catch (err) { console.error('[promoteToFeatured]', err); }
+}
+
+async function loadFeatured() {
+  if (_featuredLoaded) return;
+  const container = document.getElementById('featured-grid-container'); if (!container) return;
+  try {
+    const res = await fetch(`${API}/api/featured`);
+    const data = await res.json(); _featuredLoaded = true;
+    if (!data.featured || data.featured.length === 0) { container.innerHTML = '<div class="featured-empty">The first issue has not yet been featured. Check back after Issue 01 launches.</div>'; return; }
+    container.innerHTML = '<div class="featured-grid">' + data.featured.map(function(f) { return '<div class="featured-card" data-fid="' + escHtml(f.id) + '" onclick="viewFeatured(this.dataset.fid)"><div class="featured-card-issue">' + escHtml(f.issue) + '</div><div class="featured-card-series">' + escHtml(f.series) + '</div><div class="featured-card-by">By <strong>' + escHtml(f.photographer) + '</strong></div>' + (f.instagram ? '<div class="featured-card-insta">' + escHtml(f.instagram) + '</div>' : '') + '<div class="featured-card-excerpt">' + escHtml((f.story || '').substring(0,400)) + '</div><div class="featured-card-read">Read the spread</div></div>'; }).join('') + '</div>';
+  } catch { container.innerHTML = '<div class="featured-empty">Could not load featured content.</div>'; _featuredLoaded = false; }
+}
+
+async function viewFeatured(id) {
+  const contentEl = document.getElementById('featured-detail-content'); if (!contentEl) return;
+  contentEl.innerHTML = '<div style="padding:40px;font-size:0.74rem;color:var(--text-3)">Loading…</div>';
+  go('featured-detail');
+  try {
+    if (_featuredCache[id]) { renderFeaturedDetail(_featuredCache[id]); return; }
+    const res = await fetch(`${API}/api/featured/${encodeURIComponent(id)}`);
+    const data = await res.json(); _featuredCache[id] = data.item; renderFeaturedDetail(data.item);
+  } catch { contentEl.innerHTML = '<div style="color:var(--err);font-size:0.74rem;padding:20px">Could not load this feature.</div>'; }
+}
+
+function renderFeaturedDetail(f) {
+  const el = document.getElementById('featured-detail-content'); if (!el || !f) return;
+  const pageUrl = encodeURIComponent(window.location.href.split('#')[0] + '#featured-detail');
+  const shareText = encodeURIComponent(`"${f.series}" by ${f.photographer} — featured in Révèle Magazine`);
+  const shareHtml =
+    '<div class="share-row">' +
+      '<span class="share-label">Share</span>' +
+      '<button class="share-btn" title="Copy link" onclick="shareLink(this)">🔗 Copy link</button>' +
+      '<a class="share-btn" href="https://twitter.com/intent/tweet?text=' + shareText + '&url=' + pageUrl + '" target="_blank" rel="noopener">𝕏 Twitter</a>' +
+      '<a class="share-btn" href="https://wa.me/?text=' + shareText + '%20' + pageUrl + '" target="_blank" rel="noopener">📱 WhatsApp</a>' +
+    '</div>';
+  const words = (f.story || '').trim().split(/\s+/).filter(Boolean).length;
+  const readMins = Math.max(1, Math.round(words / 200));
+  const readBadge = words > 30 ? '<span class="read-time">' + readMins + ' min read</span>' : '';
+  el.innerHTML =
+    '<div class="featured-detail-header">' +
+      '<div class="featured-detail-issue">' + escHtml(f.issue) + '</div>' +
+      '<div class="featured-detail-title">' + escHtml(f.series) + '</div>' +
+      '<div class="featured-detail-byline">By <strong>' + escHtml(f.photographer) + '</strong>' + (f.instagram ? ' &nbsp;·&nbsp; <span style="color:var(--gold)">' + escHtml(f.instagram) + '</span>' : '') + ' ' + readBadge + '</div>' +
+    '</div>' +
+    shareHtml +
+    '<div class="featured-detail-story">' + escHtml(f.story) + '</div>' +
+    '<div class="featured-detail-credits-box"><div class="featured-detail-credits-h">Team Credits</div><div class="featured-detail-credits-txt">' + escHtml(f.credits) + '</div></div>';
+}
+
+function shareLink(btn) {
+  const url = window.location.href;
+  navigator.clipboard.writeText(url).then(() => {
+    const orig = btn.textContent; btn.textContent = '✓ Copied!';
+    setTimeout(() => btn.textContent = orig, 2000);
+  }).catch(() => {
+    prompt('Copy this link:', url);
+  });
+}
+
+function escHtml(str) {
+  if (typeof str !== 'string') return '';
+  return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');
+}
+
+// ─── COOKIE CONSENT ──────────────────────────────────────
+function initCookieConsent() {
+  try {
+    if (!localStorage.getItem('revele_cookie_consent')) {
+      setTimeout(() => {
+        const b = document.getElementById('cookie-banner');
+        if (b) b.classList.add('show');
+      }, 1800);
+    }
+  } catch(e) { /* localStorage may be blocked in private browsing */ }
+}
+function cookieAccept() {
+  try { localStorage.setItem('revele_cookie_consent', 'all'); } catch(e) {}
+  const b = document.getElementById('cookie-banner');
+  if (b) b.classList.remove('show');
+}
+function cookieDecline() {
+  try { localStorage.setItem('revele_cookie_consent', 'essential'); } catch(e) {}
+  const b = document.getElementById('cookie-banner');
+  if (b) b.classList.remove('show');
+}
+initCookieConsent();
+
+// ─── OS COLOR SCHEME DETECTION ───────────────────────────
+(function() {
+  try {
+    const stored = localStorage.getItem('revele_theme');
+    if (!stored) {
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      document.documentElement.setAttribute('data-theme', prefersDark ? 'dark' : 'light');
+    }
+  } catch(e) {}
+})();
+
+// ─── UPLOAD PAGE ──────────────────────────────────────────
+let _uploadToken = null;
+let _uploadedKeys = [];
+
+async function initUploadPage() {
+  const params = new URLSearchParams(window.location.search || window.location.hash.replace(/^[^?]*\?/, ''));
+  const token = params.get('token');
+  const body = document.getElementById('upload-body');
+  if (!body) return;
+
+  if (!token) {
+    body.innerHTML = '<div class="form-card"><p style="font-size:0.82rem;color:var(--text-2);line-height:1.8">This page is only accessible via your personal upload link sent by the Révèle editorial team. If you believe you received this in error, please email <a href="mailto:submissions@revelemagazine.com" style="color:var(--gold)">submissions@revelemagazine.com</a>.</p></div>';
+    return;
+  }
+
+  try {
+    const res = await fetch(`${API}/api/upload/${encodeURIComponent(token)}`);
+    const data = await res.json();
+
+    if (!data.valid) {
+      body.innerHTML = '<div class="form-card"><p style="font-size:0.82rem;color:var(--text-2);line-height:1.8">' + escHtml(data.error || 'This upload link is invalid or has expired.') + ' Please email <a href="mailto:submissions@revelemagazine.com" style="color:var(--gold)">submissions@revelemagazine.com</a> if you need a new link.</p></div>';
+      return;
+    }
+
+    _uploadToken = token;
+    const sub = data.submission;
+    const expiry = new Date(sub.expiresAt).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+
+    if (sub.uploadCompleted) {
+      body.innerHTML = '<div class="form-card"><div style="text-align:center;padding:20px 0"><div style="font-size:2rem;margin-bottom:16px">✓</div><p style="font-size:0.9rem;font-family:\'Cormorant Garamond\',serif;font-style:italic;color:var(--gold);margin-bottom:12px">Upload complete</p><p style="font-size:0.78rem;color:var(--text-2);line-height:1.8">Your images for <strong>' + escHtml(sub.series) + '</strong> have been received. We will be in touch as we approach the publication date.</p></div></div>';
+      return;
+    }
+
+    body.innerHTML =
+      '<div class="form-card" style="margin-bottom:24px">' +
+        '<p style="font-size:0.72rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--gold);margin-bottom:10px">Accepted for publication</p>' +
+        '<p style="font-size:1.1rem;font-family:\'Cormorant Garamond\',serif;font-style:italic;margin-bottom:6px">' + escHtml(sub.series) + '</p>' +
+        '<p style="font-size:0.72rem;color:var(--text-3)">' + escHtml(sub.issue) + ' &nbsp;·&nbsp; Upload link expires ' + escHtml(expiry) + '</p>' +
+      '</div>' +
+      '<div class="form-card">' +
+        '<div class="form-title">Upload your images</div>' +
+        '<p style="font-size:0.76rem;color:var(--text-2);line-height:1.8;margin-bottom:20px">Select all your image files below. Files are uploaded directly to our secure storage — we do not compress or alter them in any way. Accepted formats: TIFF, JPG, PNG. Up to 20 files.</p>' +
+        '<div id="upload-drop" style="border:1.5px dashed var(--border-2);border-radius:var(--radius-sm);padding:40px 20px;text-align:center;cursor:pointer;transition:border-color 0.2s" onclick="document.getElementById(\'upload-file-input\').click()" ondragover="event.preventDefault();this.style.borderColor=\'var(--gold)\'" ondragleave="this.style.borderColor=\'var(--border-2)\'" ondrop="handleUploadDrop(event)">' +
+          '<p style="font-size:0.78rem;color:var(--text-2)">Drag and drop images here, or <span style="color:var(--gold);text-decoration:underline">click to browse</span></p>' +
+          '<p style="font-size:0.66rem;color:var(--text-3);margin-top:8px">TIFF · JPG · PNG &nbsp;·&nbsp; No size limit &nbsp;·&nbsp; Up to 20 files</p>' +
+        '</div>' +
+        '<input type="file" id="upload-file-input" multiple accept=".jpg,.jpeg,.tif,.tiff,.png,image/jpeg,image/tiff,image/png" style="display:none" onchange="handleUploadFiles(this.files)">' +
+        '<div id="upload-file-list" style="margin-top:16px;display:flex;flex-direction:column;gap:8px"></div>' +
+        '<div id="upload-progress-wrap" style="display:none;margin-top:16px">' +
+          '<div style="height:3px;background:var(--border);border-radius:2px;overflow:hidden"><div id="upload-progress-bar" style="height:100%;background:var(--gold);transition:width 0.3s;width:0%"></div></div>' +
+          '<p id="upload-progress-text" style="font-size:0.66rem;color:var(--text-3);margin-top:8px;text-align:center">Preparing…</p>' +
+        '</div>' +
+        '<button class="f-btn" id="upload-submit-btn" style="margin-top:20px;display:none" onclick="startUploads()">Upload all images</button>' +
+        '<div id="upload-done" style="display:none;text-align:center;padding:20px 0"><p style="font-size:0.9rem;font-family:\'Cormorant Garamond\',serif;font-style:italic;color:var(--gold)">All images uploaded. Thank you.</p><p style="font-size:0.76rem;color:var(--text-2);margin-top:8px">We will be in touch as we prepare the issue.</p></div>' +
+        '<div id="upload-err" style="display:none" class="f-status err"></div>' +
+      '</div>';
+  } catch (err) {
+    body.innerHTML = '<div class="form-card"><p style="font-size:0.82rem;color:var(--text-2)">Could not load your upload page. Please try again or email <a href="mailto:submissions@revelemagazine.com" style="color:var(--gold)">submissions@revelemagazine.com</a>.</p></div>';
+    console.error('[Upload] init error:', err);
+  }
+}
+
+function handleUploadDrop(e) {
+  e.preventDefault();
+  document.getElementById('upload-drop').style.borderColor = 'var(--border-2)';
+  handleUploadFiles(e.dataTransfer.files);
+}
+
+let _pendingFiles = [];
+
+function handleUploadFiles(files) {
+  const list = document.getElementById('upload-file-list');
+  const btn = document.getElementById('upload-submit-btn');
+  if (!list || !files || files.length === 0) return;
+  _pendingFiles = Array.from(files).slice(0, 20);
+  list.innerHTML = _pendingFiles.map((f, i) =>
+    '<div style="display:flex;align-items:center;justify-content:space-between;padding:10px 14px;background:var(--bg-1);border-radius:6px;border:1px solid var(--border)">' +
+      '<div style="font-size:0.72rem;color:var(--text-2);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;flex:1">' + escHtml(f.name) + '</div>' +
+      '<div style="font-size:0.64rem;color:var(--text-3);margin-left:12px;white-space:nowrap">' + (f.size / (1024*1024)).toFixed(1) + ' MB</div>' +
+      '<div id="file-status-' + i + '" style="margin-left:12px;font-size:0.64rem;color:var(--text-3)">Pending</div>' +
+    '</div>'
+  ).join('');
+  if (btn) btn.style.display = 'block';
+}
+
+async function startUploads() {
+  if (!_uploadToken || !_pendingFiles.length) return;
+  const btn = document.getElementById('upload-submit-btn');
+  const progressWrap = document.getElementById('upload-progress-wrap');
+  const progressBar = document.getElementById('upload-progress-bar');
+  const progressText = document.getElementById('upload-progress-text');
+  const errEl = document.getElementById('upload-err');
+  const doneEl = document.getElementById('upload-done');
+
+  btn.disabled = true;
+  progressWrap.style.display = 'block';
+  errEl.style.display = 'none';
+  _uploadedKeys = [];
+
+  for (let i = 0; i < _pendingFiles.length; i++) {
+    const file = _pendingFiles[i];
+    const statusEl = document.getElementById('file-status-' + i);
+    const pct = Math.round((i / _pendingFiles.length) * 100);
+    progressBar.style.width = pct + '%';
+    progressText.textContent = `Uploading ${i + 1} of ${_pendingFiles.length}: ${file.name}`;
+    if (statusEl) statusEl.textContent = 'Uploading…';
+
+    try {
+      // 1. Get pre-signed PUT URL from server
+      const presignRes = await fetch(`${API}/api/upload/${encodeURIComponent(_uploadToken)}/presign`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ filename: file.name, contentType: file.type || 'application/octet-stream' }),
+      });
+      if (!presignRes.ok) throw new Error('Could not get upload URL');
+      const { url, key } = await presignRes.json();
+
+      // 2. Upload directly to R2 — server never touches the file bytes
+      const uploadRes = await fetch(url, {
+        method: 'PUT',
+        headers: { 'Content-Type': file.type || 'application/octet-stream' },
+        body: file,
+      });
+      if (!uploadRes.ok) throw new Error('Upload failed for ' + file.name);
+      _uploadedKeys.push(key);
+      if (statusEl) { statusEl.textContent = '✓'; statusEl.style.color = 'var(--gold)'; }
+    } catch (err) {
+      if (statusEl) { statusEl.textContent = '✗ Error'; statusEl.style.color = '#e66'; }
+      errEl.style.display = 'block';
+      errEl.textContent = `Failed to upload ${file.name}: ${err.message}. Please try again or email submissions@revelemagazine.com.`;
+      btn.disabled = false;
+      return;
+    }
+  }
+
+  progressBar.style.width = '100%';
+  progressText.textContent = 'Finalising…';
+
+  // 3. Mark upload complete
+  try {
+    await fetch(`${API}/api/upload/${encodeURIComponent(_uploadToken)}/complete`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ fileKeys: _uploadedKeys }),
+    });
+  } catch(e) { console.warn('[Upload] complete call failed:', e); }
+
+  progressWrap.style.display = 'none';
+  btn.style.display = 'none';
+  doneEl.style.display = 'block';
+}
+
+// ─── ADMIN: SEND UPLOAD LINK ──────────────────────────────
+async function sendUploadLink(subId, btn) {
+  if (!adminToken) return;
+  const orig = btn.textContent;
+  btn.disabled = true;
+  btn.textContent = 'Sending…';
+  try {
+    const res = await fetch(`${API}/api/admin/subs/${encodeURIComponent(subId)}/upload-link`, {
+      method: 'POST',
+      headers: { 'Authorization': `Bearer ${adminToken}` },
+    });
+    const data = await res.json();
+    if (!res.ok) throw new Error(data.error || 'Failed');
+    btn.textContent = '✓ ' + (data.emailSent ? 'Email sent!' : 'Link generated');
+    btn.style.color = 'var(--gold)';
+    if (!data.emailSent && data.uploadUrl) {
+      prompt('Email not configured. Share this link manually:', data.uploadUrl);
+    }
+  } catch (err) {
+    btn.textContent = '✗ Error';
+    setTimeout(() => { btn.textContent = orig; btn.disabled = false; }, 2000);
+    console.error('[Admin] sendUploadLink error:', err);
+  }
+}
+
+// Auto-init upload page if that's the current route
+if (window.location.hash === '#upload' || window.location.hash.startsWith('#upload?')) {
+  document.addEventListener('DOMContentLoaded', initUploadPage);
+}
+
+// ─── KEYBOARD ACCESSIBILITY ───────────────────────────────
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') {
+    closeModal();
+    const mob = document.getElementById('mobileMenu');
+    if (mob && mob.classList.contains('open')) closeMobile();
+  }
+});
+</script>
+</body>
+</html>
