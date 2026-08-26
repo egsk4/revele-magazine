@@ -1,0 +1,1 @@
+- [GitHub large-file writes](github-large-file-writes.md) — large HTML updates may be blocked by the Replit security proxy even when small commits work.
