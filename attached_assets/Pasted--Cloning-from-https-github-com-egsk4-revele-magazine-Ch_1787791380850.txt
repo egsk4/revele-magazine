@@ -1,0 +1,103 @@
+==> Cloning from https://github.com/egsk4/revele-magazine
+==> Checking out commit 50d502913e93d01d676f4d88fbcfd93e86009518 in branch main
+==> Requesting Node.js version 20
+==> Using Node.js version 20.20.2 via environment variable NODE_VERSION
+==> Docs on specifying a Node.js version: https://render.com/docs/node-version
+==> Installing Node.js version 20.20.2...
+==> Running build command 'corepack enable && corepack prepare pnpm@10.28.0 --activate && pnpm install --no-frozen-lockfile'...
+Preparing pnpm@10.28.0 for immediate activation...
+==> Uploading build...
+==> Uploaded in 2.1s. Compression took 0.9s
+==> Build successful 🎉
+==> Deploying...
+==> Setting WEB_CONCURRENCY=1 by default, based on available CPUs in the instance
+==> Running 'node server.js'
+/opt/render/project/src/node_modules/.pnpm/bindings@1.5.0/node_modules/bindings/bindings.js:135
+  throw err;
+  ^
+Error: Could not locate the bindings file. Tried:
+ → /opt/render/project/src/node_modules/.pnpm/better-sqlite3@9.6.0/node_modules/better-sqlite3/build/better_sqlite3.node
+ → /opt/render/project/src/node_modules/.pnpm/better-sqlite3@9.6.0/node_modules/better-sqlite3/build/Debug/better_sqlite3.node
+ → /opt/render/project/src/node_modules/.pnpm/better-sqlite3@9.6.0/node_modules/better-sqlite3/build/Release/better_sqlite3.node
+ → /opt/render/project/src/node_modules/.pnpm/better-sqlite3@9.6.0/node_modules/better-sqlite3/out/Debug/better_sqlite3.node
+ → /opt/render/project/src/node_modules/.pnpm/better-sqlite3@9.6.0/node_modules/better-sqlite3/Debug/better_sqlite3.node
+ → /opt/render/project/src/node_modules/.pnpm/better-sqlite3@9.6.0/node_modules/better-sqlite3/out/Release/better_sqlite3.node
+ → /opt/render/project/src/node_modules/.pnpm/better-sqlite3@9.6.0/node_modules/better-sqlite3/Release/better_sqlite3.node
+ → /opt/render/project/src/node_modules/.pnpm/better-sqlite3@9.6.0/node_modules/better-sqlite3/build/default/better_sqlite3.node
+ → /opt/render/project/src/node_modules/.pnpm/better-sqlite3@9.6.0/node_modules/better-sqlite3/compiled/20.20.2/linux/x64/better_sqlite3.node
+ → /opt/render/project/src/node_modules/.pnpm/better-sqlite3@9.6.0/node_modules/better-sqlite3/addon-build/release/install-root/better_sqlite3.node
+ → /opt/render/project/src/node_modules/.pnpm/better-sqlite3@9.6.0/node_modules/better-sqlite3/addon-build/debug/install-root/better_sqlite3.node
+ → /opt/render/project/src/node_modules/.pnpm/better-sqlite3@9.6.0/node_modules/better-sqlite3/addon-build/default/install-root/better_sqlite3.node
+ → /opt/render/project/src/node_modules/.pnpm/better-sqlite3@9.6.0/node_modules/better-sqlite3/lib/binding/node-v115-linux-x64/better_sqlite3.node
+    at bindings (/opt/render/project/src/node_modules/.pnpm/bindings@1.5.0/node_modules/bindings/bindings.js:126:9)
+    at new Database (/opt/render/project/src/node_modules/.pnpm/better-sqlite3@9.6.0/node_modules/better-sqlite3/lib/database.js:48:64)
+    at Object.<anonymous> (/opt/render/project/src/server.js:103:12)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1623:10)
+    at Module.load (node:internal/modules/cjs/loader:1266:32)
+    at Module._load (node:internal/modules/cjs/loader:1091:12)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:164:12)
+    at node:internal/main/run_main_module:28:49 {
+  tries: [
+    '/opt/render/project/src/node_modules/.pnpm/better-sqlite3@9.6.0/node_modules/better-sqlite3/build/better_sqlite3.node',
+    '/opt/render/project/src/node_modules/.pnpm/better-sqlite3@9.6.0/node_modules/better-sqlite3/build/Debug/better_sqlite3.node',
+    '/opt/render/project/src/node_modules/.pnpm/better-sqlite3@9.6.0/node_modules/better-sqlite3/build/Release/better_sqlite3.node',
+    '/opt/render/project/src/node_modules/.pnpm/better-sqlite3@9.6.0/node_modules/better-sqlite3/out/Debug/better_sqlite3.node',
+    '/opt/render/project/src/node_modules/.pnpm/better-sqlite3@9.6.0/node_modules/better-sqlite3/Debug/better_sqlite3.node',
+    '/opt/render/project/src/node_modules/.pnpm/better-sqlite3@9.6.0/node_modules/better-sqlite3/out/Release/better_sqlite3.node',
+    '/opt/render/project/src/node_modules/.pnpm/better-sqlite3@9.6.0/node_modules/better-sqlite3/Release/better_sqlite3.node',
+    '/opt/render/project/src/node_modules/.pnpm/better-sqlite3@9.6.0/node_modules/better-sqlite3/build/default/better_sqlite3.node',
+    '/opt/render/project/src/node_modules/.pnpm/better-sqlite3@9.6.0/node_modules/better-sqlite3/compiled/20.20.2/linux/x64/better_sqlite3.node',
+    '/opt/render/project/src/node_modules/.pnpm/better-sqlite3@9.6.0/node_modules/better-sqlite3/addon-build/release/install-root/better_sqlite3.node',
+    '/opt/render/project/src/node_modules/.pnpm/better-sqlite3@9.6.0/node_modules/better-sqlite3/addon-build/debug/install-root/better_sqlite3.node',
+    '/opt/render/project/src/node_modules/.pnpm/better-sqlite3@9.6.0/node_modules/better-sqlite3/addon-build/default/install-root/better_sqlite3.node',
+    '/opt/render/project/src/node_modules/.pnpm/better-sqlite3@9.6.0/node_modules/better-sqlite3/lib/binding/node-v115-linux-x64/better_sqlite3.node'
+  ]
+}
+Node.js v20.20.2
+==> Exited with status 1
+==> Common ways to troubleshoot your deploy: https://render.com/docs/troubleshooting-deploys
+==> Running 'node server.js'
+/opt/render/project/src/node_modules/.pnpm/bindings@1.5.0/node_modules/bindings/bindings.js:135
+  throw err;
+  ^
+Error: Could not locate the bindings file. Tried:
+ → /opt/render/project/src/node_modules/.pnpm/better-sqlite3@9.6.0/node_modules/better-sqlite3/build/better_sqlite3.node
+ → /opt/render/project/src/node_modules/.pnpm/better-sqlite3@9.6.0/node_modules/better-sqlite3/build/Debug/better_sqlite3.node
+ → /opt/render/project/src/node_modules/.pnpm/better-sqlite3@9.6.0/node_modules/better-sqlite3/build/Release/better_sqlite3.node
+ → /opt/render/project/src/node_modules/.pnpm/better-sqlite3@9.6.0/node_modules/better-sqlite3/out/Debug/better_sqlite3.node
+ → /opt/render/project/src/node_modules/.pnpm/better-sqlite3@9.6.0/node_modules/better-sqlite3/Debug/better_sqlite3.node
+ → /opt/render/project/src/node_modules/.pnpm/better-sqlite3@9.6.0/node_modules/better-sqlite3/out/Release/better_sqlite3.node
+ → /opt/render/project/src/node_modules/.pnpm/better-sqlite3@9.6.0/node_modules/better-sqlite3/Release/better_sqlite3.node
+ → /opt/render/project/src/node_modules/.pnpm/better-sqlite3@9.6.0/node_modules/better-sqlite3/build/default/better_sqlite3.node
+ → /opt/render/project/src/node_modules/.pnpm/better-sqlite3@9.6.0/node_modules/better-sqlite3/compiled/20.20.2/linux/x64/better_sqlite3.node
+ → /opt/render/project/src/node_modules/.pnpm/better-sqlite3@9.6.0/node_modules/better-sqlite3/addon-build/release/install-root/better_sqlite3.node
+ → /opt/render/project/src/node_modules/.pnpm/better-sqlite3@9.6.0/node_modules/better-sqlite3/addon-build/debug/install-root/better_sqlite3.node
+ → /opt/render/project/src/node_modules/.pnpm/better-sqlite3@9.6.0/node_modules/better-sqlite3/addon-build/default/install-root/better_sqlite3.node
+ → /opt/render/project/src/node_modules/.pnpm/better-sqlite3@9.6.0/node_modules/better-sqlite3/lib/binding/node-v115-linux-x64/better_sqlite3.node
+    at bindings (/opt/render/project/src/node_modules/.pnpm/bindings@1.5.0/node_modules/bindings/bindings.js:126:9)
+    at new Database (/opt/render/project/src/node_modules/.pnpm/better-sqlite3@9.6.0/node_modules/better-sqlite3/lib/database.js:48:64)
+    at Object.<anonymous> (/opt/render/project/src/server.js:103:12)
+    at Module._compile (node:internal/modules/cjs/loader:1521:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1623:10)
+    at Module.load (node:internal/modules/cjs/loader:1266:32)
+    at Module._load (node:internal/modules/cjs/loader:1091:12)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:164:12)
+    at node:internal/main/run_main_module:28:49 {
+  tries: [
+    '/opt/render/project/src/node_modules/.pnpm/better-sqlite3@9.6.0/node_modules/better-sqlite3/build/better_sqlite3.node',
+    '/opt/render/project/src/node_modules/.pnpm/better-sqlite3@9.6.0/node_modules/better-sqlite3/build/Debug/better_sqlite3.node',
+    '/opt/render/project/src/node_modules/.pnpm/better-sqlite3@9.6.0/node_modules/better-sqlite3/build/Release/better_sqlite3.node',
+    '/opt/render/project/src/node_modules/.pnpm/better-sqlite3@9.6.0/node_modules/better-sqlite3/out/Debug/better_sqlite3.node',
+    '/opt/render/project/src/node_modules/.pnpm/better-sqlite3@9.6.0/node_modules/better-sqlite3/Debug/better_sqlite3.node',
+    '/opt/render/project/src/node_modules/.pnpm/better-sqlite3@9.6.0/node_modules/better-sqlite3/out/Release/better_sqlite3.node',
+    '/opt/render/project/src/node_modules/.pnpm/better-sqlite3@9.6.0/node_modules/better-sqlite3/Release/better_sqlite3.node',
+    '/opt/render/project/src/node_modules/.pnpm/better-sqlite3@9.6.0/node_modules/better-sqlite3/build/default/better_sqlite3.node',
+    '/opt/render/project/src/node_modules/.pnpm/better-sqlite3@9.6.0/node_modules/better-sqlite3/compiled/20.20.2/linux/x64/better_sqlite3.node',
+    '/opt/render/project/src/node_modules/.pnpm/better-sqlite3@9.6.0/node_modules/better-sqlite3/addon-build/release/install-root/better_sqlite3.node',
+    '/opt/render/project/src/node_modules/.pnpm/better-sqlite3@9.6.0/node_modules/better-sqlite3/addon-build/debug/install-root/better_sqlite3.node',
+    '/opt/render/project/src/node_modules/.pnpm/better-sqlite3@9.6.0/node_modules/better-sqlite3/addon-build/default/install-root/better_sqlite3.node',
+    '/opt/render/project/src/node_modules/.pnpm/better-sqlite3@9.6.0/node_modules/better-sqlite3/lib/binding/node-v115-linux-x64/better_sqlite3.node'
+  ]
+}
+Node.js v20.20.2
