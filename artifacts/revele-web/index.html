@@ -251,7 +251,7 @@ nav {
   display: none; background: var(--warn-bg); border: 1px solid var(--warn-border);
   border-radius: var(--radius-sm); padding: 11px 18px;
   font-size: 0.72rem; color: var(--warn); line-height: 1.6;
-  margin: 0 20px 12px; max-width: 1120px; margin-left: auto; margin-right: auto;
+  margin: 74px 20px 12px; max-width: 1120px; margin-left: auto; margin-right: auto;
 }
 .backend-banner.show { display: block; }
 
@@ -1629,6 +1629,8 @@ let adminFilter = '';
 let adminDebounceTimer = null;
 let adminPrevLoginTime = null;
 
+let backendDown = false;
+let ORIGINAL_SUB_CLOSED_HTML = null;
 async function checkBackend() {
   try {
     const res = await fetch(`${API}/api/count`, { signal: AbortSignal.timeout(3000) });
@@ -1636,10 +1638,30 @@ async function checkBackend() {
       const data = await res.json();
       document.getElementById('sub-counter').textContent = data.count;
       document.getElementById('backend-banner').classList.remove('show');
-    } else { showBackendBanner(); }
-  } catch { showBackendBanner(); document.getElementById('sub-counter').textContent = '—'; }
+      backendDown = false;
+      setSubmitLockdown(false);
+    } else { showBackendBanner(); backendDown = true; setSubmitLockdown(true); }
+  } catch { showBackendBanner(); document.getElementById('sub-counter').textContent = '—'; backendDown = true; setSubmitLockdown(true); }
 }
 function showBackendBanner() { document.getElementById('backend-banner').classList.add('show'); }
+function setSubmitLockdown(down) {
+  const banner = document.getElementById('sub-closed-banner');
+  const formCard = document.getElementById('sub-form-card');
+  const nlEmail = document.getElementById('nl-email');
+  if (banner && ORIGINAL_SUB_CLOSED_HTML === null) ORIGINAL_SUB_CLOSED_HTML = banner.innerHTML;
+  if (down) {
+    if (banner) {
+      banner.innerHTML = '<h2 style="font-family:\'Cormorant Garamond\',serif;font-size:1.35rem;font-weight:300;font-style:italic;margin-bottom:12px">Submissions temporarily unavailable.</h2><p style="font-size:0.76rem;font-weight:300;color:var(--text-2);line-height:1.85">We are experiencing a technical issue on our end. Please check back shortly, or email <a href="mailto:submissions@revelemagazine.com" style="color:var(--gold)">submissions@revelemagazine.com</a> directly.</p>';
+      banner.classList.add('show');
+    }
+    if (formCard) formCard.style.display = 'none';
+    if (nlEmail) nlEmail.disabled = true;
+  } else {
+    if (banner && ORIGINAL_SUB_CLOSED_HTML !== null) banner.innerHTML = ORIGINAL_SUB_CLOSED_HTML;
+    if (nlEmail) nlEmail.disabled = false;
+    checkDeadline();
+  }
+}
 checkBackend();
 
 async function loadDeadline() {
@@ -1717,6 +1739,7 @@ function updateChar(el, counterId, max) {
 function copyText(txt) { navigator.clipboard.writeText(txt).then(() => alert('Copied to clipboard')); }
 
 async function nlSubmit() {
+  if (backendDown) { const m = document.getElementById('nl-msg'); if (m) { m.textContent = 'Newsletter signups are temporarily unavailable.'; m.className = 'nl-msg err'; m.style.display = 'block'; } return; }
   const emailEl = document.getElementById('nl-email');
   const msgEl   = document.getElementById('nl-msg');
   const email   = emailEl.value.trim();
