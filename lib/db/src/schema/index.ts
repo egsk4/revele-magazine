@@ -28,6 +28,7 @@ export const submissions = pgTable("submissions", {
   status: text("status"), // e.g. "received", "reviewing", "accepted", "declined"
   notes: text("notes"),
   isRead: boolean("is_read").default(false),
+  files: text("files").array().default([]),
   createdAt: timestamp("created_at", { withTimezone: true }).defaultNow(),
   updatedAt: timestamp("updated_at", { withTimezone: true }).defaultNow(),
   rating: integer("rating").default(0),

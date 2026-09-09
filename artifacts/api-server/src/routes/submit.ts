@@ -12,15 +12,17 @@ const router = Router();
 
 router.post("/submit", async (req, res) => {
   try {
-    const { name, email, instagram, series, credits, story, issue } = req.body ?? {};
+    const { name, email, instagram, series, credits, story, issue, files } = req.body ?? {};
 
     if (
       !name || typeof name !== "string" ||
       !email || typeof email !== "string" || !email.includes("@") ||
       !series || typeof series !== "string" ||
-      !credits || typeof credits !== "string"
+      !credits || typeof credits !== "string" ||
+      !Array.isArray(files) || files.length < 6 || files.length > 20 ||
+      !files.every((f: unknown) => typeof f === "string" && f.length > 0)
     ) {
-      return res.status(400).json({ error: "Please fill in all required fields." });
+      return res.status(400).json({ error: "Please fill in all required fields and include 6 to 20 images." });
     }
 
     const cleanName = name.trim();
@@ -41,6 +43,7 @@ router.post("/submit", async (req, res) => {
       status: "received",
       isRead: false,
       rating: 0,
+      files,
     });
 
     sendDiscordWebhook(process.env.SUBMISSIONS_WEBHOOK, {
@@ -52,6 +55,7 @@ router.post("/submit", async (req, res) => {
         { name: "📸 Instagram", value: typeof instagram === "string" && instagram.trim() ? instagram.trim() : "Not provided", inline: true },
         { name: "📖 Issue", value: cleanIssue, inline: true },
         { name: "🆔 Submission ID", value: submissionId, inline: false },
+        { name: "🖼️ Images", value: `${files.length} file(s)`, inline: true },
         { name: "🎬 Team Credits", value: credits.trim(), inline: false },
         { name: "✍️ Story", value: typeof story === "string" && story.trim() ? story.trim().slice(0, 1000) : "Not provided", inline: false },
       ],

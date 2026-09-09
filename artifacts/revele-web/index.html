@@ -1274,7 +1274,13 @@ footer {
         <div class="fg"><label>Team credits *</label><textarea id="f-credits" style="height:80px" maxlength="3000" placeholder="Role: Name @handle — e.g. Model: Jane Doe @janedoe" oninput="updateChar(this,'cc-credits',3000)"></textarea><div class="char-count" id="cc-credits">0 / 3000</div></div>
         <div class="fg"><label>Your story (optional — 200 to 800 words recommended)</label><textarea id="f-story" style="height:120px" maxlength="5000" placeholder="Tell us the story behind these images…" oninput="updateChar(this,'cc-story',5000)"></textarea><div class="char-count" id="cc-story">0 / 5000</div></div>
         <div class="fg"><label>Submitting for</label><select id="f-issue"><option value="Issue 01 — The First Gaze">Issue 01 — The First Gaze (Open)</option></select></div>
-        <p class="form-note">After submitting, we will reply to your email within 7–10 days. If accepted, you will receive a secure link to upload your final image files. All submissions are reviewed personally by our editor.</p>
+        <div class="fg">
+          <label>Images * (JPG, TIFF, or PNG — 6 to 20 files, 100MB max per file)</label>
+          <input id="f-files" type="file" accept="image/jpeg,image/tiff,image/png" multiple style="background:var(--bg-3);border:1px solid var(--border);border-radius:var(--radius-sm);color:var(--text);font-size:0.74rem;padding:10px;width:100%;font-family:inherit">
+          <div id="f-files-info" style="font-size:0.65rem;color:var(--text-3);margin-top:6px"></div>
+          <div id="f-upload-progress" style="font-size:0.65rem;color:var(--gold);margin-top:6px;display:none"></div>
+        </div>
+        <p class="form-note">All submissions are reviewed personally by our editor. We respond to every submission within 7–10 days.</p>
         <button class="f-btn" id="f-btn" onclick="submitForm()">
           <span id="f-btn-txt">Send submission</span>
           <div class="f-spin" id="f-spin"></div>
@@ -1723,6 +1729,44 @@ async function nlSubmit() {
   } catch { msgEl.textContent = 'Something went wrong. Please try again.'; msgEl.className = 'nl-msg err'; msgEl.style.display = 'block'; }
 }
 
+const MAX_FILES = 20;
+const MIN_FILES = 6;
+const MAX_FILE_SIZE = 100 * 1024 * 1024; // 100MB per file
+const MAX_TOTAL_SIZE = 1024 * 1024 * 1024; // 1GB total per submission
+const ALLOWED_FILE_TYPES = new Set(['image/jpeg', 'image/tiff', 'image/png']);
+
+document.getElementById('f-files').addEventListener('change', function() {
+  const files = Array.from(this.files || []);
+  const infoEl = document.getElementById('f-files-info');
+  if (files.length === 0) { infoEl.textContent = ''; return; }
+  const totalSize = files.reduce((sum, f) => sum + f.size, 0);
+  const totalMB = (totalSize / (1024 * 1024)).toFixed(1);
+  infoEl.textContent = `${files.length} file(s) selected — ${totalMB} MB total`;
+  infoEl.style.color = 'var(--text-3)';
+});
+
+async function uploadFileToR2(file, onProgress) {
+  const res = await fetch(`${API}/api/upload-url`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ filename: file.name, contentType: file.type, fileSize: file.size }),
+  });
+  const data = await res.json();
+  if (!res.ok) throw new Error(data.error || 'Failed to prepare upload');
+
+  await new Promise((resolve, reject) => {
+    const xhr = new XMLHttpRequest();
+    xhr.open('PUT', data.uploadUrl);
+    xhr.setRequestHeader('Content-Type', file.type);
+    xhr.upload.onprogress = (e) => { if (e.lengthComputable && onProgress) onProgress(e.loaded / e.total); };
+    xhr.onload = () => (xhr.status >= 200 && xhr.status < 300) ? resolve() : reject(new Error('Upload failed'));
+    xhr.onerror = () => reject(new Error('Upload failed'));
+    xhr.send(file);
+  });
+
+  return data.fileKey;
+}
+
 async function submitForm() {
   const name = document.getElementById('f-name').value.trim();
   const email = document.getElementById('f-email').value.trim();
@@ -1731,24 +1775,46 @@ async function submitForm() {
   const credits = document.getElementById('f-credits').value.trim();
   const story = document.getElementById('f-story').value.trim();
   const issue = document.getElementById('f-issue').value;
+  const files = Array.from(document.getElementById('f-files').files || []);
   const statusEl = document.getElementById('f-status');
   const btn = document.getElementById('f-btn');
   const btnTxt = document.getElementById('f-btn-txt');
   const spin = document.getElementById('f-spin');
+  const progressEl = document.getElementById('f-upload-progress');
   statusEl.className = 'f-status'; statusEl.textContent = '';
   if (!name || !email || !title || !credits) { statusEl.className = 'f-status err'; statusEl.textContent = 'Please fill in all required fields marked *.'; return; }
   if (!email.includes('@') || !email.includes('.')) { statusEl.className = 'f-status err'; statusEl.textContent = 'Please enter a valid email address.'; return; }
-  btn.disabled = true; btnTxt.textContent = 'Sending…'; spin.style.display = 'block';
+  if (files.length < MIN_FILES || files.length > MAX_FILES) { statusEl.className = 'f-status err'; statusEl.textContent = `Please select between ${MIN_FILES} and ${MAX_FILES} images.`; return; }
+  for (const f of files) {
+    if (!ALLOWED_FILE_TYPES.has(f.type)) { statusEl.className = 'f-status err'; statusEl.textContent = `"${f.name}" is not a JPG, TIFF, or PNG file.`; return; }
+    if (f.size > MAX_FILE_SIZE) { statusEl.className = 'f-status err'; statusEl.textContent = `"${f.name}" exceeds the 100MB per-file limit.`; return; }
+  }
+  const totalSize = files.reduce((sum, f) => sum + f.size, 0);
+  if (totalSize > MAX_TOTAL_SIZE) { statusEl.className = 'f-status err'; statusEl.textContent = 'Total upload size exceeds 1GB. Please reduce your image sizes or count.'; return; }
+
+  btn.disabled = true; btnTxt.textContent = 'Uploading images…'; spin.style.display = 'block';
+  progressEl.style.display = 'block';
   try {
-    const res = await fetch(`${API}/api/submit`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ name, email, instagram: insta, series: title, credits, story, issue }) });
+    const fileKeys = [];
+    for (let i = 0; i < files.length; i++) {
+      progressEl.textContent = `Uploading image ${i + 1} of ${files.length}…`;
+      const key = await uploadFileToR2(files[i]);
+      fileKeys.push(key);
+    }
+    progressEl.textContent = 'Finalizing submission…';
+    btnTxt.textContent = 'Sending…';
+
+    const res = await fetch(`${API}/api/submit`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ name, email, instagram: insta, series: title, credits, story, issue, files: fileKeys }) });
     const data = await res.json();
     if (!res.ok) { statusEl.className = 'f-status err'; statusEl.textContent = data.error || 'Submission failed. Please try again.'; return; }
     statusEl.className = 'f-status ok'; statusEl.textContent = `✓ ${data.message} Use the tracker below to check your status from any device.`;
     ['f-name','f-email','f-insta','f-title','f-credits','f-story'].forEach(id => { document.getElementById(id).value = ''; });
+    document.getElementById('f-files').value = '';
+    document.getElementById('f-files-info').textContent = '';
     document.getElementById('cc-credits').textContent = '0 / 3000'; document.getElementById('cc-story').textContent = '0 / 5000';
     checkBackend();
-  } catch { statusEl.className = 'f-status err'; statusEl.textContent = 'Could not reach the server. Please ensure the backend is running, or email submissions@revelemagazine.com directly.'; }
-  finally { btn.disabled = false; btnTxt.textContent = 'Send submission'; spin.style.display = 'none'; }
+  } catch (err) { statusEl.className = 'f-status err'; statusEl.textContent = err.message === 'Upload failed' ? 'One or more images failed to upload. Please try again.' : 'Could not reach the server. Please ensure the backend is running, or email submissions@revelemagazine.com directly.'; }
+  finally { btn.disabled = false; btnTxt.textContent = 'Send submission'; spin.style.display = 'none'; progressEl.style.display = 'none'; }
 }
 
 const STATUS_MESSAGES = {
