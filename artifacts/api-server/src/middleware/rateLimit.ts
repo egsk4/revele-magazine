@@ -28,7 +28,7 @@ export const uploadLimiter = rateLimit({
 // Admin login: 5 attempts per 15 minutes per IP — brute-force protection
 export const loginLimiter = rateLimit({
   windowMs: 15 * 60 * 1000,
-  limit: 5,
+  limit: 10,
   standardHeaders: true,
   legacyHeaders: false,
   message: { error: "Too many login attempts. Please try again later." },
