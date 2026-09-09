@@ -15,7 +15,7 @@ import featuredPublicRouter from "./featured-public";
 import submitRouter from "./submit";
 import trackRouter from "./track";
 import uploadRouter from "./upload";
-import { publicLimiter, loginLimiter } from "../middleware/rateLimit";
+import { publicLimiter, loginLimiter, uploadLimiter } from "../middleware/rateLimit";
 
 const router = Router();
 
@@ -30,6 +30,6 @@ router.use(publicLimiter, settingsRouter);
 router.use(publicLimiter, featuredPublicRouter);
 router.use(publicLimiter, submitRouter);
 router.use(publicLimiter, trackRouter);
-router.use(publicLimiter, uploadRouter);
+router.use(uploadLimiter, uploadRouter);
 
 export default router;
