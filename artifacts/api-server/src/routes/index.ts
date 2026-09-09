@@ -1,16 +1,28 @@
 // PATH IN YOUR REPO: artifacts/api-server/src/routes/index.ts
 //
-// This REPLACES your current file. It now mounts health, count, and newsletter.
+// Mounts all API routes.
 
 import { Router } from "express";
 import healthRouter from "./health";
 import countRouter from "./count";
 import newsletterRouter from "./newsletter";
+import adminLoginRouter from "./admin-login";
+import adminSubsRouter from "./admin-subs";
+import adminFeaturedRouter from "./admin-featured";
+import featuredPublicRouter from "./featured-public";
+import submitRouter from "./submit";
+import trackRouter from "./track";
 
 const router = Router();
 
 router.use(healthRouter);
 router.use(countRouter);
 router.use(newsletterRouter);
+router.use(adminLoginRouter);
+router.use(adminSubsRouter);
+router.use(adminFeaturedRouter);
+router.use(featuredPublicRouter);
+router.use(submitRouter);
+router.use(trackRouter);
 
 export default router;
