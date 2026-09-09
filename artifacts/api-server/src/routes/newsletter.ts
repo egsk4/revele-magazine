@@ -50,6 +50,10 @@ router.post("/newsletter", async (req, res) => {
 
     res.json({ success: true });
   } catch (err) {
+    // Postgres unique_violation - another concurrent request already inserted this email
+    if (err && typeof err === "object" && "code" in err && err.code === "23505") {
+      return res.json({ success: true, alreadySubscribed: true });
+    }
     console.error("Error saving newsletter signup:", err);
     res.status(500).json({ error: "Failed to save signup" });
   }

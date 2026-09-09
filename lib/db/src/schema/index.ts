@@ -35,7 +35,7 @@ export const submissions = pgTable("submissions", {
 
 export const newsletter = pgTable("newsletter", {
   id: text("id").primaryKey(),
-  email: text("email").notNull(),
+  email: text("email").notNull().unique(),
   createdAt: timestamp("created_at", { withTimezone: true }).defaultNow(),
 });
 
