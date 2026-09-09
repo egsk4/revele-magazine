@@ -9,7 +9,7 @@ import { db } from "@workspace/db";
 import { submissions, featured } from "@workspace/db/schema";
 import { and, asc, desc, eq, ilike, inArray, or, sql } from "drizzle-orm";
 import { requireAdmin } from "../middleware/requireAdmin";
-import { GetObjectCommand } from "@aws-sdk/client-s3";
+import { GetObjectCommand, DeleteObjectCommand } from "@aws-sdk/client-s3";
 import { getSignedUrl } from "@aws-sdk/s3-request-presigner";
 import { r2, R2_BUCKET } from "../lib/r2";
 
@@ -219,6 +219,23 @@ router.post("/admin/subs/:id/feature", requireAdmin, async (req, res) => {
   } catch (err) {
     console.error("Error promoting to featured:", err);
     res.status(500).json({ error: "Failed to add to featured" });
+  }
+});
+
+router.delete("/admin/subs/:id/files", requireAdmin, async (req, res) => {
+  try {
+    const rows = await db.select().from(submissions).where(eq(submissions.id, req.params.id)).limit(1);
+    const sub = rows[0];
+    if (!sub) return res.status(404).json({ error: "Submission not found" });
+    const fileKeys = sub.files || [];
+    await Promise.all(
+      fileKeys.map((key) => r2.send(new DeleteObjectCommand({ Bucket: R2_BUCKET, Key: key })))
+    );
+    await db.update(submissions).set({ files: [] }).where(eq(submissions.id, req.params.id));
+    res.json({ success: true, deletedCount: fileKeys.length });
+  } catch (err) {
+    console.error("Error deleting files:", err);
+    res.status(500).json({ error: "Failed to delete files" });
   }
 });
 
