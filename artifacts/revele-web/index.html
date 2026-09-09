@@ -1953,11 +1953,14 @@ function buildEmailDraft(sub) {
 }
 
 function checkDeadline() {
+  const banner = document.getElementById('sub-closed-banner');
+  const formCard = document.getElementById('sub-form-card');
   if (new Date() >= SUBMISSION_DEADLINE) {
-    const banner = document.getElementById('sub-closed-banner');
-    const formCard = document.getElementById('sub-form-card');
     if (banner) banner.classList.add('show');
     if (formCard) formCard.style.display = 'none';
+  } else {
+    if (banner) banner.classList.remove('show');
+    if (formCard) formCard.style.display = '';
   }
 }
 checkDeadline();
