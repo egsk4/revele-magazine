@@ -27,8 +27,10 @@ router.post("/submit", async (req, res) => {
     const cleanSeries = series.trim();
     const cleanIssue = typeof issue === "string" ? issue.trim() : "Issue 01 — The First Gaze";
 
+    const submissionId = randomUUID();
+
     await db.insert(submissions).values({
-      id: randomUUID(),
+      id: submissionId,
       name: cleanName,
       email: email.trim().toLowerCase(),
       instagram: typeof instagram === "string" ? instagram.trim() : null,
@@ -41,10 +43,21 @@ router.post("/submit", async (req, res) => {
       rating: 0,
     });
 
-    sendDiscordWebhook(
-      process.env.SUBMISSIONS_WEBHOOK,
-      `📸 New submission — **${cleanName}**\nSeries: "${cleanSeries}"\nIssue: ${cleanIssue}`
-    );
+    sendDiscordWebhook(process.env.SUBMISSIONS_WEBHOOK, {
+      title: `📸 New Submission — ${cleanSeries}`,
+      color: 0xd4af37,
+      fields: [
+        { name: "👤 Photographer", value: cleanName, inline: true },
+        { name: "📧 Email", value: email.trim().toLowerCase(), inline: true },
+        { name: "📸 Instagram", value: typeof instagram === "string" && instagram.trim() ? instagram.trim() : "Not provided", inline: true },
+        { name: "📖 Issue", value: cleanIssue, inline: true },
+        { name: "🆔 Submission ID", value: submissionId, inline: false },
+        { name: "🎬 Team Credits", value: credits.trim(), inline: false },
+        { name: "✍️ Story", value: typeof story === "string" && story.trim() ? story.trim().slice(0, 1000) : "Not provided", inline: false },
+      ],
+      footer: { text: "Submitted via revelemagazine.com — Revele Submissions System" },
+      timestamp: new Date().toISOString(),
+    });
 
     res.json({ message: "Your submission has been received." });
   } catch (err) {

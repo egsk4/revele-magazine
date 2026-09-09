@@ -37,7 +37,16 @@ router.post("/newsletter", async (req, res) => {
       email: normalizedEmail,
     });
 
-    sendDiscordWebhook(process.env.NEWSLETTER_WEBHOOK, `📧 New newsletter signup: **${normalizedEmail}**`);
+    sendDiscordWebhook(process.env.NEWSLETTER_WEBHOOK, {
+      title: "📬 New Newsletter Subscriber",
+      color: 0xd4af37,
+      fields: [
+        { name: "📧 Email", value: normalizedEmail, inline: true },
+        { name: "📅 Date", value: new Date().toLocaleString("en-GB", { day: "numeric", month: "long", year: "numeric", hour: "2-digit", minute: "2-digit" }), inline: true },
+      ],
+      footer: { text: "Newsletter signup — revelemagazine.com" },
+      timestamp: new Date().toISOString(),
+    });
 
     res.json({ success: true });
   } catch (err) {
