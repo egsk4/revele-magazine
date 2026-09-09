@@ -14,19 +14,20 @@ import settingsRouter from "./settings";
 import featuredPublicRouter from "./featured-public";
 import submitRouter from "./submit";
 import trackRouter from "./track";
+import { publicLimiter, loginLimiter } from "../middleware/rateLimit";
 
 const router = Router();
 
 router.use(healthRouter);
-router.use(countRouter);
-router.use(newsletterRouter);
-router.use(adminLoginRouter);
+router.use(publicLimiter, countRouter);
+router.use(publicLimiter, newsletterRouter);
+router.use(loginLimiter, adminLoginRouter);
 router.use(adminSubsRouter);
 router.use(adminFeaturedRouter);
 router.use(adminSettingsRouter);
-router.use(settingsRouter);
-router.use(featuredPublicRouter);
-router.use(submitRouter);
-router.use(trackRouter);
+router.use(publicLimiter, settingsRouter);
+router.use(publicLimiter, featuredPublicRouter);
+router.use(publicLimiter, submitRouter);
+router.use(publicLimiter, trackRouter);
 
 export default router;
