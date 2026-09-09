@@ -15,7 +15,7 @@ import { r2, R2_BUCKET } from "../lib/r2";
 const router = Router();
 
 const ALLOWED_TYPES = new Set(["image/jpeg", "image/tiff", "image/png"]);
-const MAX_FILE_SIZE = 100 * 1024 * 1024; // 100MB per file
+const MAX_FILE_SIZE = 300 * 1024 * 1024; // 300MB per file
 
 router.post("/upload-url", async (req, res) => {
   try {
