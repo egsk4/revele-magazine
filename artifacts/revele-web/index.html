@@ -1485,6 +1485,15 @@ footer {
         </div>
       </div>
 
+      <div class="admin-controls" style="justify-content:space-between">
+        <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
+          <label style="font-size:0.62rem;color:var(--text-3);text-transform:uppercase;letter-spacing:0.08em">Submission deadline</label>
+          <input type="datetime-local" id="deadline-input" style="background:var(--bg-3);border:1px solid var(--border);border-radius:var(--radius-sm);color:var(--text);font-size:0.74rem;padding:7px 10px;font-family:inherit">
+          <button class="btn btn-gold" style="font-size:0.6rem" onclick="saveDeadline()">Save deadline</button>
+          <span id="deadline-save-status" style="font-size:0.6rem;color:var(--gold);display:none">Saved!</span>
+        </div>
+      </div>
+
       <div class="admin-stats">
         <div class="admin-stat"><div class="admin-stat-n" id="st-total">0</div><div class="admin-stat-l">Total</div></div>
         <div class="admin-stat"><div class="admin-stat-n" id="st-received" style="color:var(--gold)">0</div><div class="admin-stat-l">Received</div></div>
@@ -1625,8 +1634,22 @@ async function checkBackend() {
 function showBackendBanner() { document.getElementById('backend-banner').classList.add('show'); }
 checkBackend();
 
+async function loadDeadline() {
+  try {
+    const res = await fetch(`${API}/api/settings`);
+    const data = await res.json();
+    if (data.deadline) {
+      SUBMISSION_DEADLINE = new Date(data.deadline);
+      checkDeadline();
+    }
+  } catch (err) { console.error('[loadDeadline]', err); }
+}
+loadDeadline();
+
+let SUBMISSION_DEADLINE = new Date('2026-09-01T00:00:00');
+
 function updateCountdown() {
-  const diff = new Date('2026-09-01T00:00:00') - new Date();
+  const diff = SUBMISSION_DEADLINE - new Date();
   if (diff <= 0) { ['cd-d','cd-h','cd-m','cd-s'].forEach(id => document.getElementById(id).textContent = '00'); return; }
   document.getElementById('cd-d').textContent = String(Math.floor(diff / 86400000)).padStart(2,'0');
   document.getElementById('cd-h').textContent = String(Math.floor((diff % 86400000) / 3600000)).padStart(2,'0');
@@ -1757,6 +1780,8 @@ async function adminLogin() {
     if (data.loginTime) localStorage.setItem('revele_admin_login_time', data.loginTime);
     document.getElementById('admin-gate-wrap').style.display = 'none';
     document.getElementById('admin-panel').style.display = 'block';
+    const dlInput = document.getElementById('deadline-input');
+    if (dlInput) dlInput.value = SUBMISSION_DEADLINE.toISOString().slice(0,16);
     loadAdmin(); loadAdminStats();
   } catch { errEl.textContent = 'Could not reach server.'; errEl.style.display = 'block'; }
   finally { spin.style.display = 'none'; btnTxt.textContent = 'Enter'; }
@@ -1767,6 +1792,24 @@ function adminLogout() {
   document.getElementById('admin-gate-wrap').style.display = 'flex';
   document.getElementById('admin-panel').style.display = 'none';
   document.getElementById('admin-pw').value = '';
+}
+
+async function saveDeadline() {
+  const input = document.getElementById('deadline-input');
+  const statusEl = document.getElementById('deadline-save-status');
+  if (!input || !input.value || !adminToken) return;
+  try {
+    const iso = new Date(input.value).toISOString();
+    const res = await fetch(`${API}/api/admin/settings`, { method: 'PATCH', headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${adminToken}` }, body: JSON.stringify({ deadline: iso }) });
+    if (res.ok) {
+      SUBMISSION_DEADLINE = new Date(iso);
+      checkDeadline();
+      updateCountdown();
+      if (statusEl) { statusEl.style.display = 'inline'; setTimeout(() => statusEl.style.display = 'none', 2000); }
+    } else {
+      alert('Failed to save deadline.');
+    }
+  } catch (err) { console.error('[saveDeadline]', err); alert('Could not reach server.'); }
 }
 
 function setFilter(btn, value) {
@@ -1910,7 +1953,7 @@ function buildEmailDraft(sub) {
 }
 
 function checkDeadline() {
-  if (new Date() >= new Date('2026-09-01T00:00:00')) {
+  if (new Date() >= SUBMISSION_DEADLINE) {
     const banner = document.getElementById('sub-closed-banner');
     const formCard = document.getElementById('sub-form-card');
     if (banner) banner.classList.add('show');

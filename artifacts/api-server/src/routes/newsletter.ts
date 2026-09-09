@@ -8,6 +8,7 @@ import { randomUUID } from "crypto";
 import { db } from "@workspace/db";
 import { newsletter } from "@workspace/db/schema";
 import { eq } from "drizzle-orm";
+import { sendDiscordWebhook } from "../lib/discordWebhook";
 
 const router = Router();
 
@@ -21,7 +22,6 @@ router.post("/newsletter", async (req, res) => {
 
     const normalizedEmail = email.trim().toLowerCase();
 
-    // Avoid duplicate signups
     const existing = await db
       .select()
       .from(newsletter)
@@ -36,6 +36,8 @@ router.post("/newsletter", async (req, res) => {
       id: randomUUID(),
       email: normalizedEmail,
     });
+
+    sendDiscordWebhook(process.env.NEWSLETTER_WEBHOOK, `📧 New newsletter signup: **${normalizedEmail}**`);
 
     res.json({ success: true });
   } catch (err) {

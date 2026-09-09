@@ -53,3 +53,8 @@ export const featured = pgTable("featured", {
   createdAt: timestamp("created_at", { withTimezone: true }).defaultNow(),
   updatedAt: timestamp("updated_at", { withTimezone: true }).defaultNow(),
 });
+
+export const settings = pgTable("settings", {
+  id: text("id").primaryKey(),
+  deadline: timestamp("deadline", { withTimezone: true }),
+});
