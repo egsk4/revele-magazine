@@ -1996,10 +1996,24 @@ async function viewSubDetail(id) {
       '<div class="modal-field"><div class="modal-lbl">Submitted</div><div class="modal-val">' + date + '</div></div>' +
       '<div class="modal-field"><div class="modal-lbl">Team Credits</div><div class="modal-val">' + escHtml(sub.credits) + '</div></div>' +
       '<div class="modal-field"><div class="modal-lbl">Story</div><div class="modal-val">' + escHtml(sub.story || 'Not provided') + '</div></div>' +
+      '<div class="modal-field"><div class="modal-lbl">Images</div><div id="modal-files-grid" style="display:flex;flex-wrap:wrap;gap:8px;margin-top:8px">Loading…</div></div>' +
       '<div class="modal-field"><div class="modal-lbl">Internal Notes</div><textarea class="admin-notes-area" id="notes-' + escHtml(sub.id) + '" placeholder="Add internal notes…">' + escHtml(sub.notes || '') + '</textarea><button class="admin-notes-save" data-subid="' + escHtml(sub.id) + '" onclick="saveNotes(this.dataset.subid)">Save notes</button></div>' +
       ((sub.status === 'accepted' || sub.status === 'declined') ? '<div class="modal-field"><div class="modal-lbl">Email Draft <span style="font-size:0.56rem;color:var(--text-3);font-style:normal;font-weight:300">(editable)</span></div><div class="email-draft-box"><textarea class="admin-notes-area" id="' + draftId + '" style="min-height:220px;font-size:0.68rem;line-height:1.8">' + escHtml(buildEmailDraft(sub)) + '</textarea><button class="email-copy-btn" data-draft="' + draftId + '" onclick="navigator.clipboard.writeText(document.getElementById(this.dataset.draft).value).then(()=>{this.textContent=\'Copied!\';setTimeout(()=>{this.textContent=\'Copy email\'},2000)})">Copy email</button></div></div>' : '');
     document.getElementById('modal-overlay').classList.add('open');
+    loadSubmissionFiles(sub.id);
   } catch (err) { console.error('[Admin] View detail failed:', err); }
+}
+
+async function loadSubmissionFiles(id) {
+  if (!adminToken) return;
+  const grid = document.getElementById('modal-files-grid');
+  if (!grid) return;
+  try {
+    const res = await fetch(`${API}/api/admin/subs/${encodeURIComponent(id)}/files`, { headers: { 'Authorization': `Bearer ${adminToken}` } });
+    const data = await res.json();
+    if (!res.ok || !data.files || !data.files.length) { grid.innerHTML = '<span style="font-size:0.7rem;color:var(--text-3)">No images found.</span>'; return; }
+    grid.innerHTML = data.files.map(f => `<a href="${f.url}" target="_blank" rel="noopener"><img src="${f.url}" style="width:90px;height:90px;object-fit:cover;border-radius:6px;border:1px solid var(--border)"></a>`).join('');
+  } catch (err) { console.error('[Admin] Load files failed:', err); grid.innerHTML = '<span style="font-size:0.7rem;color:var(--err)">Failed to load images.</span>'; }
 }
 
 async function saveNotes(id) {

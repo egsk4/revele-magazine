@@ -9,6 +9,9 @@ import { db } from "@workspace/db";
 import { submissions, featured } from "@workspace/db/schema";
 import { and, asc, desc, eq, ilike, inArray, or, sql } from "drizzle-orm";
 import { requireAdmin } from "../middleware/requireAdmin";
+import { GetObjectCommand } from "@aws-sdk/client-s3";
+import { getSignedUrl } from "@aws-sdk/s3-request-presigner";
+import { r2, R2_BUCKET } from "../lib/r2";
 
 const router = Router();
 
@@ -216,6 +219,26 @@ router.post("/admin/subs/:id/feature", requireAdmin, async (req, res) => {
   } catch (err) {
     console.error("Error promoting to featured:", err);
     res.status(500).json({ error: "Failed to add to featured" });
+  }
+});
+
+router.get("/admin/subs/:id/files", requireAdmin, async (req, res) => {
+  try {
+    const rows = await db.select().from(submissions).where(eq(submissions.id, req.params.id)).limit(1);
+    const sub = rows[0];
+    if (!sub) return res.status(404).json({ error: "Submission not found" });
+    const fileKeys = sub.files || [];
+    const urls = await Promise.all(
+      fileKeys.map(async (key) => {
+        const command = new GetObjectCommand({ Bucket: R2_BUCKET, Key: key });
+        const url = await getSignedUrl(r2, command, { expiresIn: 600 });
+        return { key, url };
+      })
+    );
+    res.json({ files: urls });
+  } catch (err) {
+    console.error("Error generating file URLs:", err);
+    res.status(500).json({ error: "Failed to load files" });
   }
 });
 
