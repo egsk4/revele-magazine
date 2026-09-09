@@ -15,21 +15,20 @@ import featuredPublicRouter from "./featured-public";
 import submitRouter from "./submit";
 import trackRouter from "./track";
 import uploadRouter from "./upload";
-import { publicLimiter, loginLimiter, uploadLimiter } from "../middleware/rateLimit";
 
 const router = Router();
 
 router.use(healthRouter);
-router.use(publicLimiter, countRouter);
-router.use(publicLimiter, newsletterRouter);
-router.use(loginLimiter, adminLoginRouter);
+router.use(countRouter);
+router.use(newsletterRouter);
+router.use(adminLoginRouter);
 router.use(adminSubsRouter);
 router.use(adminFeaturedRouter);
 router.use(adminSettingsRouter);
-router.use(publicLimiter, settingsRouter);
-router.use(publicLimiter, featuredPublicRouter);
-router.use(publicLimiter, submitRouter);
-router.use(publicLimiter, trackRouter);
-router.use(uploadLimiter, uploadRouter);
+router.use(settingsRouter);
+router.use(featuredPublicRouter);
+router.use(submitRouter);
+router.use(trackRouter);
+router.use(uploadRouter);
 
 export default router;

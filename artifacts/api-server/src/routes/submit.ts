@@ -3,6 +3,7 @@
 // POST /api/submit  body: { name, email, instagram, series, credits, story, issue }
 
 import { Router } from "express";
+import { publicLimiter } from "../middleware/rateLimit";
 import { randomUUID } from "crypto";
 import { db } from "@workspace/db";
 import { submissions } from "@workspace/db/schema";
@@ -10,7 +11,7 @@ import { sendDiscordWebhook } from "../lib/discordWebhook";
 
 const router = Router();
 
-router.post("/submit", async (req, res) => {
+router.post("/submit", publicLimiter, async (req, res) => {
   try {
     const { name, email, instagram, series, credits, story, issue, files } = req.body ?? {};
 

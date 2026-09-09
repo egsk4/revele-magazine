@@ -4,13 +4,14 @@
 // GET /api/count -> { "count": 16 }
 
 import { Router } from "express";
+import { publicLimiter } from "../middleware/rateLimit";
 import { db } from "@workspace/db";
 import { submissions } from "@workspace/db/schema";
 import { sql } from "drizzle-orm";
 
 const router = Router();
 
-router.get("/count", async (_req, res) => {
+router.get("/count", publicLimiter, async (_req, res) => {
   try {
     const result = await db
       .select({ count: sql<number>`count(*)` })

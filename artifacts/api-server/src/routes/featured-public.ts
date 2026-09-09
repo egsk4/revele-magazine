@@ -4,13 +4,14 @@
 // GET /api/featured/:id    -> { item }
 
 import { Router } from "express";
+import { publicLimiter } from "../middleware/rateLimit";
 import { db } from "@workspace/db";
 import { featured } from "@workspace/db/schema";
 import { and, eq, asc } from "drizzle-orm";
 
 const router = Router();
 
-router.get("/featured", async (_req, res) => {
+router.get("/featured", publicLimiter, async (_req, res) => {
   try {
     const rows = await db
       .select()
@@ -25,7 +26,7 @@ router.get("/featured", async (_req, res) => {
   }
 });
 
-router.get("/featured/:id", async (req, res) => {
+router.get("/featured/:id", publicLimiter, async (req, res) => {
   try {
     const rows = await db
       .select()

@@ -7,6 +7,7 @@
 // directly to R2 using this URL; the file never touches our server.
 
 import { Router } from "express";
+import { uploadLimiter } from "../middleware/rateLimit";
 import { randomUUID } from "crypto";
 import { PutObjectCommand } from "@aws-sdk/client-s3";
 import { getSignedUrl } from "@aws-sdk/s3-request-presigner";
@@ -17,7 +18,7 @@ const router = Router();
 const ALLOWED_TYPES = new Set(["image/jpeg", "image/tiff", "image/png"]);
 const MAX_FILE_SIZE = 300 * 1024 * 1024; // 300MB per file
 
-router.post("/upload-url", async (req, res) => {
+router.post("/upload-url", uploadLimiter, async (req, res) => {
   try {
     const { filename, contentType, fileSize } = req.body ?? {};
 

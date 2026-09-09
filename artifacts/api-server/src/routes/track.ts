@@ -3,13 +3,14 @@
 // GET /api/track/:email -> { found, submission? }
 
 import { Router } from "express";
+import { publicLimiter } from "../middleware/rateLimit";
 import { db } from "@workspace/db";
 import { submissions } from "@workspace/db/schema";
 import { desc, eq } from "drizzle-orm";
 
 const router = Router();
 
-router.get("/track/:email", async (req, res) => {
+router.get("/track/:email", publicLimiter, async (req, res) => {
   try {
     const email = decodeURIComponent(req.params.email).trim().toLowerCase();
     if (!email || !email.includes("@")) {

@@ -4,6 +4,7 @@
 // POST /api/newsletter  body: { "email": "someone@example.com" } -> { "success": true }
 
 import { Router } from "express";
+import { publicLimiter } from "../middleware/rateLimit";
 import { randomUUID } from "crypto";
 import { db } from "@workspace/db";
 import { newsletter } from "@workspace/db/schema";
@@ -12,7 +13,7 @@ import { sendDiscordWebhook } from "../lib/discordWebhook";
 
 const router = Router();
 
-router.post("/newsletter", async (req, res) => {
+router.post("/newsletter", publicLimiter, async (req, res) => {
   try {
     const { email } = req.body ?? {};
 

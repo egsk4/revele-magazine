@@ -3,6 +3,7 @@
 // GET /api/settings -> { deadline: ISOString | null }
 
 import { Router } from "express";
+import { publicLimiter } from "../middleware/rateLimit";
 import { db } from "@workspace/db";
 import { settings } from "@workspace/db/schema";
 import { eq } from "drizzle-orm";
@@ -10,7 +11,7 @@ import { eq } from "drizzle-orm";
 const router = Router();
 const SETTINGS_ID = "main";
 
-router.get("/settings", async (_req, res) => {
+router.get("/settings", publicLimiter, async (_req, res) => {
   try {
     const rows = await db.select().from(settings).where(eq(settings.id, SETTINGS_ID)).limit(1);
     const deadline = rows[0]?.deadline ?? null;

@@ -3,6 +3,7 @@
 // POST /api/admin/login  body: { "password": "..." } -> { token, loginTime }
 
 import { Router } from "express";
+import { loginLimiter } from "../middleware/rateLimit";
 import { timingSafeEqual } from "crypto";
 import { signAdminToken } from "../lib/adminAuth";
 
@@ -15,7 +16,7 @@ function safeCompare(a: string, b: string): boolean {
   return timingSafeEqual(bufA, bufB);
 }
 
-router.post("/admin/login", (req, res) => {
+router.post("/admin/login", loginLimiter, (req, res) => {
   const { password } = req.body ?? {};
   const adminPassword = process.env.ADMIN_PASSWORD;
 
