@@ -1275,7 +1275,7 @@ footer {
         <div class="fg"><label>Your story (optional — 200 to 800 words recommended)</label><textarea id="f-story" style="height:120px" maxlength="5000" placeholder="Tell us the story behind these images…" oninput="updateChar(this,'cc-story',5000)"></textarea><div class="char-count" id="cc-story">0 / 5000</div></div>
         <div class="fg"><label>Submitting for</label><select id="f-issue"><option value="Issue 01 — The First Gaze">Issue 01 — The First Gaze (Open)</option></select></div>
         <div class="fg">
-          <label>Images * (JPG, TIFF, or PNG — 6 to 20 files, 100MB max per file)</label>
+          <label>Images * (JPG, TIFF, or PNG — 6 to 20 files, 300MB max per file)</label>
           <input id="f-files" type="file" accept="image/jpeg,image/tiff,image/png" multiple style="background:var(--bg-3);border:1px solid var(--border);border-radius:var(--radius-sm);color:var(--text);font-size:0.74rem;padding:10px;width:100%;font-family:inherit">
           <div id="f-files-info" style="font-size:0.65rem;color:var(--text-3);margin-top:6px"></div>
           <div id="f-upload-progress" style="font-size:0.65rem;color:var(--gold);margin-top:6px;display:none"></div>
@@ -1731,7 +1731,7 @@ async function nlSubmit() {
 
 const MAX_FILES = 20;
 const MIN_FILES = 6;
-const MAX_FILE_SIZE = 100 * 1024 * 1024; // 100MB per file
+const MAX_FILE_SIZE = 300 * 1024 * 1024; // 300MB per file
 const MAX_TOTAL_SIZE = 1024 * 1024 * 1024; // 1GB total per submission
 const ALLOWED_FILE_TYPES = new Set(['image/jpeg', 'image/tiff', 'image/png']);
 
@@ -1787,7 +1787,7 @@ async function submitForm() {
   if (files.length < MIN_FILES || files.length > MAX_FILES) { statusEl.className = 'f-status err'; statusEl.textContent = `Please select between ${MIN_FILES} and ${MAX_FILES} images.`; return; }
   for (const f of files) {
     if (!ALLOWED_FILE_TYPES.has(f.type)) { statusEl.className = 'f-status err'; statusEl.textContent = `"${f.name}" is not a JPG, TIFF, or PNG file.`; return; }
-    if (f.size > MAX_FILE_SIZE) { statusEl.className = 'f-status err'; statusEl.textContent = `"${f.name}" exceeds the 100MB per-file limit.`; return; }
+    if (f.size > MAX_FILE_SIZE) { statusEl.className = 'f-status err'; statusEl.textContent = `"${f.name}" exceeds the 300MB per-file limit.`; return; }
   }
   const totalSize = files.reduce((sum, f) => sum + f.size, 0);
   if (totalSize > MAX_TOTAL_SIZE) { statusEl.className = 'f-status err'; statusEl.textContent = 'Total upload size exceeds 1GB. Please reduce your image sizes or count.'; return; }
@@ -1813,7 +1813,7 @@ async function submitForm() {
     document.getElementById('f-files-info').textContent = '';
     document.getElementById('cc-credits').textContent = '0 / 3000'; document.getElementById('cc-story').textContent = '0 / 5000';
     checkBackend();
-  } catch (err) { statusEl.className = 'f-status err'; statusEl.textContent = err.message === 'Upload failed' ? 'One or more images failed to upload. Please try again.' : 'Could not reach the server. Please ensure the backend is running, or email submissions@revelemagazine.com directly.'; }
+  } catch (err) { statusEl.className = 'f-status err'; const code = err.status ? ` (Error ${err.status})` : ''; statusEl.textContent = (err.message === 'Upload failed' ? 'One or more images failed to upload. Please try again.' : 'Could not reach the server. Please ensure the backend is running, or email submissions@revelemagazine.com directly.') + code; }
   finally { btn.disabled = false; btnTxt.textContent = 'Send submission'; spin.style.display = 'none'; progressEl.style.display = 'none'; }
 }
 
@@ -2011,7 +2011,8 @@ async function loadSubmissionFiles(id) {
   try {
     const res = await fetch(`${API}/api/admin/subs/${encodeURIComponent(id)}/files`, { headers: { 'Authorization': `Bearer ${adminToken}` } });
     const data = await res.json();
-    if (!res.ok || !data.files || !data.files.length) { grid.innerHTML = '<span style="font-size:0.7rem;color:var(--text-3)">No images found.</span>'; return; }
+    if (!res.ok) { grid.innerHTML = `<span style="font-size:0.7rem;color:var(--err)">Failed to load images. (Error ${res.status})</span>`; return; }
+    if (!data.files || !data.files.length) { grid.innerHTML = '<span style="font-size:0.7rem;color:var(--text-3)">No images found.</span>'; return; }
     grid.innerHTML = data.files.map(f => `<a href="${f.url}" target="_blank" rel="noopener"><img src="${f.url}" style="width:90px;height:90px;object-fit:cover;border-radius:6px;border:1px solid var(--border)"></a>`).join('');
   } catch (err) { console.error('[Admin] Load files failed:', err); grid.innerHTML = '<span style="font-size:0.7rem;color:var(--err)">Failed to load images.</span>'; }
 }
@@ -2022,7 +2023,7 @@ async function deleteSubmissionFiles(id) {
   const grid = document.getElementById('modal-files-grid');
   try {
     const res = await fetch(`${API}/api/admin/subs/${encodeURIComponent(id)}/files`, { method: 'DELETE', headers: { 'Authorization': `Bearer ${adminToken}` } });
-    if (!res.ok) { alert('Failed to delete files.'); return; }
+    if (!res.ok) { alert(`Failed to delete files. (Error ${res.status})`); return; }
     if (grid) grid.innerHTML = '<span style="font-size:0.7rem;color:var(--text-3)">Files deleted.</span>';
   } catch (err) { console.error('[Admin] Delete files failed:', err); alert('Failed to delete files.'); }
 }
