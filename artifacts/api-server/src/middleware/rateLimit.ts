@@ -19,7 +19,7 @@ export const publicLimiter = rateLimit({
 // can legitimately make 6-20 requests (one per image) in a short burst
 export const uploadLimiter = rateLimit({
   windowMs: 15 * 60 * 1000,
-  limit: 60,
+  limit: 120,
   standardHeaders: true,
   legacyHeaders: false,
   message: { error: "Too many upload requests. Please try again later." },
