@@ -6,6 +6,9 @@ import { logger } from "./lib/logger";
 
 const app: Express = express();
 
+// Trust Render's reverse proxy so express-rate-limit and req.ip correctly read the real client IP
+app.set("trust proxy", 1);
+
 app.use(
   pinoHttp({
     logger,
