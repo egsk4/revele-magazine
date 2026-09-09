@@ -1,0 +1,31 @@
+kind = "web"
+previewPath = "/"
+title = "Révèle Magazine"
+version = "1.0.0"
+id = "artifacts/revele-web"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 24572
+
+[services.development]
+run = "pnpm --filter @workspace/revele-web run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/revele-web", "run", "build" ]
+publicDir = "artifacts/revele-web/dist/public"
+serve = "static"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "24572"
+BASE_PATH = "/"
