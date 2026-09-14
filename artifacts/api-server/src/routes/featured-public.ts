@@ -8,6 +8,19 @@ import { publicLimiter } from "../middleware/rateLimit";
 import { db } from "@workspace/db";
 import { featured } from "@workspace/db/schema";
 import { and, eq, asc } from "drizzle-orm";
+import { GetObjectCommand } from "@aws-sdk/client-s3";
+import { getSignedUrl } from "@aws-sdk/s3-request-presigner";
+import { r2, R2_BUCKET } from "../lib/r2";
+
+async function signImages(keys) {
+  const list = keys || [];
+  return Promise.all(
+    list.map(async (key) => {
+      const command = new GetObjectCommand({ Bucket: R2_BUCKET, Key: key });
+      return getSignedUrl(r2, command, { expiresIn: 3600 });
+    })
+  );
+}
 
 const router = Router();
 
@@ -19,7 +32,8 @@ router.get("/featured", publicLimiter, async (_req, res) => {
       .where(eq(featured.status, "published"))
       .orderBy(asc(featured.sortOrder), asc(featured.createdAt));
 
-    res.json({ featured: rows });
+    const withUrls = await Promise.all(rows.map(async (row) => ({ ...row, imageUrls: await signImages(row.images) })));
+    res.json({ featured: withUrls });
   } catch (err) {
     console.error("Error loading featured:", err);
     res.status(500).json({ error: "Failed to load featured content" });
@@ -35,7 +49,8 @@ router.get("/featured/:id", publicLimiter, async (req, res) => {
       .limit(1);
 
     if (rows.length === 0) return res.status(404).json({ error: "Not found" });
-    res.json({ item: rows[0] });
+    const item = { ...rows[0], imageUrls: await signImages(rows[0].images) };
+    res.json({ item });
   } catch (err) {
     console.error("Error loading featured item:", err);
     res.status(500).json({ error: "Failed to load feature" });

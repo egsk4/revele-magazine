@@ -212,6 +212,7 @@ router.post("/admin/subs/:id/feature", requireAdmin, async (req, res) => {
       credits: sub.credits,
       status: "draft",
       submissionId: sub.id,
+      images: sub.files || [],
       sortOrder: 0,
     });
 

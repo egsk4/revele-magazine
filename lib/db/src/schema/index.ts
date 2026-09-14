@@ -50,6 +50,7 @@ export const featured = pgTable("featured", {
   credits: text("credits"),
   status: text("status"), // e.g. "draft", "published"
   submissionId: text("submission_id"),
+  images: text("images").array().default([]),
   sortOrder: integer("sort_order").default(0),
   createdAt: timestamp("created_at", { withTimezone: true }).defaultNow(),
   updatedAt: timestamp("updated_at", { withTimezone: true }).defaultNow(),
