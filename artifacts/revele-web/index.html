@@ -1727,6 +1727,8 @@ footer {
 'use strict';
 
 const API = 'https://revele-magazine.onrender.com';
+let _featuredLoaded = false;
+const _featuredCache = {};
 let adminToken = null;
 let adminFilter = '';
 let adminDebounceTimer = null;
@@ -2274,8 +2276,6 @@ async function loadAnalytics() {
 }
 
 let _featuredEditorVisible = false;
-let _featuredLoaded = false;
-const _featuredCache = {};
 
 function toggleFeaturedEditor() { const el = document.getElementById('admin-featured-section'); _featuredEditorVisible = !_featuredEditorVisible; el.style.display = _featuredEditorVisible ? 'block' : 'none'; if (_featuredEditorVisible) loadAdminFeatured(); }
 function openNewFeaturedForm() { const f = document.getElementById('new-featured-form'); f.style.display = f.style.display === 'none' ? 'block' : 'none'; ['nf-series','nf-photographer','nf-instagram','nf-credits','nf-story'].forEach(function(id) { const el = document.getElementById(id); if (el) el.value = ''; }); const iss = document.getElementById('nf-issue'); if (iss) iss.value = 'Issue 01'; const pub = document.getElementById('nf-publish'); if (pub) pub.checked = false; const st = document.getElementById('nf-status'); if (st) st.style.display = 'none'; nfImages = []; renderImageThumbs('nf-image-thumbs', nfImages, 'removeNfImage', 'moveNfImage'); }
