@@ -1,5 +1,4 @@
 /// <reference lib="dom" />
-/// <reference lib="dom" />
 // Vercel Routing Middleware.
 // Runs on every page request (not on /assets/* or files with an extension —
 // see the matcher below) and rewrites the static index.html's <title> and
@@ -12,7 +11,6 @@
 // app loads and takes over exactly as before.
 
 export const config = {
-  runtime: "nodejs",
   runtime: "nodejs",
   matcher: ["/((?!api/|assets/|.*\\.[^/]+$).*)"],
 };
