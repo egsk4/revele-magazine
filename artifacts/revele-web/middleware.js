@@ -1,4 +1,3 @@
-/// <reference lib="dom" />
 // Vercel Routing Middleware.
 // Runs on every page request (not on /assets/* or files with an extension —
 // see the matcher below) and rewrites the static index.html's <title> and
@@ -9,6 +8,12 @@
 // This only ever changes <head> meta tags in the HTML text. It does not
 // change how the site behaves for real visitors — the same client-side JS
 // app loads and takes over exactly as before.
+//
+// Plain JavaScript on purpose: Vercel's built-in TypeScript compiler for
+// Routing Middleware does not reliably resolve monorepo tsconfig setups
+// (extends/references pointing outside this folder), which was causing a
+// silent "middleware.ts: Emit skipped" build failure with no diagnostic
+// text. Shipping this as .js sidesteps that step entirely.
 
 export const config = {
   runtime: "nodejs",
@@ -18,9 +23,7 @@ export const config = {
 const DEFAULT_IMAGE_PATH = "/assets/issue-01-cover.jpg";
 const API_BASE = "https://revele-magazine.onrender.com";
 
-type PageMeta = { title: string; description: string };
-
-const PAGES: Record<string, PageMeta> = {
+const PAGES = {
   "/": {
     title: "Révèle — Visual Arts Magazine",
     description:
@@ -71,7 +74,7 @@ const PAGES: Record<string, PageMeta> = {
   },
 };
 
-function escapeHtml(str: string): string {
+function escapeHtml(str) {
   return str
     .replace(/&/g, "&amp;")
     .replace(/</g, "&lt;")
@@ -79,10 +82,7 @@ function escapeHtml(str: string): string {
     .replace(/"/g, "&quot;");
 }
 
-function injectMeta(
-  html: string,
-  meta: { title: string; description: string; image: string; url: string },
-): string {
+function injectMeta(html, meta) {
   const safeTitle = escapeHtml(meta.title);
   const safeDesc = escapeHtml(meta.description.slice(0, 200));
 
@@ -122,13 +122,13 @@ function injectMeta(
   return html;
 }
 
-export default async function middleware(request: Request) {
+export default async function middleware(request) {
   const url = new URL(request.url);
   const path = url.pathname.replace(/\/+$/, "") || "/";
   const origin = url.origin;
   const defaultImage = `${origin}${DEFAULT_IMAGE_PATH}`;
 
-  let html: string;
+  let html;
   try {
     const staticRes = await fetch(new URL("/index.html", origin));
     if (!staticRes.ok) return undefined; // let Vercel's normal handling take over
