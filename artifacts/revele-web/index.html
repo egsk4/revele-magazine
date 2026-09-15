@@ -2460,7 +2460,7 @@ async function viewFeatured(id) {
     if (_featuredCache[id]) { renderFeaturedDetail(_featuredCache[id]); return; }
     const res = await fetch(`${API}/api/featured/${encodeURIComponent(id)}`);
     const data = await res.json(); _featuredCache[id] = data.item; renderFeaturedDetail(data.item);
-  } catch { contentEl.innerHTML = '<div style="color:var(--err);font-size:0.74rem;padding:20px">Could not load this feature.</div>'; }
+  } catch (err) { console.error('viewFeatured failed:', err); contentEl.innerHTML = '<div style="color:var(--err);font-size:0.74rem;padding:20px">Could not load this feature.</div>'; }
 }
 
 function renderFeaturedDetail(f) {
